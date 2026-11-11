@@ -4,7 +4,7 @@ Turn conference programme websites into evidence-linked, structured data: schedu
 
 ## The Problem
 
-Scientific and medical conference programmes hold high-signal competitive, clinical, and translational intelligence, yet that data is fragmented and unstructured across incompatible web portals, session calendars, modal detail cards, and free-text abstracts. Manual spreadsheet curation does not scale, drops provenance, and regularly introduces domain errors—such as misclassifying negative biomarker cohorts as drug targets or publishing unverified trial outcomes without exact source quotes.
+Scientific and medical conference programmes hold high-signal competitive, clinical, and translational intelligence, yet that data is fragmented and unstructured across incompatible web portals, session calendars, modal detail cards, and free-text abstracts. Manual spreadsheet curation does not scale, drops provenance, and regularly introduces domain errors - such as misclassifying negative biomarker cohorts as drug targets or publishing unverified trial outcomes without exact source quotes.
 
 Conference Intelligence Pipeline replaces ad-hoc scraping and unverified extraction with a deterministic, evidence-linked data pipeline governed by explicit embargo rules and automated release gates.
 
@@ -12,7 +12,7 @@ Conference Intelligence Pipeline replaces ad-hoc scraping and unverified extract
 
 Version `0.2.0` ships one production-validated adapter: **CTOS 2026 on EventScribe** (`eventscribe-ctos-v1`).
 
-**Platform boundary:** The common pipeline—canonical schema, biomedical dictionary and INN-grammar tagger, biomarker polarity resolution, clinical readout verifier, aggregates, QA rules, exports, and cryptographic run manifests—is reusable across conferences, **but each different website platform requires a tested adapter**. Changing a URL alone is not sufficient for a new conference layout, and the CLI deliberately fails closed rather than silently applying CTOS/EventScribe parser assumptions to an unvalidated site.
+**Platform boundary:** The common pipeline --> canonical schema, biomedical dictionary and INN-grammar tagger, biomarker polarity resolution, clinical readout verifier, aggregates, QA rules, exports, and cryptographic run manifests—is reusable across conferences, **but each different website platform requires a tested adapter**. Changing a URL alone is not sufficient for a new conference layout, and the CLI deliberately fails closed rather than silently applying CTOS/EventScribe parser assumptions to an unvalidated site.
 
 ## Architecture
 
