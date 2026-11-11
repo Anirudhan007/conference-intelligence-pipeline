@@ -12,7 +12,7 @@ Conference Intelligence Pipeline replaces ad-hoc scraping and unverified extract
 
 Version `0.2.0` ships one production-validated adapter: **CTOS 2026 on EventScribe** (`eventscribe-ctos-v1`).
 
-**Platform boundary:** The common pipeline --> canonical schema, biomedical dictionary and INN-grammar tagger, biomarker polarity resolution, clinical readout verifier, aggregates, QA rules, exports, and cryptographic run manifests—is reusable across conferences, **but each different website platform requires a tested adapter**. Changing a URL alone is not sufficient for a new conference layout, and the CLI deliberately fails closed rather than silently applying CTOS/EventScribe parser assumptions to an unvalidated site.
+**Platform boundary:** The common pipeline --> canonical schema, biomedical dictionary and INN-grammar tagger, biomarker polarity resolution, clinical readout verifier, aggregates, QA rules, exports, and cryptographic run manifests - is reusable across conferences, **but each different website platform requires a tested adapter**. Changing a URL alone is not sufficient for a new conference layout, and the CLI deliberately fails closed rather than silently applying CTOS/EventScribe parser assumptions to an unvalidated site.
 
 ## Architecture
 
