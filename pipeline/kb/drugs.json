@@ -1,0 +1,4951 @@
+{
+ "meta": {
+  "source": "curated",
+  "version": "2026-11-11",
+  "notes": "Modality is a property of the drug (INN grammar or curated mechanism). 'targets' are primary drug targets (HGNC symbols, emitted as role drug_target); 'targetsSecondary' are documented off-target/secondary kinases that are NOT emitted as tags. ADC payload and antibody are components: the payload never creates a separate modality. 'synonyms' and 'codes' are matched case-insensitively with flexible hyphen/space. 'caseSensitive' strings are matched exactly (used for short abbreviations such as T-DXd, PLD, ICI). 'parent': a formulation-specific entity suppresses its parent when both match (liposomal irinotecan vs irinotecan). isClass entries are named drug classes (e.g. 'CDK4/6 inhibitor'); class modality is null when the class spans modalities. company = originator/licensor id from companies.json; current owner is resolved through lineage. 'parent' is informational (formulation family); both entities are tagged when both are mentioned. contextSynonyms are accepted only when their context regex occurs in the presentation. meta.abbrVeto: a case-sensitive abbreviation is rejected in a presentation whose text matches the veto regex (e.g. ADC = apparent diffusion coefficient in MRI abstracts).",
+  "modalities": {
+   "small_molecule_kinase_inhibitor": "Small molecule kinase inhibitor",
+   "small_molecule_targeted": "Small molecule targeted (non-kinase)",
+   "chemotherapy": "Cytotoxic chemotherapy",
+   "monoclonal_antibody": "Monoclonal antibody",
+   "bispecific_antibody": "Bispecific / multispecific antibody",
+   "adc": "Antibody-drug conjugate",
+   "cell_therapy": "Cell therapy",
+   "radiopharmaceutical": "Radiopharmaceutical",
+   "vaccine": "Vaccine",
+   "oncolytic_virus": "Oncolytic virus",
+   "fusion_protein": "Fusion protein / other biologic",
+   "hormonal_therapy": "Hormonal therapy",
+   "other": "Other"
+  },
+  "innSuffixModality": {
+   "tinib": "small_molecule_kinase_inhibitor",
+   "rafenib": "small_molecule_kinase_inhibitor",
+   "metinib": "small_molecule_kinase_inhibitor",
+   "ciclib": "small_molecule_kinase_inhibitor",
+   "lisib": "small_molecule_kinase_inhibitor",
+   "sertib": "small_molecule_kinase_inhibitor",
+   "parib": "small_molecule_targeted",
+   "gestat": "small_molecule_targeted",
+   "cestat": "small_molecule_targeted",
+   "adlin": "small_molecule_targeted",
+   "utlin": "small_molecule_targeted",
+   "degib": "small_molecule_targeted",
+   "zomib": "small_molecule_targeted",
+   "stat": "small_molecule_targeted",
+   "mab": "monoclonal_antibody",
+   "tug": "monoclonal_antibody",
+   "bart": "monoclonal_antibody",
+   "mig": "bispecific_antibody",
+   "cept": "fusion_protein",
+   "leucel": "cell_therapy",
+   "cel": "cell_therapy",
+   "tecan": "chemotherapy",
+   "rubicin": "chemotherapy",
+   "platin": "chemotherapy",
+   "taxel": "chemotherapy",
+   "abine": "chemotherapy",
+   "ectedin": "chemotherapy"
+  },
+  "adcPayloadWords": [
+   "vedotin",
+   "deruxtecan",
+   "govitecan",
+   "emtansine",
+   "mafodotin",
+   "soravtansine",
+   "tirumotecan",
+   "duocarmazine",
+   "rezetecan",
+   "ravtansine",
+   "mertansine",
+   "ozogamicin",
+   "tesirine",
+   "pelidotin",
+   "sudocotin",
+   "ledadotin",
+   "adizutecan",
+   "rilsodotin",
+   "exatecan",
+   "samrotamab"
+  ],
+  "abbrVeto": {
+   "ADC": "apparent diffusion coefficient|diffusion[- ]weighted|\\bDWI\\b",
+   "ADCs": "apparent diffusion coefficient"
+  }
+ },
+ "drugs": [
+  {
+   "id": "doxorubicin",
+   "label": "doxorubicin",
+   "synonyms": [
+    "doxorubicin",
+    "adriamycin",
+    "doxorubicine",
+    "doxorubicin hydrochloride"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "anthracycline; topoisomerase II inhibitor / DNA intercalator",
+   "targets": []
+  },
+  {
+   "id": "pld",
+   "label": "pegylated liposomal doxorubicin",
+   "synonyms": [
+    "pegylated liposomal doxorubicin",
+    "liposomal doxorubicin",
+    "PEGylated liposomal doxorubicin",
+    "Doxil",
+    "Caelyx",
+    "doxorubicin liposome",
+    "doxorubicin hydrochloride liposome"
+   ],
+   "caseSensitive": [
+    "PLD"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "liposomal anthracycline",
+   "targets": [],
+   "parent": "doxorubicin"
+  },
+  {
+   "id": "epirubicin",
+   "label": "epirubicin",
+   "synonyms": [
+    "epirubicin"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "anthracycline",
+   "targets": []
+  },
+  {
+   "id": "aldoxorubicin",
+   "label": "aldoxorubicin",
+   "synonyms": [
+    "aldoxorubicin"
+   ],
+   "codes": [
+    "INNO-206"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "albumin-binding doxorubicin prodrug",
+   "targets": [],
+   "parent": "doxorubicin"
+  },
+  {
+   "id": "ifosfamide",
+   "label": "ifosfamide",
+   "synonyms": [
+    "ifosfamide",
+    "ifosphamide",
+    "ifosfamid"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "alkylating agent",
+   "targets": []
+  },
+  {
+   "id": "cyclophosphamide",
+   "label": "cyclophosphamide",
+   "synonyms": [
+    "cyclophosphamide"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "alkylating agent",
+   "targets": []
+  },
+  {
+   "id": "trofosfamide",
+   "label": "trofosfamide",
+   "synonyms": [
+    "trofosfamide"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "alkylating agent",
+   "targets": []
+  },
+  {
+   "id": "dacarbazine",
+   "label": "dacarbazine",
+   "synonyms": [
+    "dacarbazine"
+   ],
+   "caseSensitive": [
+    "DTIC"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "alkylating agent",
+   "targets": []
+  },
+  {
+   "id": "temozolomide",
+   "label": "temozolomide",
+   "synonyms": [
+    "temozolomide",
+    "Temodar",
+    "Temodal"
+   ],
+   "caseSensitive": [
+    "TMZ"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "alkylating agent",
+   "targets": []
+  },
+  {
+   "id": "trabectedin",
+   "label": "trabectedin",
+   "synonyms": [
+    "trabectedin",
+    "Yondelis",
+    "ecteinascidin 743",
+    "ecteinascidin-743"
+   ],
+   "codes": [
+    "ET-743"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "DNA minor-groove binding alkylator; transcription inhibitor",
+   "targets": [],
+   "company": "pharmamar"
+  },
+  {
+   "id": "lurbinectedin",
+   "label": "lurbinectedin",
+   "synonyms": [
+    "lurbinectedin",
+    "Zepzelca"
+   ],
+   "codes": [
+    "PM01183",
+    "PM-01183"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "oncogenic transcription inhibitor (alkylating)",
+   "targets": [],
+   "company": "pharmamar"
+  },
+  {
+   "id": "ecubectedin",
+   "label": "ecubectedin (PM14)",
+   "synonyms": [
+    "ecubectedin"
+   ],
+   "codes": [
+    "PM14",
+    "PM-14"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "transcription inhibitor (ecteinascidin class)",
+   "targets": [],
+   "company": "pharmamar"
+  },
+  {
+   "id": "pm534",
+   "label": "PM534",
+   "synonyms": [],
+   "codes": [
+    "PM534",
+    "PM-534"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "microtubule-targeting agent (colchicine site)",
+   "targets": [],
+   "company": "pharmamar"
+  },
+  {
+   "id": "eribulin",
+   "label": "eribulin",
+   "synonyms": [
+    "eribulin",
+    "eribulin mesylate",
+    "Halaven"
+   ],
+   "codes": [
+    "E7389"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "microtubule dynamics inhibitor",
+   "targets": [],
+   "company": "eisai"
+  },
+  {
+   "id": "gemcitabine",
+   "label": "gemcitabine",
+   "synonyms": [
+    "gemcitabine",
+    "Gemzar"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "nucleoside analog",
+   "targets": []
+  },
+  {
+   "id": "docetaxel",
+   "label": "docetaxel",
+   "synonyms": [
+    "docetaxel",
+    "Taxotere"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "taxane",
+   "targets": []
+  },
+  {
+   "id": "paclitaxel",
+   "label": "paclitaxel",
+   "synonyms": [
+    "paclitaxel",
+    "Taxol"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "taxane",
+   "targets": []
+  },
+  {
+   "id": "nab_paclitaxel",
+   "label": "nab-paclitaxel",
+   "synonyms": [
+    "nab-paclitaxel",
+    "nab paclitaxel",
+    "albumin-bound paclitaxel",
+    "Abraxane",
+    "nanoparticle albumin-bound paclitaxel"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "taxane (albumin-bound)",
+   "targets": [],
+   "parent": "paclitaxel",
+   "company": "celgene"
+  },
+  {
+   "id": "vincristine",
+   "label": "vincristine",
+   "synonyms": [
+    "vincristine"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "vinca alkaloid",
+   "targets": []
+  },
+  {
+   "id": "vinorelbine",
+   "label": "vinorelbine",
+   "synonyms": [
+    "vinorelbine"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "vinca alkaloid",
+   "targets": []
+  },
+  {
+   "id": "vinblastine",
+   "label": "vinblastine",
+   "synonyms": [
+    "vinblastine"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "vinca alkaloid",
+   "targets": []
+  },
+  {
+   "id": "etoposide",
+   "label": "etoposide",
+   "synonyms": [
+    "etoposide"
+   ],
+   "codes": [
+    "VP-16"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "topoisomerase II inhibitor",
+   "targets": []
+  },
+  {
+   "id": "dactinomycin",
+   "label": "dactinomycin",
+   "synonyms": [
+    "dactinomycin",
+    "actinomycin D",
+    "actinomycin-D"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "transcription inhibitor",
+   "targets": []
+  },
+  {
+   "id": "irinotecan",
+   "label": "irinotecan",
+   "synonyms": [
+    "irinotecan"
+   ],
+   "codes": [
+    "CPT-11"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "topoisomerase I inhibitor",
+   "targets": []
+  },
+  {
+   "id": "nal_iri",
+   "label": "liposomal irinotecan",
+   "synonyms": [
+    "liposomal irinotecan",
+    "irinotecan liposome",
+    "irinotecan liposome injection",
+    "nanoliposomal irinotecan",
+    "Onivyde",
+    "irinotecan hydrochloride liposome"
+   ],
+   "codes": [
+    "nal-IRI",
+    "MM-398"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "liposomal topoisomerase I inhibitor",
+   "targets": [],
+   "parent": "irinotecan"
+  },
+  {
+   "id": "topotecan",
+   "label": "topotecan",
+   "synonyms": [
+    "topotecan"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "topoisomerase I inhibitor",
+   "targets": []
+  },
+  {
+   "id": "methotrexate",
+   "label": "methotrexate",
+   "synonyms": [
+    "methotrexate",
+    "high-dose methotrexate"
+   ],
+   "caseSensitive": [
+    "HD-MTX",
+    "HDMTX",
+    "MTX"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "antifolate",
+   "targets": []
+  },
+  {
+   "id": "cisplatin",
+   "label": "cisplatin",
+   "synonyms": [
+    "cisplatin",
+    "cis-platinum"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "platinum",
+   "targets": []
+  },
+  {
+   "id": "carboplatin",
+   "label": "carboplatin",
+   "synonyms": [
+    "carboplatin"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "platinum",
+   "targets": []
+  },
+  {
+   "id": "oxaliplatin",
+   "label": "oxaliplatin",
+   "synonyms": [
+    "oxaliplatin"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "platinum",
+   "targets": []
+  },
+  {
+   "id": "melphalan",
+   "label": "melphalan",
+   "synonyms": [
+    "melphalan"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "alkylating agent",
+   "targets": []
+  },
+  {
+   "id": "busulfan",
+   "label": "busulfan",
+   "synonyms": [
+    "busulfan",
+    "busulphan"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "alkylating agent",
+   "targets": []
+  },
+  {
+   "id": "treosulfan",
+   "label": "treosulfan",
+   "synonyms": [
+    "treosulfan"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "alkylating agent",
+   "targets": []
+  },
+  {
+   "id": "thiotepa",
+   "label": "thiotepa",
+   "synonyms": [
+    "thiotepa"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "alkylating agent",
+   "targets": []
+  },
+  {
+   "id": "capecitabine",
+   "label": "capecitabine",
+   "synonyms": [
+    "capecitabine"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "fluoropyrimidine",
+   "targets": []
+  },
+  {
+   "id": "bleomycin",
+   "label": "bleomycin",
+   "synonyms": [
+    "bleomycin"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "glycopeptide antibiotic",
+   "targets": []
+  },
+  {
+   "id": "tasonermin",
+   "label": "tasonermin (TNF-alpha, ILP)",
+   "synonyms": [
+    "tasonermin",
+    "Beromun",
+    "recombinant TNF-alpha"
+   ],
+   "modality": "fusion_protein",
+   "mechanism": "recombinant TNF-alpha used in isolated limb perfusion",
+   "targets": [],
+   "contextSynonyms": [
+    {
+     "terms": [
+      "TNF alpha",
+      "TNF-alpha",
+      "TNF-α",
+      "TNFα",
+      "tumor necrosis factor alpha"
+     ],
+     "context": "isolated limb perfusion|\\bILP\\b|\\bILI\\b|limb infusion"
+    }
+   ]
+  },
+  {
+   "id": "olaratumab",
+   "label": "olaratumab",
+   "synonyms": [
+    "olaratumab",
+    "Lartruvo"
+   ],
+   "codes": [
+    "IMC-3G3",
+    "LY3012207"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PDGFRA antibody",
+   "targets": [
+    "PDGFRA"
+   ],
+   "company": "lilly"
+  },
+  {
+   "id": "mifamurtide",
+   "label": "mifamurtide",
+   "synonyms": [
+    "mifamurtide",
+    "Mepact",
+    "liposomal muramyl tripeptide phosphatidylethanolamine"
+   ],
+   "codes": [
+    "L-MTP-PE"
+   ],
+   "modality": "other",
+   "mechanism": "NOD2 agonist immunomodulator (macrophage activator)",
+   "targets": [],
+   "company": "takeda"
+  },
+  {
+   "id": "zoledronic_acid",
+   "label": "zoledronic acid",
+   "synonyms": [
+    "zoledronic acid",
+    "zoledronate",
+    "Zometa"
+   ],
+   "modality": "other",
+   "mechanism": "bisphosphonate (FDPS inhibitor)",
+   "targets": [],
+   "company": "novartis"
+  },
+  {
+   "id": "denosumab",
+   "label": "denosumab",
+   "synonyms": [
+    "denosumab",
+    "Xgeva",
+    "Prolia"
+   ],
+   "codes": [
+    "AMG 162"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-RANKL antibody",
+   "targets": [
+    "TNFSF11"
+   ],
+   "company": "amgen"
+  },
+  {
+   "id": "bevacizumab",
+   "label": "bevacizumab",
+   "synonyms": [
+    "bevacizumab",
+    "Avastin"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-VEGF-A antibody",
+   "targets": [
+    "VEGFA"
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "ramucirumab",
+   "label": "ramucirumab",
+   "synonyms": [
+    "ramucirumab",
+    "Cyramza"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-VEGFR2 antibody",
+   "targets": [
+    "KDR"
+   ],
+   "company": "lilly"
+  },
+  {
+   "id": "trastuzumab",
+   "label": "trastuzumab",
+   "synonyms": [
+    "trastuzumab",
+    "Herceptin"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-HER2 antibody",
+   "targets": [
+    "ERBB2"
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "dinutuximab",
+   "label": "dinutuximab",
+   "synonyms": [
+    "dinutuximab",
+    "Unituxin",
+    "dinutuximab beta",
+    "Qarziba"
+   ],
+   "codes": [
+    "ch14.18"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-GD2 antibody",
+   "targets": [
+    "GD2"
+   ],
+   "company": "united_therapeutics"
+  },
+  {
+   "id": "naxitamab",
+   "label": "naxitamab",
+   "synonyms": [
+    "naxitamab",
+    "Danyelza"
+   ],
+   "codes": [
+    "hu3F8"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-GD2 antibody",
+   "targets": [
+    "GD2"
+   ],
+   "company": "ymabs"
+  },
+  {
+   "id": "ganitumab",
+   "label": "ganitumab",
+   "synonyms": [
+    "ganitumab"
+   ],
+   "codes": [
+    "AMG 479"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-IGF-1R antibody",
+   "targets": [
+    "IGF1R"
+   ],
+   "company": "amgen"
+  },
+  {
+   "id": "cixutumumab",
+   "label": "cixutumumab",
+   "synonyms": [
+    "cixutumumab"
+   ],
+   "codes": [
+    "IMC-A12"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-IGF-1R antibody",
+   "targets": [
+    "IGF1R"
+   ],
+   "company": "lilly"
+  },
+  {
+   "id": "emactuzumab",
+   "label": "emactuzumab",
+   "synonyms": [
+    "emactuzumab"
+   ],
+   "codes": [
+    "RG7155",
+    "RO5509554",
+    "SNOX-001"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-CSF1R antibody",
+   "targets": [
+    "CSF1R"
+   ],
+   "company": "synox"
+  },
+  {
+   "id": "magrolimab",
+   "label": "magrolimab",
+   "synonyms": [
+    "magrolimab"
+   ],
+   "codes": [
+    "Hu5F9-G4",
+    "5F9"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-CD47 antibody",
+   "targets": [
+    "CD47"
+   ],
+   "company": "gilead"
+  },
+  {
+   "id": "ozekibart",
+   "label": "ozekibart (INBRX-109)",
+   "synonyms": [
+    "ozekibart"
+   ],
+   "codes": [
+    "INBRX-109"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "tetravalent DR5 agonist antibody",
+   "targets": [
+    "TNFRSF10B"
+   ],
+   "company": "inhibrx"
+  },
+  {
+   "id": "pembrolizumab",
+   "label": "pembrolizumab",
+   "synonyms": [
+    "pembrolizumab",
+    "Keytruda",
+    "lambrolizumab"
+   ],
+   "codes": [
+    "MK-3475"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "merck_co"
+  },
+  {
+   "id": "nivolumab",
+   "label": "nivolumab",
+   "synonyms": [
+    "nivolumab",
+    "Opdivo"
+   ],
+   "codes": [
+    "BMS-936558",
+    "ONO-4538",
+    "MDX-1106"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "bms"
+  },
+  {
+   "id": "ipilimumab",
+   "label": "ipilimumab",
+   "synonyms": [
+    "ipilimumab",
+    "Yervoy"
+   ],
+   "codes": [
+    "MDX-010",
+    "BMS-734016"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-CTLA-4 antibody",
+   "targets": [
+    "CTLA4"
+   ],
+   "company": "medarex"
+  },
+  {
+   "id": "atezolizumab",
+   "label": "atezolizumab",
+   "synonyms": [
+    "atezolizumab",
+    "Tecentriq"
+   ],
+   "codes": [
+    "MPDL3280A"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-L1 antibody",
+   "targets": [
+    "CD274"
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "durvalumab",
+   "label": "durvalumab",
+   "synonyms": [
+    "durvalumab",
+    "Imfinzi"
+   ],
+   "codes": [
+    "MEDI4736"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-L1 antibody",
+   "targets": [
+    "CD274"
+   ],
+   "company": "astrazeneca"
+  },
+  {
+   "id": "tremelimumab",
+   "label": "tremelimumab",
+   "synonyms": [
+    "tremelimumab",
+    "Imjudo"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-CTLA-4 antibody",
+   "targets": [
+    "CTLA4"
+   ],
+   "company": "astrazeneca"
+  },
+  {
+   "id": "avelumab",
+   "label": "avelumab",
+   "synonyms": [
+    "avelumab",
+    "Bavencio"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-L1 antibody",
+   "targets": [
+    "CD274"
+   ],
+   "company": "merck_kgaa"
+  },
+  {
+   "id": "cemiplimab",
+   "label": "cemiplimab",
+   "synonyms": [
+    "cemiplimab",
+    "Libtayo"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "regeneron"
+  },
+  {
+   "id": "dostarlimab",
+   "label": "dostarlimab",
+   "synonyms": [
+    "dostarlimab",
+    "Jemperli"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "gsk"
+  },
+  {
+   "id": "retifanlimab",
+   "label": "retifanlimab",
+   "synonyms": [
+    "retifanlimab"
+   ],
+   "codes": [
+    "INCMGA00012"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "incyte"
+  },
+  {
+   "id": "toripalimab",
+   "label": "toripalimab",
+   "synonyms": [
+    "toripalimab"
+   ],
+   "codes": [
+    "JS001"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "junshi"
+  },
+  {
+   "id": "sintilimab",
+   "label": "sintilimab",
+   "synonyms": [
+    "sintilimab"
+   ],
+   "codes": [
+    "IBI308"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "innovent"
+  },
+  {
+   "id": "camrelizumab",
+   "label": "camrelizumab",
+   "synonyms": [
+    "camrelizumab"
+   ],
+   "codes": [
+    "SHR-1210"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "hengrui"
+  },
+  {
+   "id": "tislelizumab",
+   "label": "tislelizumab",
+   "synonyms": [
+    "tislelizumab"
+   ],
+   "codes": [
+    "BGB-A317"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "beone"
+  },
+  {
+   "id": "serplulimab",
+   "label": "serplulimab",
+   "synonyms": [
+    "serplulimab"
+   ],
+   "codes": [
+    "HLX10"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "henlius"
+  },
+  {
+   "id": "penpulimab",
+   "label": "penpulimab",
+   "synonyms": [
+    "penpulimab"
+   ],
+   "codes": [
+    "AK105"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "akeso"
+  },
+  {
+   "id": "envafolimab",
+   "label": "envafolimab",
+   "synonyms": [
+    "envafolimab"
+   ],
+   "codes": [
+    "KN035"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-L1 single-domain antibody",
+   "targets": [
+    "CD274"
+   ],
+   "company": "alphamab"
+  },
+  {
+   "id": "sugemalimab",
+   "label": "sugemalimab",
+   "synonyms": [
+    "sugemalimab"
+   ],
+   "codes": [
+    "CS1001"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-L1 antibody",
+   "targets": [
+    "CD274"
+   ],
+   "company": "cstone"
+  },
+  {
+   "id": "zimberelimab",
+   "label": "zimberelimab",
+   "synonyms": [
+    "zimberelimab"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "arcus"
+  },
+  {
+   "id": "balstilimab",
+   "label": "balstilimab",
+   "synonyms": [
+    "balstilimab"
+   ],
+   "codes": [
+    "AGEN2034"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-1 antibody",
+   "targets": [
+    "PDCD1"
+   ],
+   "company": "agenus"
+  },
+  {
+   "id": "botensilimab",
+   "label": "botensilimab",
+   "synonyms": [
+    "botensilimab"
+   ],
+   "codes": [
+    "AGEN1181"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "Fc-enhanced anti-CTLA-4 antibody",
+   "targets": [
+    "CTLA4"
+   ],
+   "company": "agenus"
+  },
+  {
+   "id": "relatlimab",
+   "label": "relatlimab",
+   "synonyms": [
+    "relatlimab"
+   ],
+   "codes": [
+    "BMS-986016"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-LAG-3 antibody",
+   "targets": [
+    "LAG3"
+   ],
+   "company": "bms"
+  },
+  {
+   "id": "ivonescimab",
+   "label": "ivonescimab",
+   "synonyms": [
+    "ivonescimab"
+   ],
+   "codes": [
+    "AK112",
+    "SMT112"
+   ],
+   "modality": "bispecific_antibody",
+   "mechanism": "PD-1 x VEGF bispecific antibody",
+   "targets": [
+    "PDCD1",
+    "VEGFA"
+   ],
+   "company": "akeso"
+  },
+  {
+   "id": "cadonilimab",
+   "label": "cadonilimab",
+   "synonyms": [
+    "cadonilimab"
+   ],
+   "codes": [
+    "AK104"
+   ],
+   "modality": "bispecific_antibody",
+   "mechanism": "PD-1 x CTLA-4 bispecific antibody",
+   "targets": [
+    "PDCD1",
+    "CTLA4"
+   ],
+   "company": "akeso"
+  },
+  {
+   "id": "eftilagimod",
+   "label": "eftilagimod alpha",
+   "synonyms": [
+    "eftilagimod alpha",
+    "eftilagimod alfa",
+    "eftilagimod",
+    "efti"
+   ],
+   "codes": [
+    "IMP321"
+   ],
+   "modality": "fusion_protein",
+   "mechanism": "soluble LAG-3 fusion protein; MHC class II agonist (antigen-presenting cell activator)",
+   "targets": [],
+   "company": "immutep"
+  },
+  {
+   "id": "evorpacept",
+   "label": "evorpacept",
+   "synonyms": [
+    "evorpacept"
+   ],
+   "codes": [
+    "ALX148"
+   ],
+   "modality": "fusion_protein",
+   "mechanism": "CD47-blocking fusion protein",
+   "targets": [
+    "CD47"
+   ],
+   "company": "alx"
+  },
+  {
+   "id": "t_dxd",
+   "label": "trastuzumab deruxtecan",
+   "synonyms": [
+    "trastuzumab deruxtecan",
+    "fam-trastuzumab deruxtecan",
+    "fam-trastuzumab deruxtecan-nxki",
+    "Enhertu"
+   ],
+   "caseSensitive": [
+    "T-DXd",
+    "TDXd"
+   ],
+   "codes": [
+    "DS-8201",
+    "DS-8201a"
+   ],
+   "modality": "adc",
+   "mechanism": "HER2-directed ADC with topoisomerase I inhibitor payload",
+   "targets": [
+    "ERBB2"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "trastuzumab",
+     "target": "ERBB2"
+    },
+    {
+     "role": "payload",
+     "name": "deruxtecan (DXd)",
+     "payloadClass": "topoisomerase I inhibitor"
+    }
+   ],
+   "company": "daiichi"
+  },
+  {
+   "id": "t_dm1",
+   "label": "trastuzumab emtansine",
+   "synonyms": [
+    "trastuzumab emtansine",
+    "ado-trastuzumab emtansine",
+    "Kadcyla"
+   ],
+   "caseSensitive": [
+    "T-DM1"
+   ],
+   "modality": "adc",
+   "mechanism": "HER2-directed ADC with maytansinoid payload",
+   "targets": [
+    "ERBB2"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "trastuzumab",
+     "target": "ERBB2"
+    },
+    {
+     "role": "payload",
+     "name": "DM1 (emtansine)",
+     "payloadClass": "microtubule inhibitor"
+    }
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "sacituzumab_govitecan",
+   "label": "sacituzumab govitecan",
+   "synonyms": [
+    "sacituzumab govitecan",
+    "Trodelvy"
+   ],
+   "codes": [
+    "IMMU-132"
+   ],
+   "modality": "adc",
+   "mechanism": "TROP2-directed ADC with SN-38 payload",
+   "targets": [
+    "TACSTD2"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "sacituzumab",
+     "target": "TACSTD2"
+    },
+    {
+     "role": "payload",
+     "name": "SN-38 (govitecan)",
+     "payloadClass": "topoisomerase I inhibitor"
+    }
+   ],
+   "company": "immunomedics"
+  },
+  {
+   "id": "dato_dxd",
+   "label": "datopotamab deruxtecan",
+   "synonyms": [
+    "datopotamab deruxtecan",
+    "Datroway"
+   ],
+   "caseSensitive": [
+    "Dato-DXd"
+   ],
+   "codes": [
+    "DS-1062"
+   ],
+   "modality": "adc",
+   "mechanism": "TROP2-directed ADC",
+   "targets": [
+    "TACSTD2"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "datopotamab",
+     "target": "TACSTD2"
+    },
+    {
+     "role": "payload",
+     "name": "deruxtecan (DXd)",
+     "payloadClass": "topoisomerase I inhibitor"
+    }
+   ],
+   "company": "daiichi"
+  },
+  {
+   "id": "sac_tmt",
+   "label": "sacituzumab tirumotecan",
+   "synonyms": [
+    "sacituzumab tirumotecan"
+   ],
+   "caseSensitive": [
+    "sac-TMT"
+   ],
+   "codes": [
+    "MK-2870",
+    "SKB264"
+   ],
+   "modality": "adc",
+   "mechanism": "TROP2-directed ADC",
+   "targets": [
+    "TACSTD2"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "sacituzumab",
+     "target": "TACSTD2"
+    },
+    {
+     "role": "payload",
+     "name": "KL610023 (tirumotecan)",
+     "payloadClass": "topoisomerase I inhibitor"
+    }
+   ],
+   "company": "kelun"
+  },
+  {
+   "id": "i_dxd",
+   "label": "ifinatamab deruxtecan",
+   "synonyms": [
+    "ifinatamab deruxtecan"
+   ],
+   "caseSensitive": [
+    "I-DXd"
+   ],
+   "codes": [
+    "DS-7300",
+    "DS-7300a"
+   ],
+   "modality": "adc",
+   "mechanism": "B7-H3-directed ADC",
+   "targets": [
+    "CD276"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "ifinatamab",
+     "target": "CD276"
+    },
+    {
+     "role": "payload",
+     "name": "deruxtecan (DXd)",
+     "payloadClass": "topoisomerase I inhibitor"
+    }
+   ],
+   "company": "daiichi"
+  },
+  {
+   "id": "hs20093",
+   "label": "HS-20093 (GSK5764227)",
+   "synonyms": [
+    "risvutatug rezetecan"
+   ],
+   "codes": [
+    "HS-20093",
+    "GSK5764227",
+    "GSK'227"
+   ],
+   "modality": "adc",
+   "mechanism": "B7-H3-directed ADC",
+   "targets": [
+    "CD276"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "anti-B7-H3 antibody",
+     "target": "CD276"
+    },
+    {
+     "role": "payload",
+     "name": "topoisomerase I inhibitor payload",
+     "payloadClass": "topoisomerase I inhibitor"
+    }
+   ],
+   "company": "hansoh"
+  },
+  {
+   "id": "yl201",
+   "label": "YL201",
+   "synonyms": [],
+   "codes": [
+    "YL201",
+    "YL-201"
+   ],
+   "modality": "adc",
+   "mechanism": "B7-H3-directed ADC",
+   "targets": [
+    "CD276"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "anti-B7-H3 antibody",
+     "target": "CD276"
+    },
+    {
+     "role": "payload",
+     "name": "topoisomerase I inhibitor payload",
+     "payloadClass": "topoisomerase I inhibitor"
+    }
+   ],
+   "company": "medilink"
+  },
+  {
+   "id": "vobramitamab",
+   "label": "vobramitamab duocarmazine",
+   "synonyms": [
+    "vobramitamab duocarmazine"
+   ],
+   "codes": [
+    "MGC018"
+   ],
+   "modality": "adc",
+   "mechanism": "B7-H3-directed ADC with duocarmycin payload",
+   "targets": [
+    "CD276"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "vobramitamab",
+     "target": "CD276"
+    },
+    {
+     "role": "payload",
+     "name": "duocarmazine",
+     "payloadClass": "DNA alkylator"
+    }
+   ],
+   "company": "macrogenics"
+  },
+  {
+   "id": "glembatumumab",
+   "label": "glembatumumab vedotin",
+   "synonyms": [
+    "glembatumumab vedotin"
+   ],
+   "codes": [
+    "CDX-011"
+   ],
+   "modality": "adc",
+   "mechanism": "GPNMB-directed ADC with MMAE payload",
+   "targets": [
+    "GPNMB"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "glembatumumab",
+     "target": "GPNMB"
+    },
+    {
+     "role": "payload",
+     "name": "MMAE (vedotin)",
+     "payloadClass": "microtubule inhibitor"
+    }
+   ],
+   "company": "celldex"
+  },
+  {
+   "id": "disitamab",
+   "label": "disitamab vedotin",
+   "synonyms": [
+    "disitamab vedotin"
+   ],
+   "codes": [
+    "RC48"
+   ],
+   "modality": "adc",
+   "mechanism": "HER2-directed ADC with MMAE payload",
+   "targets": [
+    "ERBB2"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "disitamab",
+     "target": "ERBB2"
+    },
+    {
+     "role": "payload",
+     "name": "MMAE (vedotin)",
+     "payloadClass": "microtubule inhibitor"
+    }
+   ],
+   "company": "remegen"
+  },
+  {
+   "id": "her3_dxd",
+   "label": "patritumab deruxtecan",
+   "synonyms": [
+    "patritumab deruxtecan"
+   ],
+   "caseSensitive": [
+    "HER3-DXd"
+   ],
+   "codes": [
+    "U3-1402"
+   ],
+   "modality": "adc",
+   "mechanism": "HER3-directed ADC",
+   "targets": [
+    "ERBB3"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "patritumab",
+     "target": "ERBB3"
+    },
+    {
+     "role": "payload",
+     "name": "deruxtecan (DXd)",
+     "payloadClass": "topoisomerase I inhibitor"
+    }
+   ],
+   "company": "daiichi"
+  },
+  {
+   "id": "imatinib",
+   "label": "imatinib",
+   "synonyms": [
+    "imatinib",
+    "imatinib mesylate",
+    "Gleevec",
+    "Glivec"
+   ],
+   "codes": [
+    "STI571",
+    "STI-571"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "KIT/PDGFR/ABL kinase inhibitor",
+   "targets": [
+    "KIT",
+    "PDGFRA",
+    "PDGFRB"
+   ],
+   "targetsSecondary": [
+    "ABL1"
+   ],
+   "company": "novartis"
+  },
+  {
+   "id": "sunitinib",
+   "label": "sunitinib",
+   "synonyms": [
+    "sunitinib",
+    "sunitinib malate",
+    "Sutent"
+   ],
+   "codes": [
+    "SU11248"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "multi-kinase inhibitor (KIT, PDGFR, VEGFR)",
+   "targets": [
+    "KIT",
+    "PDGFRA",
+    "KDR",
+    "FLT1",
+    "FLT4"
+   ],
+   "targetsSecondary": [
+    "PDGFRB",
+    "FLT3",
+    "RET",
+    "CSF1R"
+   ],
+   "company": "pfizer"
+  },
+  {
+   "id": "regorafenib",
+   "label": "regorafenib",
+   "synonyms": [
+    "regorafenib",
+    "Stivarga"
+   ],
+   "codes": [
+    "BAY 73-4506"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "multi-kinase inhibitor (VEGFR, KIT, TIE2, RET, RAF)",
+   "targets": [
+    "KDR",
+    "FLT1",
+    "FLT4",
+    "KIT"
+   ],
+   "targetsSecondary": [
+    "TEK",
+    "RET",
+    "BRAF",
+    "PDGFRB",
+    "FGFR1"
+   ],
+   "company": "bayer"
+  },
+  {
+   "id": "ripretinib",
+   "label": "ripretinib",
+   "synonyms": [
+    "ripretinib",
+    "Qinlock"
+   ],
+   "codes": [
+    "DCC-2618"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "switch-control KIT/PDGFRA inhibitor",
+   "targets": [
+    "KIT",
+    "PDGFRA"
+   ],
+   "company": "deciphera"
+  },
+  {
+   "id": "avapritinib",
+   "label": "avapritinib",
+   "synonyms": [
+    "avapritinib",
+    "Ayvakit",
+    "Ayvakyt"
+   ],
+   "codes": [
+    "BLU-285"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "KIT/PDGFRA activation-loop inhibitor (PDGFRA D842V)",
+   "targets": [
+    "KIT",
+    "PDGFRA"
+   ],
+   "company": "blueprint"
+  },
+  {
+   "id": "bezuclastinib",
+   "label": "bezuclastinib",
+   "synonyms": [
+    "bezuclastinib"
+   ],
+   "codes": [
+    "CGT9486",
+    "CGT-9486",
+    "PLX9486"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "KIT inhibitor (exon 17/18)",
+   "targets": [
+    "KIT"
+   ],
+   "company": "cogent"
+  },
+  {
+   "id": "idrx42",
+   "label": "velzatinib (IDRX-42)",
+   "synonyms": [
+    "velzatinib"
+   ],
+   "codes": [
+    "IDRX-42",
+    "GSK6042981"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "pan-mutant KIT inhibitor",
+   "targets": [
+    "KIT"
+   ],
+   "company": "idrx"
+  },
+  {
+   "id": "nb003",
+   "label": "NB003 (AZD3229)",
+   "synonyms": [],
+   "codes": [
+    "NB003",
+    "AZD3229"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "pan-KIT/PDGFRA inhibitor",
+   "targets": [
+    "KIT",
+    "PDGFRA"
+   ],
+   "company": "ningbo_newbay"
+  },
+  {
+   "id": "dasatinib",
+   "label": "dasatinib",
+   "synonyms": [
+    "dasatinib",
+    "Sprycel"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "SRC/ABL inhibitor",
+   "targets": [
+    "ABL1",
+    "SRC"
+   ],
+   "targetsSecondary": [
+    "KIT",
+    "PDGFRA"
+   ],
+   "company": "bms"
+  },
+  {
+   "id": "nilotinib",
+   "label": "nilotinib",
+   "synonyms": [
+    "nilotinib",
+    "Tasigna"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "BCR-ABL inhibitor",
+   "targets": [
+    "ABL1"
+   ],
+   "targetsSecondary": [
+    "KIT",
+    "PDGFRA"
+   ],
+   "company": "novartis"
+  },
+  {
+   "id": "ponatinib",
+   "label": "ponatinib",
+   "synonyms": [
+    "ponatinib"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "multi-kinase inhibitor",
+   "targets": [
+    "ABL1",
+    "KIT",
+    "FGFR1"
+   ],
+   "company": "takeda"
+  },
+  {
+   "id": "masitinib",
+   "label": "masitinib",
+   "synonyms": [
+    "masitinib"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "KIT/PDGFR inhibitor",
+   "targets": [
+    "KIT",
+    "PDGFRA"
+   ],
+   "company": "ab_science"
+  },
+  {
+   "id": "pazopanib",
+   "label": "pazopanib",
+   "synonyms": [
+    "pazopanib",
+    "Votrient"
+   ],
+   "codes": [
+    "GW786034"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "VEGFR/PDGFR/KIT inhibitor",
+   "targets": [
+    "KDR",
+    "FLT1",
+    "FLT4"
+   ],
+   "targetsSecondary": [
+    "PDGFRA",
+    "PDGFRB",
+    "KIT"
+   ],
+   "company": "novartis"
+  },
+  {
+   "id": "sorafenib",
+   "label": "sorafenib",
+   "synonyms": [
+    "sorafenib",
+    "Nexavar"
+   ],
+   "codes": [
+    "BAY 43-9006"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "RAF/VEGFR/PDGFR inhibitor",
+   "targets": [
+    "KDR",
+    "FLT1",
+    "FLT4",
+    "BRAF"
+   ],
+   "targetsSecondary": [
+    "PDGFRB",
+    "KIT",
+    "RET",
+    "FLT3"
+   ],
+   "company": "bayer"
+  },
+  {
+   "id": "cabozantinib",
+   "label": "cabozantinib",
+   "synonyms": [
+    "cabozantinib",
+    "Cabometyx",
+    "Cometriq"
+   ],
+   "codes": [
+    "XL184"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "MET/VEGFR2/AXL inhibitor",
+   "targets": [
+    "MET",
+    "KDR",
+    "AXL"
+   ],
+   "targetsSecondary": [
+    "RET",
+    "KIT",
+    "FLT3",
+    "TEK"
+   ],
+   "company": "exelixis"
+  },
+  {
+   "id": "lenvatinib",
+   "label": "lenvatinib",
+   "synonyms": [
+    "lenvatinib",
+    "Lenvima"
+   ],
+   "codes": [
+    "E7080"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "VEGFR1-3/FGFR1-4 inhibitor",
+   "targets": [
+    "KDR",
+    "FLT1",
+    "FLT4",
+    "FGFR1",
+    "FGFR2",
+    "FGFR3",
+    "FGFR4"
+   ],
+   "targetsSecondary": [
+    "PDGFRA",
+    "KIT",
+    "RET"
+   ],
+   "company": "eisai"
+  },
+  {
+   "id": "anlotinib",
+   "label": "anlotinib (catequentinib)",
+   "synonyms": [
+    "anlotinib",
+    "catequentinib",
+    "anlotinib hydrochloride",
+    "Focus V"
+   ],
+   "codes": [
+    "AL3818",
+    "AL-3818"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "VEGFR/FGFR/PDGFR/KIT inhibitor",
+   "targets": [
+    "KDR",
+    "FLT1",
+    "FLT4",
+    "FGFR1",
+    "FGFR2",
+    "FGFR3",
+    "FGFR4",
+    "PDGFRB"
+   ],
+   "targetsSecondary": [
+    "PDGFRA",
+    "KIT",
+    "RET"
+   ],
+   "company": "cttq"
+  },
+  {
+   "id": "apatinib",
+   "label": "apatinib (rivoceranib)",
+   "synonyms": [
+    "apatinib",
+    "rivoceranib",
+    "apatinib mesylate",
+    "Aitan"
+   ],
+   "codes": [
+    "YN968D1"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "selective VEGFR2 inhibitor",
+   "targets": [
+    "KDR"
+   ],
+   "company": "hengrui"
+  },
+  {
+   "id": "axitinib",
+   "label": "axitinib",
+   "synonyms": [
+    "axitinib",
+    "Inlyta"
+   ],
+   "codes": [
+    "AG-013736"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "VEGFR1-3 inhibitor",
+   "targets": [
+    "KDR",
+    "FLT1",
+    "FLT4"
+   ],
+   "company": "pfizer"
+  },
+  {
+   "id": "tivozanib",
+   "label": "tivozanib",
+   "synonyms": [
+    "tivozanib",
+    "Fotivda"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "VEGFR1-3 inhibitor",
+   "targets": [
+    "KDR",
+    "FLT1",
+    "FLT4"
+   ],
+   "company": "aveo"
+  },
+  {
+   "id": "fruquintinib",
+   "label": "fruquintinib",
+   "synonyms": [
+    "fruquintinib",
+    "Fruzaqla",
+    "Elunate"
+   ],
+   "codes": [
+    "HMPL-013"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "VEGFR1-3 inhibitor",
+   "targets": [
+    "KDR",
+    "FLT1",
+    "FLT4"
+   ],
+   "company": "hutchmed"
+  },
+  {
+   "id": "surufatinib",
+   "label": "surufatinib",
+   "synonyms": [
+    "surufatinib"
+   ],
+   "codes": [
+    "HMPL-012"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "VEGFR/FGFR1/CSF1R inhibitor",
+   "targets": [
+    "KDR",
+    "FLT1",
+    "FLT4",
+    "FGFR1",
+    "CSF1R"
+   ],
+   "company": "hutchmed"
+  },
+  {
+   "id": "famitinib",
+   "label": "famitinib",
+   "synonyms": [
+    "famitinib"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "VEGFR/KIT/PDGFR inhibitor",
+   "targets": [
+    "KDR",
+    "KIT"
+   ],
+   "targetsSecondary": [
+    "PDGFRB",
+    "FLT3"
+   ],
+   "company": "hengrui"
+  },
+  {
+   "id": "nintedanib",
+   "label": "nintedanib",
+   "synonyms": [
+    "nintedanib",
+    "Ofev"
+   ],
+   "codes": [
+    "BIBF 1120"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "VEGFR/FGFR/PDGFR inhibitor",
+   "targets": [
+    "KDR",
+    "FLT1",
+    "FLT4",
+    "FGFR1",
+    "FGFR2",
+    "FGFR3",
+    "PDGFRB"
+   ],
+   "targetsSecondary": [
+    "PDGFRA"
+   ],
+   "company": "boehringer"
+  },
+  {
+   "id": "crizotinib",
+   "label": "crizotinib",
+   "synonyms": [
+    "crizotinib",
+    "Xalkori"
+   ],
+   "codes": [
+    "PF-02341066"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ALK/ROS1/MET inhibitor",
+   "targets": [
+    "ALK",
+    "ROS1",
+    "MET"
+   ],
+   "company": "pfizer"
+  },
+  {
+   "id": "alectinib",
+   "label": "alectinib",
+   "synonyms": [
+    "alectinib",
+    "Alecensa"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ALK inhibitor",
+   "targets": [
+    "ALK"
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "ceritinib",
+   "label": "ceritinib",
+   "synonyms": [
+    "ceritinib",
+    "Zykadia"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ALK inhibitor",
+   "targets": [
+    "ALK"
+   ],
+   "company": "novartis"
+  },
+  {
+   "id": "lorlatinib",
+   "label": "lorlatinib",
+   "synonyms": [
+    "lorlatinib",
+    "Lorbrena"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ALK/ROS1 inhibitor",
+   "targets": [
+    "ALK",
+    "ROS1"
+   ],
+   "company": "pfizer"
+  },
+  {
+   "id": "brigatinib",
+   "label": "brigatinib",
+   "synonyms": [
+    "brigatinib",
+    "Alunbrig"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ALK inhibitor",
+   "targets": [
+    "ALK"
+   ],
+   "company": "takeda"
+  },
+  {
+   "id": "larotrectinib",
+   "label": "larotrectinib",
+   "synonyms": [
+    "larotrectinib",
+    "Vitrakvi"
+   ],
+   "codes": [
+    "LOXO-101"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "selective TRK inhibitor",
+   "targets": [
+    "NTRK1",
+    "NTRK2",
+    "NTRK3"
+   ],
+   "company": "bayer"
+  },
+  {
+   "id": "entrectinib",
+   "label": "entrectinib",
+   "synonyms": [
+    "entrectinib",
+    "Rozlytrek"
+   ],
+   "codes": [
+    "RXDX-101"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "TRK/ROS1/ALK inhibitor",
+   "targets": [
+    "NTRK1",
+    "NTRK2",
+    "NTRK3",
+    "ROS1",
+    "ALK"
+   ],
+   "company": "ignyta"
+  },
+  {
+   "id": "repotrectinib",
+   "label": "repotrectinib",
+   "synonyms": [
+    "repotrectinib",
+    "Augtyro"
+   ],
+   "codes": [
+    "TPX-0005"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ROS1/TRK inhibitor",
+   "targets": [
+    "ROS1",
+    "NTRK1",
+    "NTRK2",
+    "NTRK3"
+   ],
+   "targetsSecondary": [
+    "ALK"
+   ],
+   "company": "turning_point"
+  },
+  {
+   "id": "selitrectinib",
+   "label": "selitrectinib",
+   "synonyms": [
+    "selitrectinib"
+   ],
+   "codes": [
+    "LOXO-195",
+    "BAY 2731954"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "next-generation TRK inhibitor",
+   "targets": [
+    "NTRK1",
+    "NTRK2",
+    "NTRK3"
+   ],
+   "company": "bayer"
+  },
+  {
+   "id": "selpercatinib",
+   "label": "selpercatinib",
+   "synonyms": [
+    "selpercatinib",
+    "Retevmo"
+   ],
+   "codes": [
+    "LOXO-292"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "selective RET inhibitor",
+   "targets": [
+    "RET"
+   ],
+   "company": "loxo"
+  },
+  {
+   "id": "pralsetinib",
+   "label": "pralsetinib",
+   "synonyms": [
+    "pralsetinib",
+    "Gavreto"
+   ],
+   "codes": [
+    "BLU-667"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "selective RET inhibitor",
+   "targets": [
+    "RET"
+   ],
+   "company": "blueprint"
+  },
+  {
+   "id": "dabrafenib",
+   "label": "dabrafenib",
+   "synonyms": [
+    "dabrafenib",
+    "Tafinlar"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "BRAF inhibitor",
+   "targets": [
+    "BRAF"
+   ],
+   "company": "novartis"
+  },
+  {
+   "id": "vemurafenib",
+   "label": "vemurafenib",
+   "synonyms": [
+    "vemurafenib",
+    "Zelboraf"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "BRAF inhibitor",
+   "targets": [
+    "BRAF"
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "encorafenib",
+   "label": "encorafenib",
+   "synonyms": [
+    "encorafenib"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "BRAF inhibitor",
+   "targets": [
+    "BRAF"
+   ],
+   "company": "array"
+  },
+  {
+   "id": "trametinib",
+   "label": "trametinib",
+   "synonyms": [
+    "trametinib",
+    "Mekinist"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "MEK1/2 inhibitor",
+   "targets": [
+    "MAP2K1",
+    "MAP2K2"
+   ],
+   "company": "novartis"
+  },
+  {
+   "id": "binimetinib",
+   "label": "binimetinib",
+   "synonyms": [
+    "binimetinib",
+    "Mektovi"
+   ],
+   "codes": [
+    "MEK162"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "MEK1/2 inhibitor",
+   "targets": [
+    "MAP2K1",
+    "MAP2K2"
+   ],
+   "company": "array"
+  },
+  {
+   "id": "cobimetinib",
+   "label": "cobimetinib",
+   "synonyms": [
+    "cobimetinib",
+    "Cotellic"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "MEK1/2 inhibitor",
+   "targets": [
+    "MAP2K1",
+    "MAP2K2"
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "selumetinib",
+   "label": "selumetinib",
+   "synonyms": [
+    "selumetinib",
+    "Koselugo"
+   ],
+   "codes": [
+    "AZD6244",
+    "ARRY-142886"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "MEK1/2 inhibitor",
+   "targets": [
+    "MAP2K1",
+    "MAP2K2"
+   ],
+   "company": "astrazeneca"
+  },
+  {
+   "id": "mirdametinib",
+   "label": "mirdametinib",
+   "synonyms": [
+    "mirdametinib",
+    "Gomekli"
+   ],
+   "codes": [
+    "PD-0325901",
+    "PD0325901"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "MEK1/2 inhibitor",
+   "targets": [
+    "MAP2K1",
+    "MAP2K2"
+   ],
+   "company": "springworks"
+  },
+  {
+   "id": "palbociclib",
+   "label": "palbociclib",
+   "synonyms": [
+    "palbociclib",
+    "Ibrance"
+   ],
+   "codes": [
+    "PD-0332991",
+    "PD0332991"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "CDK4/6 inhibitor",
+   "targets": [
+    "CDK4",
+    "CDK6"
+   ],
+   "company": "pfizer"
+  },
+  {
+   "id": "abemaciclib",
+   "label": "abemaciclib",
+   "synonyms": [
+    "abemaciclib",
+    "Verzenio"
+   ],
+   "codes": [
+    "LY2835219"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "CDK4/6 inhibitor",
+   "targets": [
+    "CDK4",
+    "CDK6"
+   ],
+   "company": "lilly"
+  },
+  {
+   "id": "ribociclib",
+   "label": "ribociclib",
+   "synonyms": [
+    "ribociclib",
+    "Kisqali"
+   ],
+   "codes": [
+    "LEE011"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "CDK4/6 inhibitor",
+   "targets": [
+    "CDK4",
+    "CDK6"
+   ],
+   "company": "novartis"
+  },
+  {
+   "id": "atirmociclib",
+   "label": "atirmociclib",
+   "synonyms": [
+    "atirmociclib"
+   ],
+   "codes": [
+    "PF-07220060"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "CDK4-selective inhibitor",
+   "targets": [
+    "CDK4"
+   ],
+   "company": "pfizer"
+  },
+  {
+   "id": "linsitinib",
+   "label": "linsitinib",
+   "synonyms": [
+    "linsitinib"
+   ],
+   "codes": [
+    "OSI-906"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "IGF-1R/IR inhibitor",
+   "targets": [
+    "IGF1R"
+   ],
+   "company": null
+  },
+  {
+   "id": "pexidartinib",
+   "label": "pexidartinib",
+   "synonyms": [
+    "pexidartinib",
+    "Turalio"
+   ],
+   "codes": [
+    "PLX3397"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "CSF1R inhibitor",
+   "targets": [
+    "CSF1R"
+   ],
+   "targetsSecondary": [
+    "KIT",
+    "FLT3"
+   ],
+   "company": "daiichi"
+  },
+  {
+   "id": "vimseltinib",
+   "label": "vimseltinib",
+   "synonyms": [
+    "vimseltinib",
+    "Romvimza"
+   ],
+   "codes": [
+    "DCC-3014"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "switch-control CSF1R inhibitor",
+   "targets": [
+    "CSF1R"
+   ],
+   "company": "deciphera"
+  },
+  {
+   "id": "pimicotinib",
+   "label": "pimicotinib",
+   "synonyms": [
+    "pimicotinib"
+   ],
+   "codes": [
+    "ABSK021"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "CSF1R inhibitor",
+   "targets": [
+    "CSF1R"
+   ],
+   "company": "abbisko"
+  },
+  {
+   "id": "ceralasertib",
+   "label": "ceralasertib",
+   "synonyms": [
+    "ceralasertib"
+   ],
+   "codes": [
+    "AZD6738"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ATR inhibitor",
+   "targets": [
+    "ATR"
+   ],
+   "company": "astrazeneca"
+  },
+  {
+   "id": "berzosertib",
+   "label": "berzosertib",
+   "synonyms": [
+    "berzosertib"
+   ],
+   "codes": [
+    "M6620",
+    "VX-970"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ATR inhibitor",
+   "targets": [
+    "ATR"
+   ],
+   "company": "merck_kgaa"
+  },
+  {
+   "id": "elimusertib",
+   "label": "elimusertib",
+   "synonyms": [
+    "elimusertib"
+   ],
+   "codes": [
+    "BAY 1895344"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ATR inhibitor",
+   "targets": [
+    "ATR"
+   ],
+   "company": "bayer"
+  },
+  {
+   "id": "camonsertib",
+   "label": "camonsertib",
+   "synonyms": [
+    "camonsertib"
+   ],
+   "codes": [
+    "RP-3500"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ATR inhibitor",
+   "targets": [
+    "ATR"
+   ],
+   "company": "repare"
+  },
+  {
+   "id": "adavosertib",
+   "label": "adavosertib",
+   "synonyms": [
+    "adavosertib"
+   ],
+   "codes": [
+    "AZD1775",
+    "MK-1775"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "WEE1 inhibitor",
+   "targets": [
+    "WEE1"
+   ],
+   "company": "astrazeneca"
+  },
+  {
+   "id": "azenosertib",
+   "label": "azenosertib",
+   "synonyms": [
+    "azenosertib"
+   ],
+   "codes": [
+    "ZN-c3"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "WEE1 inhibitor",
+   "targets": [
+    "WEE1"
+   ],
+   "company": "zentalis"
+  },
+  {
+   "id": "everolimus",
+   "label": "everolimus",
+   "synonyms": [
+    "everolimus",
+    "Afinitor"
+   ],
+   "codes": [
+    "RAD001"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "mTOR inhibitor (rapalog)",
+   "targets": [
+    "MTOR"
+   ],
+   "company": "novartis"
+  },
+  {
+   "id": "sirolimus",
+   "label": "sirolimus",
+   "synonyms": [
+    "sirolimus",
+    "rapamycin"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "mTOR inhibitor (rapalog)",
+   "targets": [
+    "MTOR"
+   ]
+  },
+  {
+   "id": "temsirolimus",
+   "label": "temsirolimus",
+   "synonyms": [
+    "temsirolimus",
+    "Torisel"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "mTOR inhibitor (rapalog)",
+   "targets": [
+    "MTOR"
+   ],
+   "company": "pfizer"
+  },
+  {
+   "id": "nab_sirolimus",
+   "label": "nab-sirolimus",
+   "synonyms": [
+    "nab-sirolimus",
+    "nab sirolimus",
+    "Fyarro",
+    "albumin-bound sirolimus",
+    "sirolimus protein-bound particles"
+   ],
+   "codes": [
+    "ABI-009"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "albumin-bound mTOR inhibitor",
+   "targets": [
+    "MTOR"
+   ],
+   "parent": "sirolimus",
+   "company": "aadi"
+  },
+  {
+   "id": "brigimadlin",
+   "label": "brigimadlin",
+   "synonyms": [
+    "brigimadlin"
+   ],
+   "codes": [
+    "BI 907828",
+    "BI-907828",
+    "BI907828"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "MDM2-p53 antagonist",
+   "targets": [
+    "MDM2"
+   ],
+   "company": "boehringer"
+  },
+  {
+   "id": "milademetan",
+   "label": "milademetan",
+   "synonyms": [
+    "milademetan"
+   ],
+   "codes": [
+    "DS-3032",
+    "DS-3032b",
+    "RAIN-32"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "MDM2-p53 antagonist",
+   "targets": [
+    "MDM2"
+   ],
+   "company": "rain"
+  },
+  {
+   "id": "navtemadlin",
+   "label": "navtemadlin",
+   "synonyms": [
+    "navtemadlin"
+   ],
+   "codes": [
+    "KRT-232",
+    "AMG 232"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "MDM2-p53 antagonist",
+   "targets": [
+    "MDM2"
+   ],
+   "company": "kartos"
+  },
+  {
+   "id": "siremadlin",
+   "label": "siremadlin",
+   "synonyms": [
+    "siremadlin"
+   ],
+   "codes": [
+    "HDM201"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "MDM2-p53 antagonist",
+   "targets": [
+    "MDM2"
+   ],
+   "company": "novartis"
+  },
+  {
+   "id": "idasanutlin",
+   "label": "idasanutlin",
+   "synonyms": [
+    "idasanutlin"
+   ],
+   "codes": [
+    "RG7388"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "MDM2-p53 antagonist",
+   "targets": [
+    "MDM2"
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "alrizomadlin",
+   "label": "alrizomadlin",
+   "synonyms": [
+    "alrizomadlin"
+   ],
+   "codes": [
+    "APG-115"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "MDM2-p53 antagonist",
+   "targets": [
+    "MDM2"
+   ],
+   "company": "ascentage"
+  },
+  {
+   "id": "tazemetostat",
+   "label": "tazemetostat",
+   "synonyms": [
+    "tazemetostat",
+    "Tazverik"
+   ],
+   "codes": [
+    "EPZ-6438",
+    "EPZ6438"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "EZH2 inhibitor",
+   "targets": [
+    "EZH2"
+   ],
+   "company": "epizyme"
+  },
+  {
+   "id": "selinexor",
+   "label": "selinexor",
+   "synonyms": [
+    "selinexor",
+    "Xpovio"
+   ],
+   "codes": [
+    "KPT-330"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "XPO1 (exportin-1) inhibitor",
+   "targets": [
+    "XPO1"
+   ],
+   "company": "karyopharm"
+  },
+  {
+   "id": "olaparib",
+   "label": "olaparib",
+   "synonyms": [
+    "olaparib",
+    "Lynparza"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "PARP inhibitor",
+   "targets": [
+    "PARP1"
+   ],
+   "company": "astrazeneca"
+  },
+  {
+   "id": "niraparib",
+   "label": "niraparib",
+   "synonyms": [
+    "niraparib",
+    "Zejula"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "PARP inhibitor",
+   "targets": [
+    "PARP1"
+   ],
+   "company": "tesaro"
+  },
+  {
+   "id": "talazoparib",
+   "label": "talazoparib",
+   "synonyms": [
+    "talazoparib",
+    "Talzenna"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "PARP inhibitor",
+   "targets": [
+    "PARP1"
+   ],
+   "company": "pfizer"
+  },
+  {
+   "id": "rucaparib",
+   "label": "rucaparib",
+   "synonyms": [
+    "rucaparib",
+    "Rubraca"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "PARP inhibitor",
+   "targets": [
+    "PARP1"
+   ],
+   "company": "clovis"
+  },
+  {
+   "id": "nirogacestat",
+   "label": "nirogacestat",
+   "synonyms": [
+    "nirogacestat",
+    "Ogsiveo"
+   ],
+   "codes": [
+    "PF-03084014"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "gamma-secretase inhibitor",
+   "targets": [
+    "PSEN1"
+   ],
+   "company": "springworks"
+  },
+  {
+   "id": "varegacestat",
+   "label": "varegacestat (AL102)",
+   "synonyms": [
+    "varegacestat"
+   ],
+   "codes": [
+    "AL102",
+    "AL-102",
+    "BMS-986115"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "gamma-secretase inhibitor",
+   "targets": [
+    "PSEN1"
+   ],
+   "company": "ayala"
+  },
+  {
+   "id": "tegavivint",
+   "label": "tegavivint",
+   "synonyms": [
+    "tegavivint"
+   ],
+   "codes": [
+    "BC2059"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "TBL1 binder; Wnt/beta-catenin pathway inhibitor",
+   "targets": [
+    "CTNNB1"
+   ],
+   "company": "iterion"
+  },
+  {
+   "id": "seclidemstat",
+   "label": "seclidemstat",
+   "synonyms": [
+    "seclidemstat"
+   ],
+   "codes": [
+    "SP-2577"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "LSD1 inhibitor",
+   "targets": [
+    "LSD1"
+   ],
+   "company": "salarius"
+  },
+  {
+   "id": "tk216",
+   "label": "TK216",
+   "synonyms": [],
+   "codes": [
+    "TK216",
+    "TK-216",
+    "ONCT-216"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "EWS-FLI1 inhibitor (proposed); microtubule destabilizer",
+   "targets": [],
+   "company": "oncternal"
+  },
+  {
+   "id": "tamoxifen",
+   "label": "tamoxifen",
+   "synonyms": [
+    "tamoxifen"
+   ],
+   "modality": "hormonal_therapy",
+   "mechanism": "selective estrogen receptor modulator",
+   "targets": [
+    "ESR1"
+   ]
+  },
+  {
+   "id": "letrozole",
+   "label": "letrozole",
+   "synonyms": [
+    "letrozole"
+   ],
+   "modality": "hormonal_therapy",
+   "mechanism": "aromatase inhibitor",
+   "targets": [
+    "CYP19A1"
+   ]
+  },
+  {
+   "id": "anastrozole",
+   "label": "anastrozole",
+   "synonyms": [
+    "anastrozole"
+   ],
+   "modality": "hormonal_therapy",
+   "mechanism": "aromatase inhibitor",
+   "targets": [
+    "CYP19A1"
+   ]
+  },
+  {
+   "id": "exemestane",
+   "label": "exemestane",
+   "synonyms": [
+    "exemestane"
+   ],
+   "modality": "hormonal_therapy",
+   "mechanism": "aromatase inhibitor",
+   "targets": [
+    "CYP19A1"
+   ]
+  },
+  {
+   "id": "megestrol",
+   "label": "megestrol acetate",
+   "synonyms": [
+    "megestrol",
+    "megestrol acetate"
+   ],
+   "modality": "hormonal_therapy",
+   "mechanism": "progestin",
+   "targets": [
+    "PGR"
+   ]
+  },
+  {
+   "id": "propranolol",
+   "label": "propranolol",
+   "synonyms": [
+    "propranolol"
+   ],
+   "modality": "other",
+   "mechanism": "non-selective beta blocker (repurposed)",
+   "targets": []
+  },
+  {
+   "id": "celecoxib",
+   "label": "celecoxib",
+   "synonyms": [
+    "celecoxib"
+   ],
+   "modality": "other",
+   "mechanism": "COX-2 inhibitor",
+   "targets": []
+  },
+  {
+   "id": "afami_cel",
+   "label": "afamitresgene autoleucel (afami-cel)",
+   "synonyms": [
+    "afamitresgene autoleucel",
+    "afami-cel",
+    "afamicel",
+    "Tecelra"
+   ],
+   "codes": [
+    "ADP-A2M4"
+   ],
+   "modality": "cell_therapy",
+   "mechanism": "MAGE-A4-directed engineered TCR T cells (HLA-A*02 restricted)",
+   "targets": [
+    "MAGEA4"
+   ],
+   "company": "adaptimmune"
+  },
+  {
+   "id": "lete_cel",
+   "label": "letetresgene autoleucel (lete-cel)",
+   "synonyms": [
+    "letetresgene autoleucel",
+    "lete-cel",
+    "letecel",
+    "leteresgene autoleucel"
+   ],
+   "codes": [
+    "GSK3377794",
+    "GSK794"
+   ],
+   "modality": "cell_therapy",
+   "mechanism": "NY-ESO-1-directed engineered TCR T cells",
+   "targets": [
+    "CTAG1B"
+   ],
+   "company": "adaptimmune"
+  },
+  {
+   "id": "uza_cel",
+   "label": "uzatresgene autoleucel (uza-cel)",
+   "synonyms": [
+    "uzatresgene autoleucel",
+    "uza-cel"
+   ],
+   "codes": [
+    "ADP-A2M4CD8"
+   ],
+   "modality": "cell_therapy",
+   "mechanism": "MAGE-A4-directed TCR T cells with CD8alpha co-receptor",
+   "targets": [
+    "MAGEA4"
+   ],
+   "company": "adaptimmune"
+  },
+  {
+   "id": "lifileucel",
+   "label": "lifileucel",
+   "synonyms": [
+    "lifileucel",
+    "Amtagvi"
+   ],
+   "codes": [
+    "LN-144"
+   ],
+   "modality": "cell_therapy",
+   "mechanism": "tumor-infiltrating lymphocyte therapy",
+   "targets": [],
+   "company": "iovance"
+  },
+  {
+   "id": "radium223",
+   "label": "radium-223 dichloride",
+   "synonyms": [
+    "radium-223",
+    "radium 223",
+    "radium Ra 223 dichloride",
+    "Xofigo",
+    "223Ra",
+    "Ra-223"
+   ],
+   "modality": "radiopharmaceutical",
+   "mechanism": "alpha-emitting bone-seeking radionuclide",
+   "targets": [],
+   "company": "bayer"
+  },
+  {
+   "id": "lu177_dotatate",
+   "label": "177Lu-DOTATATE",
+   "synonyms": [
+    "177Lu-DOTATATE",
+    "lutetium Lu 177 dotatate",
+    "lutetium-177 dotatate",
+    "Lutathera",
+    "Lu-177 DOTATATE",
+    "[177Lu]Lu-DOTA-TATE"
+   ],
+   "modality": "radiopharmaceutical",
+   "mechanism": "SSTR2-targeted radioligand",
+   "targets": [
+    "SSTR2"
+   ],
+   "company": "novartis"
+  },
+  {
+   "id": "sm153",
+   "label": "samarium-153 EDTMP",
+   "synonyms": [
+    "samarium-153",
+    "153Sm-EDTMP",
+    "samarium Sm 153 lexidronam",
+    "Quadramet",
+    "Sm-153"
+   ],
+   "modality": "radiopharmaceutical",
+   "mechanism": "bone-seeking beta emitter",
+   "targets": []
+  },
+  {
+   "id": "fap2286",
+   "label": "177Lu-FAP-2286",
+   "synonyms": [
+    "177Lu-FAP-2286",
+    "FAP-2286",
+    "177Lu-FAPI-46",
+    "177Lu-FAPI"
+   ],
+   "modality": "radiopharmaceutical",
+   "mechanism": "FAP-targeted radioligand",
+   "targets": [
+    "FAP"
+   ],
+   "company": null
+  },
+  {
+   "id": "t_vec",
+   "label": "talimogene laherparepvec",
+   "synonyms": [
+    "talimogene laherparepvec",
+    "Imlygic"
+   ],
+   "caseSensitive": [
+    "T-VEC",
+    "TVEC"
+   ],
+   "modality": "oncolytic_virus",
+   "mechanism": "GM-CSF-armed oncolytic HSV-1",
+   "targets": [],
+   "company": "amgen"
+  },
+  {
+   "id": "rp1",
+   "label": "vusolimogene oderparepvec (RP1)",
+   "synonyms": [
+    "vusolimogene oderparepvec"
+   ],
+   "codes": [
+    "RP1"
+   ],
+   "modality": "oncolytic_virus",
+   "mechanism": "oncolytic HSV-1",
+   "targets": [],
+   "company": "replimune"
+  },
+  {
+   "id": "ost_her2",
+   "label": "OST-HER2",
+   "synonyms": [],
+   "codes": [
+    "OST-HER2",
+    "OST31-164",
+    "ADXS31-164"
+   ],
+   "modality": "vaccine",
+   "mechanism": "Listeria-based HER2-directed immunotherapy",
+   "targets": [
+    "ERBB2"
+   ],
+   "company": "os_therapies"
+  },
+  {
+   "id": "class_anti_pd1",
+   "label": "anti-PD-1 antibody (class)",
+   "isClass": true,
+   "synonyms": [
+    "anti-PD-1",
+    "anti-PD1",
+    "anti-PD-1 antibody",
+    "anti-PD-1 antibodies",
+    "anti-PD-1 therapy",
+    "PD-1 inhibitor",
+    "PD-1 inhibitors",
+    "PD-1 blockade",
+    "PD-1 blocking antibody",
+    "PD-1 antibody",
+    "PD-1 antibodies",
+    "PD-1 inhibition",
+    "PD1 inhibitor",
+    "PD1 inhibitors",
+    "PD-1 checkpoint inhibitor",
+    "PD-1 checkpoint inhibitors"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "PD-1 blockade",
+   "targets": [
+    "PDCD1"
+   ]
+  },
+  {
+   "id": "class_anti_pdl1",
+   "label": "anti-PD-L1 antibody (class)",
+   "isClass": true,
+   "synonyms": [
+    "anti-PD-L1",
+    "anti-PDL1",
+    "anti-PD-L1 antibody",
+    "PD-L1 inhibitor",
+    "PD-L1 inhibitors",
+    "PD-L1 blockade",
+    "PD-L1 antibody",
+    "PD-L1 antagonist",
+    "PD-L1 antagonists",
+    "PD-L1 inhibition"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "PD-L1 blockade",
+   "targets": [
+    "CD274"
+   ]
+  },
+  {
+   "id": "class_anti_pd1_pdl1",
+   "label": "anti-PD-(L)1 antibody (class)",
+   "isClass": true,
+   "synonyms": [
+    "PD-1/PD-L1 inhibitor",
+    "PD-1/PD-L1 inhibitors",
+    "PD-1/PD-L1 blockade",
+    "anti-PD-1/PD-L1",
+    "PD-(L)1 inhibitor",
+    "PD-(L)1 inhibitors",
+    "anti-PD-(L)1",
+    "PD-(L)1 blockade"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "PD-1/PD-L1 axis blockade",
+   "targets": [
+    "PDCD1",
+    "CD274"
+   ]
+  },
+  {
+   "id": "class_anti_ctla4",
+   "label": "anti-CTLA-4 antibody (class)",
+   "isClass": true,
+   "synonyms": [
+    "anti-CTLA-4",
+    "anti-CTLA4",
+    "CTLA-4 inhibitor",
+    "CTLA-4 inhibitors",
+    "CTLA-4 blockade"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "CTLA-4 blockade",
+   "targets": [
+    "CTLA4"
+   ]
+  },
+  {
+   "id": "class_ici",
+   "label": "immune checkpoint inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "immune checkpoint inhibitor",
+    "immune checkpoint inhibitors",
+    "immune checkpoint blockade",
+    "checkpoint inhibitor",
+    "checkpoint inhibitors",
+    "checkpoint blockade",
+    "immune checkpoint inhibition",
+    "immune-checkpoint inhibitors"
+   ],
+   "caseSensitive": [
+    "ICI",
+    "ICIs",
+    "ICB"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "immune checkpoint blockade (target unspecified)",
+   "targets": []
+  },
+  {
+   "id": "class_cdk46i",
+   "label": "CDK4/6 inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "CDK4/6 inhibitor",
+    "CDK4/6 inhibitors",
+    "CDK4/6 inhibition",
+    "CDK4/6i",
+    "CDK4 inhibitor",
+    "CDK4 inhibitors",
+    "CDK4/6-inhibitor"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "CDK4/6 inhibition",
+   "targets": [
+    "CDK4",
+    "CDK6"
+   ]
+  },
+  {
+   "id": "class_mdm2i",
+   "label": "MDM2 inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "MDM2 inhibitor",
+    "MDM2 inhibitors",
+    "MDM2 antagonist",
+    "MDM2 antagonists",
+    "MDM2-p53 antagonist",
+    "MDM2-p53 antagonists",
+    "MDM2 inhibition"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "MDM2-p53 antagonism",
+   "targets": [
+    "MDM2"
+   ]
+  },
+  {
+   "id": "class_tki",
+   "label": "tyrosine kinase inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "tyrosine kinase inhibitor",
+    "tyrosine kinase inhibitors",
+    "multi-kinase inhibitor",
+    "multikinase inhibitor",
+    "multi-kinase inhibitors",
+    "multitargeted tyrosine kinase inhibitor",
+    "multi-targeted tyrosine kinase inhibitor"
+   ],
+   "caseSensitive": [
+    "TKI",
+    "TKIs"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "kinase inhibition (targets unspecified)",
+   "targets": []
+  },
+  {
+   "id": "class_vegfr_tki",
+   "label": "VEGFR TKI / anti-angiogenic TKI (class)",
+   "isClass": true,
+   "synonyms": [
+    "VEGFR inhibitor",
+    "VEGFR inhibitors",
+    "VEGFR TKI",
+    "VEGFR-TKI",
+    "VEGFR TKIs",
+    "anti-angiogenic TKI",
+    "antiangiogenic TKI",
+    "anti-angiogenic tyrosine kinase inhibitor",
+    "antiangiogenic tyrosine kinase inhibitor",
+    "anti-angiogenic tyrosine kinase inhibitors",
+    "antiangiogenic tyrosine kinase inhibitors",
+    "VEGFR-targeted TKI"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "VEGFR kinase inhibition",
+   "targets": [
+    "KDR",
+    "FLT1",
+    "FLT4"
+   ]
+  },
+  {
+   "id": "class_kit_tki",
+   "label": "KIT inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "KIT inhibitor",
+    "KIT inhibitors",
+    "KIT TKI",
+    "KIT TKIs",
+    "KIT-targeted TKI"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "KIT kinase inhibition",
+   "targets": [
+    "KIT"
+   ]
+  },
+  {
+   "id": "class_trk_i",
+   "label": "TRK inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "TRK inhibitor",
+    "TRK inhibitors",
+    "NTRK inhibitor",
+    "NTRK inhibitors"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "TRK kinase inhibition",
+   "targets": [
+    "NTRK1",
+    "NTRK2",
+    "NTRK3"
+   ]
+  },
+  {
+   "id": "class_mek_i",
+   "label": "MEK inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "MEK inhibitor",
+    "MEK inhibitors",
+    "MEK inhibition"
+   ],
+   "caseSensitive": [
+    "MEKi"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "MEK inhibition",
+   "targets": [
+    "MAP2K1",
+    "MAP2K2"
+   ]
+  },
+  {
+   "id": "class_alk_i",
+   "label": "ALK inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "ALK inhibitor",
+    "ALK inhibitors",
+    "ALK TKI",
+    "ALK TKIs",
+    "ALK-targeted therapy",
+    "ALK-targeted therapies",
+    "ALK-directed therapy"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ALK inhibition",
+   "targets": [
+    "ALK"
+   ]
+  },
+  {
+   "id": "class_csf1r_i",
+   "label": "CSF1R inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "CSF1R inhibitor",
+    "CSF1R inhibitors",
+    "CSF-1R inhibitor",
+    "CSF-1R inhibitors",
+    "CSF1R-targeted therapy",
+    "CSF1R-targeted therapies"
+   ],
+   "modality": null,
+   "mechanism": "CSF1R pathway inhibition (small molecule or antibody)",
+   "targets": [
+    "CSF1R"
+   ]
+  },
+  {
+   "id": "class_gsi",
+   "label": "gamma-secretase inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "gamma-secretase inhibitor",
+    "gamma-secretase inhibitors",
+    "gamma secretase inhibitor",
+    "gamma secretase inhibitors",
+    "γ-secretase inhibitor",
+    "γ-secretase inhibitors"
+   ],
+   "caseSensitive": [
+    "GSI",
+    "GSIs"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "gamma-secretase inhibition",
+   "targets": [
+    "PSEN1"
+   ]
+  },
+  {
+   "id": "class_parpi",
+   "label": "PARP inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "PARP inhibitor",
+    "PARP inhibitors",
+    "PARP inhibition"
+   ],
+   "caseSensitive": [
+    "PARPi",
+    "PARPis"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "PARP inhibition",
+   "targets": [
+    "PARP1"
+   ]
+  },
+  {
+   "id": "class_atri",
+   "label": "ATR inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "ATR inhibitor",
+    "ATR inhibitors",
+    "ATR inhibition"
+   ],
+   "caseSensitive": [
+    "ATRi"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "ATR inhibition",
+   "targets": [
+    "ATR"
+   ]
+  },
+  {
+   "id": "class_wee1i",
+   "label": "WEE1 inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "WEE1 inhibitor",
+    "WEE1 inhibitors",
+    "WEE1 inhibition"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "WEE1 inhibition",
+   "targets": [
+    "WEE1"
+   ]
+  },
+  {
+   "id": "class_ezh2i",
+   "label": "EZH2 inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "EZH2 inhibitor",
+    "EZH2 inhibitors",
+    "EZH2 inhibition"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "EZH2 inhibition",
+   "targets": [
+    "EZH2"
+   ]
+  },
+  {
+   "id": "class_mtori",
+   "label": "mTOR inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "mTOR inhibitor",
+    "mTOR inhibitors",
+    "mTOR inhibition",
+    "rapalog",
+    "rapalogs"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "mTOR inhibition",
+   "targets": [
+    "MTOR"
+   ]
+  },
+  {
+   "id": "class_xpo1i",
+   "label": "XPO1 inhibitor (class)",
+   "isClass": true,
+   "synonyms": [
+    "XPO1 inhibitor",
+    "XPO1 inhibitors",
+    "exportin-1 inhibitor",
+    "SINE compound"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "XPO1 inhibition",
+   "targets": [
+    "XPO1"
+   ]
+  },
+  {
+   "id": "class_anthracycline",
+   "label": "anthracycline (class)",
+   "isClass": true,
+   "synonyms": [
+    "anthracycline",
+    "anthracyclines",
+    "anthracycline-based",
+    "anthracycline-containing"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "anthracycline chemotherapy",
+   "targets": []
+  },
+  {
+   "id": "class_platinum",
+   "label": "platinum chemotherapy (class)",
+   "isClass": true,
+   "synonyms": [
+    "platinum-based chemotherapy",
+    "platinum chemotherapy",
+    "platinum-based"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "platinum chemotherapy",
+   "targets": []
+  },
+  {
+   "id": "class_taxane",
+   "label": "taxane (class)",
+   "isClass": true,
+   "synonyms": [
+    "taxane",
+    "taxanes",
+    "taxane-based"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "taxane chemotherapy",
+   "targets": []
+  },
+  {
+   "id": "class_alkylator",
+   "label": "alkylating agent (class)",
+   "isClass": true,
+   "synonyms": [
+    "alkylating agent",
+    "alkylating agents",
+    "alkylating chemotherapy",
+    "alkylator",
+    "alkylators"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "alkylating chemotherapy",
+   "targets": []
+  },
+  {
+   "id": "class_car_t",
+   "label": "CAR T-cell therapy (class)",
+   "isClass": true,
+   "synonyms": [
+    "chimeric antigen receptor T",
+    "chimeric antigen receptor T-cell",
+    "chimeric antigen receptor T cell",
+    "chimeric antigen receptor"
+   ],
+   "modality": "cell_therapy",
+   "mechanism": "CAR-engineered immune cells (antigen given in text)",
+   "targets": [],
+   "caseSensitive": [
+    "CAR-T",
+    "CAR T",
+    "CAR T-cell",
+    "CAR T-cells",
+    "CAR T cell",
+    "CAR T cells",
+    "CAR-T cell",
+    "CAR-T cells",
+    "CAR-NK",
+    "CAR NK"
+   ]
+  },
+  {
+   "id": "class_tcr_t",
+   "label": "TCR-T cell therapy (class)",
+   "isClass": true,
+   "synonyms": [
+    "engineered T-cell receptor",
+    "engineered TCR"
+   ],
+   "modality": "cell_therapy",
+   "mechanism": "engineered TCR T cells",
+   "targets": [],
+   "caseSensitive": [
+    "TCR-T",
+    "TCR T-cell",
+    "TCR T cell",
+    "TCR T-cells",
+    "TCR-T cell",
+    "TCR-T cells",
+    "TCR-engineered T cells",
+    "SPEAR T-cell",
+    "SPEAR T cells"
+   ]
+  },
+  {
+   "id": "class_til",
+   "label": "TIL therapy (class)",
+   "isClass": true,
+   "synonyms": [
+    "TIL therapy",
+    "TIL cell therapy",
+    "adoptive TIL",
+    "tumor-infiltrating lymphocyte therapy",
+    "tumour-infiltrating lymphocyte therapy",
+    "adoptive cell therapy",
+    "adoptive cellular therapy"
+   ],
+   "modality": "cell_therapy",
+   "mechanism": "adoptive cell therapy",
+   "targets": []
+  },
+  {
+   "id": "class_adc",
+   "label": "antibody-drug conjugate (class)",
+   "isClass": true,
+   "synonyms": [
+    "antibody-drug conjugate",
+    "antibody-drug conjugates",
+    "antibody drug conjugate",
+    "antibody drug conjugates"
+   ],
+   "caseSensitive": [
+    "ADC",
+    "ADCs"
+   ],
+   "modality": "adc",
+   "mechanism": "antibody-drug conjugate (target given in text)",
+   "targets": []
+  },
+  {
+   "id": "class_bispecific",
+   "label": "bispecific antibody (class)",
+   "isClass": true,
+   "synonyms": [
+    "bispecific antibody",
+    "bispecific antibodies",
+    "bispecific T-cell engager",
+    "bispecific T cell engager",
+    "T-cell engager",
+    "T cell engager"
+   ],
+   "caseSensitive": [
+    "BiTE"
+   ],
+   "modality": "bispecific_antibody",
+   "mechanism": "bispecific antibody",
+   "targets": []
+  },
+  {
+   "id": "class_radioligand",
+   "label": "radioligand therapy (class)",
+   "isClass": true,
+   "synonyms": [
+    "radioligand therapy",
+    "radioligand therapies",
+    "peptide receptor radionuclide therapy",
+    "radiopharmaceutical therapy",
+    "targeted radionuclide therapy"
+   ],
+   "caseSensitive": [
+    "PRRT",
+    "RLT"
+   ],
+   "modality": "radiopharmaceutical",
+   "mechanism": "radioligand therapy",
+   "targets": []
+  },
+  {
+   "id": "class_oncolytic",
+   "label": "oncolytic virus (class)",
+   "isClass": true,
+   "synonyms": [
+    "oncolytic virus",
+    "oncolytic viruses",
+    "oncolytic virotherapy",
+    "oncolytic viral therapy"
+   ],
+   "modality": "oncolytic_virus",
+   "mechanism": "oncolytic virus",
+   "targets": []
+  },
+  {
+   "id": "class_vaccine",
+   "label": "cancer vaccine (class)",
+   "isClass": true,
+   "synonyms": [
+    "cancer vaccine",
+    "cancer vaccines",
+    "dendritic cell vaccine",
+    "dendritic cell vaccines",
+    "tumor vaccine",
+    "peptide vaccine",
+    "mRNA vaccine",
+    "neoantigen vaccine"
+   ],
+   "modality": "vaccine",
+   "mechanism": "therapeutic vaccine",
+   "targets": []
+  },
+  {
+   "id": "class_bisphosphonate",
+   "label": "bisphosphonate (class)",
+   "isClass": true,
+   "synonyms": [
+    "bisphosphonate",
+    "bisphosphonates"
+   ],
+   "modality": "other",
+   "mechanism": "bisphosphonate",
+   "targets": []
+  },
+  {
+   "id": "zanzalintinib",
+   "label": "zanzalintinib",
+   "synonyms": [
+    "zanzalintinib"
+   ],
+   "codes": [
+    "XL092"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "VEGFR2/MET/AXL/MER inhibitor",
+   "targets": [
+    "KDR",
+    "MET",
+    "AXL"
+   ],
+   "targetsSecondary": [
+    "MERTK"
+   ],
+   "company": "exelixis"
+  },
+  {
+   "id": "vebreltinib",
+   "label": "vebreltinib",
+   "synonyms": [
+    "vebreltinib",
+    "bozitinib"
+   ],
+   "codes": [
+    "APL-101",
+    "PLB1001"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "selective MET inhibitor",
+   "targets": [
+    "MET"
+   ],
+   "company": null
+  },
+  {
+   "id": "avutometinib",
+   "label": "avutometinib",
+   "synonyms": [
+    "avutometinib"
+   ],
+   "codes": [
+    "VS-6766",
+    "RO5126766",
+    "CH5126766"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "RAF/MEK clamp",
+   "targets": [
+    "MAP2K1",
+    "MAP2K2"
+   ],
+   "targetsSecondary": [
+    "BRAF",
+    "RAF1"
+   ],
+   "company": "verastem"
+  },
+  {
+   "id": "defactinib",
+   "label": "defactinib",
+   "synonyms": [
+    "defactinib"
+   ],
+   "codes": [
+    "VS-6063"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "FAK inhibitor",
+   "targets": [
+    "PTK2"
+   ],
+   "company": "verastem"
+  },
+  {
+   "id": "vs4718",
+   "label": "VS-4718",
+   "synonyms": [],
+   "codes": [
+    "VS-4718"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "FAK inhibitor",
+   "targets": [
+    "PTK2"
+   ],
+   "company": "verastem"
+  },
+  {
+   "id": "bortezomib",
+   "label": "bortezomib",
+   "synonyms": [
+    "bortezomib",
+    "Velcade"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "proteasome inhibitor",
+   "targets": [
+    "PSMB5"
+   ],
+   "company": "takeda"
+  },
+  {
+   "id": "erlotinib",
+   "label": "erlotinib",
+   "synonyms": [
+    "erlotinib",
+    "Tarceva"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "EGFR inhibitor",
+   "targets": [
+    "EGFR"
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "osimertinib",
+   "label": "osimertinib",
+   "synonyms": [
+    "osimertinib",
+    "Tagrisso"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "EGFR inhibitor",
+   "targets": [
+    "EGFR"
+   ],
+   "company": "astrazeneca"
+  },
+  {
+   "id": "gefitinib",
+   "label": "gefitinib",
+   "synonyms": [
+    "gefitinib"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "EGFR inhibitor",
+   "targets": [
+    "EGFR"
+   ],
+   "company": "astrazeneca"
+  },
+  {
+   "id": "rituximab",
+   "label": "rituximab",
+   "synonyms": [
+    "rituximab"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-CD20 antibody",
+   "targets": [
+    "MS4A1"
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "tocilizumab",
+   "label": "tocilizumab",
+   "synonyms": [
+    "tocilizumab"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-IL-6R antibody (supportive, e.g. CRS)",
+   "targets": [
+    "IL6R"
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "narlumosbart",
+   "label": "narlumosbart",
+   "synonyms": [
+    "narlumosbart"
+   ],
+   "codes": [
+    "JMT103"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-RANKL antibody",
+   "targets": [
+    "TNFSF11"
+   ],
+   "company": null
+  },
+  {
+   "id": "cofetuzumab",
+   "label": "cofetuzumab pelidotin",
+   "synonyms": [
+    "cofetuzumab pelidotin"
+   ],
+   "codes": [
+    "PF-06647020",
+    "ABBV-647"
+   ],
+   "modality": "adc",
+   "mechanism": "PTK7-directed ADC with auristatin payload",
+   "targets": [
+    "PTK7"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "cofetuzumab",
+     "target": "PTK7"
+    },
+    {
+     "role": "payload",
+     "name": "Aur0101 (pelidotin)",
+     "payloadClass": "microtubule inhibitor"
+    }
+   ],
+   "company": "pfizer"
+  },
+  {
+   "id": "samrotamab",
+   "label": "samrotamab (vedotin)",
+   "synonyms": [
+    "samrotamab",
+    "samrotamab vedotin"
+   ],
+   "codes": [
+    "ABBV-085"
+   ],
+   "modality": "adc",
+   "mechanism": "LRRC15-directed antibody (ADC as samrotamab vedotin)",
+   "targets": [
+    "LRRC15"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "samrotamab",
+     "target": "LRRC15"
+    },
+    {
+     "role": "payload",
+     "name": "MMAE (vedotin)",
+     "payloadClass": "microtubule inhibitor"
+    }
+   ],
+   "company": "abbvie"
+  },
+  {
+   "id": "zl6201",
+   "label": "ZL-6201",
+   "synonyms": [],
+   "codes": [
+    "ZL-6201"
+   ],
+   "modality": "adc",
+   "mechanism": "LRRC15-directed ADC",
+   "targets": [
+    "LRRC15"
+   ],
+   "components": [
+    {
+     "role": "antibody",
+     "name": "anti-LRRC15 antibody",
+     "target": "LRRC15"
+    },
+    {
+     "role": "payload",
+     "name": "undisclosed",
+     "payloadClass": null
+    }
+   ],
+   "company": "zai_lab"
+  },
+  {
+   "id": "exatecan",
+   "label": "exatecan",
+   "synonyms": [
+    "exatecan"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "topoisomerase I inhibitor (camptothecin; ADC/PDC payload)",
+   "targets": []
+  },
+  {
+   "id": "cbx12",
+   "label": "CBX-12 (alphalex exatecan)",
+   "synonyms": [
+    "alphalex exatecan"
+   ],
+   "codes": [
+    "CBX-12"
+   ],
+   "modality": "other",
+   "mechanism": "pH-sensitive peptide-drug conjugate delivering exatecan",
+   "targets": [],
+   "components": [
+    {
+     "role": "carrier",
+     "name": "pHLIP peptide (alphalex)",
+     "target": null
+    },
+    {
+     "role": "payload",
+     "name": "exatecan",
+     "payloadClass": "topoisomerase I inhibitor"
+    }
+   ],
+   "company": "cybrexa"
+  },
+  {
+   "id": "pimitespib",
+   "label": "pimitespib",
+   "synonyms": [
+    "pimitespib",
+    "Jeselhy"
+   ],
+   "codes": [
+    "TAS-116"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "HSP90 inhibitor",
+   "targets": [
+    "HSP90AA1"
+   ],
+   "company": "taiho"
+  },
+  {
+   "id": "elacestrant",
+   "label": "elacestrant",
+   "synonyms": [
+    "elacestrant",
+    "Orserdu"
+   ],
+   "codes": [
+    "RAD1901"
+   ],
+   "modality": "hormonal_therapy",
+   "mechanism": "oral SERD",
+   "targets": [
+    "ESR1"
+   ],
+   "company": "menarini"
+  },
+  {
+   "id": "telaglenastat",
+   "label": "telaglenastat",
+   "synonyms": [
+    "telaglenastat"
+   ],
+   "codes": [
+    "CB-839"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "glutaminase inhibitor",
+   "targets": [
+    "GLS"
+   ],
+   "company": null
+  },
+  {
+   "id": "eprenetapopt",
+   "label": "eprenetapopt",
+   "synonyms": [
+    "eprenetapopt"
+   ],
+   "codes": [
+    "APR-246"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "mutant p53 reactivator",
+   "targets": [
+    "TP53"
+   ],
+   "company": null
+  },
+  {
+   "id": "prexasertib",
+   "label": "prexasertib",
+   "synonyms": [
+    "prexasertib"
+   ],
+   "codes": [
+    "LY2606368"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "CHK1 inhibitor",
+   "targets": [
+    "CHEK1"
+   ],
+   "company": "lilly"
+  },
+  {
+   "id": "azd7762",
+   "label": "AZD7762",
+   "synonyms": [],
+   "codes": [
+    "AZD7762"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "CHK1 inhibitor",
+   "targets": [
+    "CHEK1"
+   ],
+   "company": "astrazeneca"
+  },
+  {
+   "id": "foretinib",
+   "label": "foretinib",
+   "synonyms": [
+    "foretinib"
+   ],
+   "codes": [
+    "GSK1363089",
+    "XL880"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "MET/VEGFR2 inhibitor",
+   "targets": [
+    "MET",
+    "KDR"
+   ],
+   "company": null
+  },
+  {
+   "id": "pictilisib",
+   "label": "pictilisib",
+   "synonyms": [
+    "pictilisib"
+   ],
+   "codes": [
+    "GDC-0941"
+   ],
+   "modality": "small_molecule_kinase_inhibitor",
+   "mechanism": "pan-class I PI3K inhibitor",
+   "targets": [
+    "PIK3CA"
+   ],
+   "company": "roche"
+  },
+  {
+   "id": "benmelstobart",
+   "label": "benmelstobart (TQB2450)",
+   "synonyms": [
+    "benmelstobart"
+   ],
+   "codes": [
+    "TQB2450"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-PD-L1 antibody",
+   "targets": [
+    "CD274"
+   ],
+   "company": "cttq"
+  },
+  {
+   "id": "odm212",
+   "label": "ODM-212",
+   "synonyms": [],
+   "codes": [
+    "ODM-212"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "TEAD inhibitor",
+   "targets": [
+    "TEAD1"
+   ],
+   "company": "orion"
+  },
+  {
+   "id": "sa53",
+   "label": "SA53",
+   "synonyms": [],
+   "codes": [
+    "SA53"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "MDM2 inhibitor",
+   "targets": [
+    "MDM2"
+   ],
+   "company": null
+  },
+  {
+   "id": "stc15",
+   "label": "STC-15",
+   "synonyms": [],
+   "codes": [
+    "STC-15"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "METTL3 inhibitor",
+   "targets": [
+    "METTL3"
+   ],
+   "company": "storm"
+  },
+  {
+   "id": "fhd286",
+   "label": "FHD-286",
+   "synonyms": [],
+   "codes": [
+    "FHD-286"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "BRG1/BRM (SMARCA4/SMARCA2) ATPase inhibitor",
+   "targets": [
+    "SMARCA4"
+   ],
+   "company": "foghorn"
+  },
+  {
+   "id": "ot82",
+   "label": "OT-82",
+   "synonyms": [],
+   "codes": [
+    "OT-82"
+   ],
+   "modality": "small_molecule_targeted",
+   "mechanism": "NAMPT inhibitor",
+   "targets": [
+    "NAMPT"
+   ],
+   "company": null
+  },
+  {
+   "id": "rtx2358",
+   "label": "[177Lu]RTX-2358",
+   "synonyms": [],
+   "codes": [
+    "RTX-2358"
+   ],
+   "modality": "radiopharmaceutical",
+   "mechanism": "FAP-targeted radioligand",
+   "targets": [
+    "FAP"
+   ],
+   "company": null
+  },
+  {
+   "id": "gtb5550",
+   "label": "GTB-5550 (B7-H3 TriKE)",
+   "synonyms": [
+    "B7-H3 TriKE"
+   ],
+   "codes": [
+    "GTB-5550"
+   ],
+   "modality": "bispecific_antibody",
+   "mechanism": "tri-specific killer engager (CD16 x B7-H3 + IL-15)",
+   "targets": [
+    "CD276"
+   ],
+   "company": null
+  },
+  {
+   "id": "snk01",
+   "label": "SNK01 (autologous NK cells)",
+   "synonyms": [],
+   "codes": [
+    "SNK01",
+    "SNK02"
+   ],
+   "modality": "cell_therapy",
+   "mechanism": "non-genetically modified enhanced NK cells",
+   "targets": [],
+   "company": null
+  },
+  {
+   "id": "atyr2810",
+   "label": "ATYR2810",
+   "synonyms": [],
+   "codes": [
+    "ATYR2810"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "anti-neuropilin-2 antibody",
+   "targets": [
+    "NRP2"
+   ],
+   "company": null
+  },
+  {
+   "id": "imiquimod",
+   "label": "imiquimod",
+   "synonyms": [
+    "imiquimod"
+   ],
+   "codes": [
+    "R837"
+   ],
+   "modality": "other",
+   "mechanism": "TLR7 agonist",
+   "targets": [],
+   "company": null
+  },
+  {
+   "id": "class_anti_lag3",
+   "label": "anti-LAG-3 antibody (class)",
+   "isClass": true,
+   "synonyms": [
+    "anti-LAG-3",
+    "anti-LAG3",
+    "LAG-3 inhibitor",
+    "LAG-3 inhibitors",
+    "LAG-3 blockade"
+   ],
+   "modality": "monoclonal_antibody",
+   "mechanism": "LAG-3 blockade",
+   "targets": [
+    "LAG3"
+   ]
+  },
+  {
+   "id": "palifosfamide",
+   "label": "palifosfamide",
+   "synonyms": [
+    "palifosfamide"
+   ],
+   "codes": [
+    "ZIO-201"
+   ],
+   "modality": "chemotherapy",
+   "mechanism": "alkylating agent (active ifosfamide metabolite)",
+   "targets": [],
+   "company": null
+  },
+  {
+   "id": "dng64_car_v",
+   "label": "DNG64-CAR-V",
+   "synonyms": [],
+   "codes": [
+    "DNG64-CAR-V"
+   ],
+   "modality": "other",
+   "mechanism": "tumor-targeted retroviral vector encoding a cytocidal CCNG1 inhibitor gene (gene therapy)",
+   "targets": [
+    "CCNG1"
+   ],
+   "company": null
+  }
+ ],
+ "regimens": [
+  {
+   "id": "reg_map",
+   "label": "MAP (methotrexate, doxorubicin, cisplatin)",
+   "names": [
+    "MAP chemotherapy",
+    "MAP regimen",
+    "MAP-based chemotherapy"
+   ],
+   "caseSensitive": [
+    "MAP"
+   ],
+   "ambiguous": [
+    "MAP"
+   ],
+   "components": [
+    "methotrexate",
+    "doxorubicin",
+    "cisplatin"
+   ]
+  },
+  {
+   "id": "reg_aim",
+   "label": "AIM (doxorubicin, ifosfamide, mesna)",
+   "names": [
+    "AIM chemotherapy",
+    "AIM regimen"
+   ],
+   "caseSensitive": [
+    "AIM"
+   ],
+   "ambiguous": [
+    "AIM"
+   ],
+   "components": [
+    "doxorubicin",
+    "ifosfamide"
+   ]
+  },
+  {
+   "id": "reg_vdc_ie",
+   "label": "VDC/IE",
+   "names": [],
+   "caseSensitive": [
+    "VDC/IE",
+    "VDC-IE",
+    "VDC/IE chemotherapy",
+    "VDC and IE"
+   ],
+   "components": [
+    "vincristine",
+    "doxorubicin",
+    "cyclophosphamide",
+    "ifosfamide",
+    "etoposide"
+   ]
+  },
+  {
+   "id": "reg_vdc",
+   "label": "VDC (vincristine, doxorubicin, cyclophosphamide)",
+   "names": [],
+   "caseSensitive": [
+    "VDC"
+   ],
+   "components": [
+    "vincristine",
+    "doxorubicin",
+    "cyclophosphamide"
+   ]
+  },
+  {
+   "id": "reg_ie",
+   "label": "IE (ifosfamide, etoposide)",
+   "names": [
+    "IE chemotherapy"
+   ],
+   "caseSensitive": [
+    "IE"
+   ],
+   "ambiguous": [
+    "IE"
+   ],
+   "components": [
+    "ifosfamide",
+    "etoposide"
+   ]
+  },
+  {
+   "id": "reg_vac",
+   "label": "VAC (vincristine, dactinomycin, cyclophosphamide)",
+   "names": [],
+   "caseSensitive": [
+    "VAC"
+   ],
+   "components": [
+    "vincristine",
+    "dactinomycin",
+    "cyclophosphamide"
+   ]
+  },
+  {
+   "id": "reg_vai",
+   "label": "VAI (vincristine, dactinomycin, ifosfamide)",
+   "names": [],
+   "caseSensitive": [
+    "VAI"
+   ],
+   "components": [
+    "vincristine",
+    "dactinomycin",
+    "ifosfamide"
+   ]
+  },
+  {
+   "id": "reg_vide",
+   "label": "VIDE (vincristine, ifosfamide, doxorubicin, etoposide)",
+   "names": [],
+   "caseSensitive": [
+    "VIDE"
+   ],
+   "components": [
+    "vincristine",
+    "ifosfamide",
+    "doxorubicin",
+    "etoposide"
+   ]
+  },
+  {
+   "id": "reg_vit",
+   "label": "VIT (vincristine, irinotecan, temozolomide)",
+   "names": [],
+   "caseSensitive": [
+    "VIT"
+   ],
+   "ambiguous": [
+    "VIT"
+   ],
+   "components": [
+    "vincristine",
+    "irinotecan",
+    "temozolomide"
+   ]
+  },
+  {
+   "id": "reg_vi",
+   "label": "VI (vincristine, irinotecan)",
+   "names": [],
+   "caseSensitive": [
+    "VAC/VI"
+   ],
+   "components": [
+    "vincristine",
+    "dactinomycin",
+    "cyclophosphamide",
+    "irinotecan"
+   ]
+  },
+  {
+   "id": "reg_gemdoc",
+   "label": "gemcitabine-docetaxel",
+   "names": [
+    "GemDoc",
+    "Gem/Doc",
+    "Gem-Doc",
+    "GemTax"
+   ],
+   "caseSensitive": [],
+   "components": [
+    "gemcitabine",
+    "docetaxel"
+   ]
+  },
+  {
+   "id": "reg_ice",
+   "label": "ICE (ifosfamide, carboplatin, etoposide)",
+   "names": [
+    "ICE chemotherapy",
+    "ICE regimen"
+   ],
+   "caseSensitive": [],
+   "components": [
+    "ifosfamide",
+    "carboplatin",
+    "etoposide"
+   ]
+  },
+  {
+   "id": "reg_opdualag",
+   "label": "nivolumab + relatlimab (Opdualag)",
+   "names": [
+    "Opdualag",
+    "nivolumab and relatlimab-rmbw"
+   ],
+   "caseSensitive": [],
+   "components": [
+    "nivolumab",
+    "relatlimab"
+   ]
+  },
+  {
+   "id": "reg_ai",
+   "label": "doxorubicin + ifosfamide",
+   "names": [],
+   "caseSensitive": [
+    "AI chemotherapy",
+    "AI regimen"
+   ],
+   "components": [
+    "doxorubicin",
+    "ifosfamide"
+   ]
+  }
+ ],
+ "trials": [
+  {
+   "id": "INVICTUS",
+   "names": [
+    "INVICTUS"
+   ],
+   "drug": "ripretinib"
+  },
+  {
+   "id": "INTRIGUE",
+   "names": [
+    "INTRIGUE"
+   ],
+   "drug": "ripretinib"
+  },
+  {
+   "id": "PEAK",
+   "names": [
+    "PEAK"
+   ],
+   "drug": "bezuclastinib",
+   "caseSensitive": true,
+   "contextRequired": true
+  },
+  {
+   "id": "VOYAGER",
+   "names": [
+    "VOYAGER"
+   ],
+   "drug": "avapritinib"
+  },
+  {
+   "id": "NAVIGATOR",
+   "names": [
+    "NAVIGATOR"
+   ],
+   "drug": "avapritinib"
+  },
+  {
+   "id": "DeFi",
+   "names": [
+    "DeFi"
+   ],
+   "drug": "nirogacestat",
+   "caseSensitive": true
+  },
+  {
+   "id": "RINGSIDE",
+   "names": [
+    "RINGSIDE"
+   ],
+   "drug": "varegacestat"
+  },
+  {
+   "id": "MOTION",
+   "names": [
+    "MOTION"
+   ],
+   "drug": "vimseltinib",
+   "caseSensitive": true,
+   "contextRequired": true
+  },
+  {
+   "id": "MANEUVER",
+   "names": [
+    "MANEUVER"
+   ],
+   "drug": "pimicotinib"
+  },
+  {
+   "id": "ENLIVEN",
+   "names": [
+    "ENLIVEN"
+   ],
+   "drug": "pexidartinib"
+  },
+  {
+   "id": "Brightline-1",
+   "names": [
+    "Brightline-1",
+    "Brightline 1"
+   ],
+   "drug": "brigimadlin"
+  },
+  {
+   "id": "Brightline-2",
+   "names": [
+    "Brightline-2"
+   ],
+   "drug": "brigimadlin"
+  },
+  {
+   "id": "MANTRA",
+   "names": [
+    "MANTRA"
+   ],
+   "drug": "milademetan"
+  },
+  {
+   "id": "SPEARHEAD-1",
+   "names": [
+    "SPEARHEAD-1",
+    "SPEARHEAD 1"
+   ],
+   "drug": "afami_cel"
+  },
+  {
+   "id": "IGNYTE-ESO",
+   "names": [
+    "IGNYTE-ESO"
+   ],
+   "drug": "lete_cel"
+  },
+  {
+   "id": "AMPECT",
+   "names": [
+    "AMPECT"
+   ],
+   "drug": "nab_sirolimus"
+  },
+  {
+   "id": "ANNOUNCE",
+   "names": [
+    "ANNOUNCE"
+   ],
+   "drug": "olaratumab"
+  },
+  {
+   "id": "STRASS",
+   "names": [
+    "STRASS"
+   ]
+  },
+  {
+   "id": "STRASS2",
+   "names": [
+    "STRASS2",
+    "STRASS 2"
+   ]
+  },
+  {
+   "id": "rEECur",
+   "names": [
+    "rEECur"
+   ]
+  },
+  {
+   "id": "Euro Ewing 2012",
+   "names": [
+    "Euro Ewing 2012",
+    "EE2012"
+   ]
+  },
+  {
+   "id": "EURAMOS-1",
+   "names": [
+    "EURAMOS-1",
+    "EURAMOS"
+   ]
+  },
+  {
+   "id": "LMS-04",
+   "names": [
+    "LMS-04",
+    "LMS 04"
+   ]
+  },
+  {
+   "id": "Alliance A091902",
+   "names": [
+    "A091902"
+   ]
+  },
+  {
+   "id": "SARC028",
+   "names": [
+    "SARC028"
+   ]
+  },
+  {
+   "id": "SARC038",
+   "names": [
+    "SARC038"
+   ]
+  },
+  {
+   "id": "SARC041",
+   "names": [
+    "SARC041"
+   ]
+  },
+  {
+   "id": "Alliance A091401",
+   "names": [
+    "A091401"
+   ]
+  },
+  {
+   "id": "EPAZ",
+   "names": [
+    "EPAZ"
+   ]
+  },
+  {
+   "id": "GALLOP",
+   "names": [
+    "GALLOP"
+   ]
+  },
+  {
+   "id": "ISG-STS 1001",
+   "names": [
+    "ISG-STS 1001",
+    "ISG STS 1001"
+   ]
+  },
+  {
+   "id": "CABONE",
+   "names": [
+    "CABONE"
+   ]
+  },
+  {
+   "id": "OLIE",
+   "names": [
+    "OLIE"
+   ]
+  },
+  {
+   "id": "REGOBONE",
+   "names": [
+    "REGOBONE"
+   ]
+  },
+  {
+   "id": "INTERSARC",
+   "names": [
+    "INTERSARC"
+   ]
+  }
+ ]
+}

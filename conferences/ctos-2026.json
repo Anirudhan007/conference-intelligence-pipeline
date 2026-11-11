@@ -1,0 +1,14 @@
+{
+  "id": "ctos-2026",
+  "embargo": {
+    "rules": [
+      {"class": "delegate_access", "releaseUtc": "2026-11-11T00:00:00Z",
+       "sourceQuote": "Embargo policy is abstracts will be available to all delegates registered for the meeting on Wednesday, November 11th",
+       "sourceUrl": "https://www.conferenceabstracts.com/uploads/documents/22789/CTOSAbstractSubmissionRequirements2026(2).pdf"},
+      {"class": "public", "releaseUtc": "2026-11-18T14:00:00Z",
+       "sourceQuote": "Embargo is lifted on Wednesday, November 18th at 9am EST.",
+       "sourceUrl": "https://www.conferenceabstracts.com/uploads/documents/22789/CTOSAbstractSubmissionRequirements2026(2).pdf"}
+    ],
+    "verifiedAt": "2026-11-11"
+  }
+}

@@ -1,0 +1,1855 @@
+{
+ "meta": {
+  "source": "curated",
+  "version": "2026-11-11",
+  "notes": "Sarcoma-focused taxonomy. 'names' are matched case-insensitively with word boundaries and optional plural; 'abbreviations' are matched case-sensitively. An abbreviation with safe=false is only accepted when the text defines it next to a long form, e.g. 'osteosarcoma (OS)'. In all-caps titles only safe abbreviations are used. Tags are emitted at the deepest matched node; ancestors are listed in rollup and suppressed as separate tags. OncoTree codes are given only where confident (null otherwise). Bucket nodes (kind=bucket) are also suppressed when another tagged disease belongs to the bucket's group (e.g. 'bone tumor' + GCTB). Track/session-derived diseases are kept only if no title/abstract disease exists or they are ancestors/descendants of one.",
+  "groups": {
+   "soft_tissue": "Soft tissue sarcoma",
+   "bone": "Bone sarcoma",
+   "gist": "GIST",
+   "intermediate": "Intermediate / locally aggressive",
+   "pediatric": "Pediatric",
+   "pan": "Sarcoma (unspecified)"
+  }
+ },
+ "diseases": [
+  {
+   "id": "sarcoma",
+   "label": "Sarcoma (unspecified)",
+   "oncotree": null,
+   "parent": null,
+   "group": "pan",
+   "groups": [
+    "pan"
+   ],
+   "kind": "bucket",
+   "names": [
+    "sarcoma",
+    "sarcomas",
+    "mesenchymal tumor",
+    "mesenchymal tumour",
+    "mesenchymal neoplasm",
+    "connective tissue tumor"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "sarcoma_pediatric",
+   "label": "Pediatric sarcoma (unspecified)",
+   "oncotree": null,
+   "parent": "sarcoma",
+   "group": "pediatric",
+   "groups": [
+    "pediatric"
+   ],
+   "kind": "age_bucket",
+   "names": [
+    "pediatric sarcoma",
+    "paediatric sarcoma",
+    "childhood sarcoma",
+    "pediatric and adolescent sarcoma",
+    "pediatric and AYA sarcoma",
+    "paediatric and AYA sarcoma",
+    "pediatric and AYA sarcomas",
+    "paediatric and AYA sarcomas"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "sts",
+   "label": "Soft tissue sarcoma (unspecified)",
+   "oncotree": null,
+   "parent": "sarcoma",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "bucket",
+   "names": [
+    "soft tissue sarcoma",
+    "soft-tissue sarcoma",
+    "soft tissue sarcomas",
+    "soft tissue tumor",
+    "soft tissue tumour"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "STS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "bone_sarcoma",
+   "label": "Bone sarcoma (unspecified)",
+   "oncotree": null,
+   "parent": "sarcoma",
+   "group": "bone",
+   "groups": [
+    "bone"
+   ],
+   "kind": "bucket",
+   "names": [
+    "bone sarcoma",
+    "bone sarcomas",
+    "primary bone tumor",
+    "primary bone tumour",
+    "primary malignant bone tumor",
+    "primary malignant bone tumour",
+    "malignant bone tumor",
+    "malignant bone tumour",
+    "bone tumor",
+    "bone tumour"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "intermediate_tumors",
+   "label": "Intermediate / locally aggressive tumors (unspecified)",
+   "oncotree": null,
+   "parent": "sarcoma",
+   "group": "intermediate",
+   "groups": [
+    "intermediate"
+   ],
+   "kind": "bucket",
+   "names": [
+    "locally aggressive tumor",
+    "locally aggressive tumour",
+    "intermediate-grade mesenchymal tumor"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "round_cell_sarcoma",
+   "label": "Undifferentiated small round cell sarcoma (unspecified)",
+   "oncotree": null,
+   "parent": "sarcoma",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "bone",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "undifferentiated small round cell sarcoma",
+    "small round cell sarcoma",
+    "round cell sarcoma",
+    "Ewing-like sarcoma",
+    "Ewing like sarcoma",
+    "small round blue cell tumor",
+    "small round cell tumor",
+    "small round cell tumour"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "USRCS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "cic_sarcoma",
+   "label": "CIC-rearranged sarcoma",
+   "oncotree": null,
+   "parent": "round_cell_sarcoma",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "CIC-rearranged sarcoma",
+    "CIC rearranged sarcoma",
+    "CIC-DUX4 sarcoma",
+    "CIC::DUX4 sarcoma",
+    "CIC-DUX4 fusion sarcoma",
+    "CIC-sarcoma",
+    "CIC-rearranged",
+    "CIC::DUX sarcoma",
+    "CIC::DUX-sarcoma",
+    "CIC-DUX sarcoma"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "bcor_sarcoma",
+   "label": "Sarcoma with BCOR genetic alterations",
+   "oncotree": null,
+   "parent": "round_cell_sarcoma",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "bone",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "BCOR-rearranged sarcoma",
+    "BCOR rearranged sarcoma",
+    "BCOR-altered sarcoma",
+    "sarcoma with BCOR genetic alterations",
+    "BCOR-CCNB3 sarcoma",
+    "BCOR::CCNB3 sarcoma",
+    "BCOR sarcoma",
+    "BCOR-rearranged",
+    "BCOR-altered"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "ewsr1_non_ets_sarcoma",
+   "label": "Round cell sarcoma with EWSR1-non-ETS fusion",
+   "oncotree": null,
+   "parent": "round_cell_sarcoma",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "bone"
+   ],
+   "kind": "histology",
+   "names": [
+    "EWSR1-non-ETS",
+    "EWSR1-NFATC2 sarcoma",
+    "EWSR1::NFATC2 sarcoma",
+    "FUS-NFATC2 sarcoma",
+    "EWSR1-PATZ1 sarcoma"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "gist",
+   "label": "Gastrointestinal stromal tumor (GIST)",
+   "oncotree": "GIST",
+   "parent": "sarcoma",
+   "group": "gist",
+   "groups": [
+    "gist",
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "gastrointestinal stromal tumor",
+    "gastrointestinal stromal tumour",
+    "gastrointestinal stromal tumors",
+    "gastrointestinal stromal tumours",
+    "gastro-intestinal stromal tumor",
+    "gastrointestinal stromal"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "GIST",
+     "safe": true
+    },
+    {
+     "abbr": "GISTs",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "gist_sdh_deficient",
+   "label": "SDH-deficient GIST",
+   "oncotree": null,
+   "parent": "gist",
+   "group": "gist",
+   "groups": [
+    "gist",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "SDH-deficient GIST",
+    "SDH deficient GIST",
+    "SDH-deficient gastrointestinal stromal tumor",
+    "SDH-deficient gastrointestinal stromal tumour",
+    "succinate dehydrogenase-deficient GIST",
+    "succinate dehydrogenase deficient GIST",
+    "SDH-deficient GISTs",
+    "dSDH GIST"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "lps",
+   "label": "Liposarcoma",
+   "oncotree": "LIPO",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "liposarcoma",
+    "liposarcomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "LPS",
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "wdlps",
+   "label": "Well-differentiated liposarcoma",
+   "oncotree": "WDLS",
+   "parent": "lps",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "well-differentiated liposarcoma",
+    "well differentiated liposarcoma",
+    "atypical lipomatous tumor",
+    "atypical lipomatous tumour",
+    "atypical lipomatous tumor/well-differentiated liposarcoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "WDLPS",
+     "safe": true
+    },
+    {
+     "abbr": "WDLS",
+     "safe": true
+    },
+    {
+     "abbr": "ALT/WDLPS",
+     "safe": true
+    },
+    {
+     "abbr": "ALT",
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "ddlps",
+   "label": "Dedifferentiated liposarcoma",
+   "oncotree": "DDLS",
+   "parent": "lps",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "dedifferentiated liposarcoma",
+    "de-differentiated liposarcoma",
+    "dedifferentiated liposarcomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "DDLPS",
+     "safe": true
+    },
+    {
+     "abbr": "DDLS",
+     "safe": true
+    },
+    {
+     "abbr": "DDL",
+     "safe": false
+    },
+    {
+     "abbr": "DD-LPS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "mlps",
+   "label": "Myxoid liposarcoma",
+   "oncotree": "MRLS",
+   "parent": "lps",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "myxoid liposarcoma",
+    "myxoid/round cell liposarcoma",
+    "myxoid round cell liposarcoma",
+    "round cell liposarcoma",
+    "myxoid liposarcomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "MLPS",
+     "safe": true
+    },
+    {
+     "abbr": "MLS",
+     "safe": false
+    },
+    {
+     "abbr": "MRCLS",
+     "safe": true
+    },
+    {
+     "abbr": "MRCL",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "plps",
+   "label": "Pleomorphic liposarcoma",
+   "oncotree": "PLLS",
+   "parent": "lps",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "pleomorphic liposarcoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "PLPS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "lms",
+   "label": "Leiomyosarcoma",
+   "oncotree": "LMS",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "leiomyosarcoma",
+    "leiomyosarcomas",
+    "leiomyosarcomata"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "LMS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "ulms",
+   "label": "Uterine leiomyosarcoma",
+   "oncotree": "ULMS",
+   "parent": "lms",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "uterine leiomyosarcoma",
+    "uterine leiomyosarcomas",
+    "leiomyosarcoma of the uterus",
+    "gynecologic leiomyosarcoma",
+    "gynaecologic leiomyosarcoma",
+    "uterine LMS"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "uLMS",
+     "safe": true
+    },
+    {
+     "abbr": "ULMS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "ups",
+   "label": "Undifferentiated pleomorphic sarcoma",
+   "oncotree": "MFH",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "undifferentiated pleomorphic sarcoma",
+    "undifferentiated pleomorphic sarcomas",
+    "malignant fibrous histiocytoma",
+    "pleomorphic undifferentiated sarcoma",
+    "undifferentiated sarcoma",
+    "undifferentiated soft tissue sarcoma",
+    "high-grade undifferentiated pleomorphic sarcoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "UPS",
+     "safe": true
+    },
+    {
+     "abbr": "MFH",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "myxofibrosarcoma",
+   "label": "Myxofibrosarcoma",
+   "oncotree": "MYXO",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "myxofibrosarcoma",
+    "myxofibrosarcomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "MFS",
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "synovial_sarcoma",
+   "label": "Synovial sarcoma",
+   "oncotree": "SYNS",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "synovial sarcoma",
+    "synovial sarcomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "SS",
+     "safe": false
+    },
+    {
+     "abbr": "SyS",
+     "safe": true
+    },
+    {
+     "abbr": "SySa",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "mpnst",
+   "label": "Malignant peripheral nerve sheath tumor",
+   "oncotree": "MPNST",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "malignant peripheral nerve sheath tumor",
+    "malignant peripheral nerve sheath tumour",
+    "malignant peripheral nerve sheath tumors",
+    "malignant peripheral nerve sheath tumours"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "MPNST",
+     "safe": true
+    },
+    {
+     "abbr": "MPNSTs",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "plexiform_neurofibroma",
+   "label": "Plexiform neurofibroma (NF1)",
+   "oncotree": null,
+   "parent": "intermediate_tumors",
+   "group": "intermediate",
+   "groups": [
+    "intermediate",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "plexiform neurofibroma",
+    "plexiform neurofibromas",
+    "atypical neurofibroma",
+    "atypical neurofibromatous neoplasm of uncertain biologic potential"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "PN",
+     "safe": false
+    },
+    {
+     "abbr": "ANNUBP",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "angiosarcoma",
+   "label": "Angiosarcoma",
+   "oncotree": "ANGS",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "angiosarcoma",
+    "angiosarcomas",
+    "cutaneous angiosarcoma",
+    "radiation-associated angiosarcoma",
+    "radiation-induced angiosarcoma",
+    "breast angiosarcoma",
+    "scalp angiosarcoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "AS",
+     "safe": false
+    },
+    {
+     "abbr": "RAAS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "ehe",
+   "label": "Epithelioid hemangioendothelioma",
+   "oncotree": "EHE",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "epithelioid hemangioendothelioma",
+    "epithelioid haemangioendothelioma",
+    "epithelioid hemangioendotheliomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "EHE",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "kaposi",
+   "label": "Kaposi sarcoma",
+   "oncotree": "KS",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "intermediate"
+   ],
+   "kind": "histology",
+   "names": [
+    "Kaposi sarcoma",
+    "Kaposi's sarcoma",
+    "Kaposi’s sarcoma",
+    "Kaposi sarcomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "KS",
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "dsrct",
+   "label": "Desmoplastic small round cell tumor",
+   "oncotree": "DSRCT",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "desmoplastic small round cell tumor",
+    "desmoplastic small round cell tumour",
+    "desmoplastic small round cell tumors",
+    "desmoplastic small round-cell tumor"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "DSRCT",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "asps",
+   "label": "Alveolar soft part sarcoma",
+   "oncotree": "ASPS",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "alveolar soft part sarcoma",
+    "alveolar soft-part sarcoma",
+    "alveolar soft part sarcomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "ASPS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "epithelioid_sarcoma",
+   "label": "Epithelioid sarcoma",
+   "oncotree": "EPIS",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "epithelioid sarcoma",
+    "epithelioid sarcomas",
+    "proximal-type epithelioid sarcoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "ES",
+     "safe": false
+    },
+    {
+     "abbr": "EpS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "clear_cell_sarcoma",
+   "label": "Clear cell sarcoma",
+   "oncotree": "CCS",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "clear cell sarcoma",
+    "clear-cell sarcoma",
+    "clear cell sarcoma of soft tissue",
+    "clear cell sarcomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "CCS",
+     "safe": false
+    },
+    {
+     "abbr": "CCSST",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "sft",
+   "label": "Solitary fibrous tumor",
+   "oncotree": "SFT",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "intermediate"
+   ],
+   "kind": "histology",
+   "names": [
+    "solitary fibrous tumor",
+    "solitary fibrous tumour",
+    "solitary fibrous tumors",
+    "solitary fibrous tumours",
+    "hemangiopericytoma",
+    "haemangiopericytoma",
+    "malignant solitary fibrous tumor"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "SFT",
+     "safe": true
+    },
+    {
+     "abbr": "SFTs",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "pecoma",
+   "label": "Malignant PEComa",
+   "oncotree": "PECOMA",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "perivascular epithelioid cell tumor",
+    "perivascular epithelioid cell tumour",
+    "PEComa",
+    "PEComas",
+    "malignant PEComa"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "PEComa",
+     "safe": true
+    },
+    {
+     "abbr": "PECOMA",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "dfsp",
+   "label": "Dermatofibrosarcoma protuberans",
+   "oncotree": "DFSP",
+   "parent": "intermediate_tumors",
+   "group": "intermediate",
+   "groups": [
+    "intermediate",
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "dermatofibrosarcoma protuberans",
+    "dermatofibrosarcoma",
+    "fibrosarcomatous DFSP"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "DFSP",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "imt",
+   "label": "Inflammatory myofibroblastic tumor",
+   "oncotree": "IMT",
+   "parent": "intermediate_tumors",
+   "group": "intermediate",
+   "groups": [
+    "intermediate",
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "inflammatory myofibroblastic tumor",
+    "inflammatory myofibroblastic tumour",
+    "inflammatory myofibroblastic tumors"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "IMT",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "desmoid",
+   "label": "Desmoid tumor (aggressive fibromatosis)",
+   "oncotree": "DES",
+   "parent": "intermediate_tumors",
+   "group": "intermediate",
+   "groups": [
+    "intermediate",
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "desmoid tumor",
+    "desmoid tumour",
+    "desmoid tumors",
+    "desmoid tumours",
+    "desmoid-type fibromatosis",
+    "desmoid type fibromatosis",
+    "aggressive fibromatosis",
+    "desmoid fibromatosis",
+    "desmoid"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "DT",
+     "safe": false
+    },
+    {
+     "abbr": "DTF",
+     "safe": true
+    },
+    {
+     "abbr": "DF",
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "tgct",
+   "label": "Tenosynovial giant cell tumor",
+   "oncotree": null,
+   "parent": "intermediate_tumors",
+   "group": "intermediate",
+   "groups": [
+    "intermediate",
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "tenosynovial giant cell tumor",
+    "tenosynovial giant cell tumour",
+    "tenosynovial giant cell tumors",
+    "tenosynovial giant-cell tumor",
+    "pigmented villonodular synovitis",
+    "diffuse-type tenosynovial giant cell tumor",
+    "diffuse tenosynovial giant cell tumor",
+    "giant cell tumor of tendon sheath"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "TGCT",
+     "safe": true
+    },
+    {
+     "abbr": "TGCTs",
+     "safe": true
+    },
+    {
+     "abbr": "PVNS",
+     "safe": true
+    },
+    {
+     "abbr": "D-TGCT",
+     "safe": true
+    },
+    {
+     "abbr": "dTGCT",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "lgfms",
+   "label": "Low-grade fibromyxoid sarcoma",
+   "oncotree": "LGFMS",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "low-grade fibromyxoid sarcoma",
+    "low grade fibromyxoid sarcoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "LGFMS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "sef",
+   "label": "Sclerosing epithelioid fibrosarcoma",
+   "oncotree": "SEF",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "sclerosing epithelioid fibrosarcoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "SEF",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "fibrosarcoma",
+   "label": "Fibrosarcoma (adult)",
+   "oncotree": null,
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "fibrosarcoma",
+    "adult fibrosarcoma"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "infantile_fibrosarcoma",
+   "label": "Infantile fibrosarcoma",
+   "oncotree": null,
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "infantile fibrosarcoma",
+    "congenital fibrosarcoma",
+    "congenital infantile fibrosarcoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "IFS",
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "ntrk_sarcoma",
+   "label": "NTRK-rearranged spindle cell neoplasm",
+   "oncotree": null,
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "NTRK-rearranged spindle cell neoplasm",
+    "NTRK-rearranged sarcoma",
+    "NTRK fusion sarcoma",
+    "NTRK fusion-positive sarcoma",
+    "NTRK-rearranged soft tissue tumor",
+    "NTRK rearranged spindle cell neoplasm",
+    "NTRK-rearranged mesenchymal tumor"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "emc",
+   "label": "Extraskeletal myxoid chondrosarcoma",
+   "oncotree": "EMCHS",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "extraskeletal myxoid chondrosarcoma",
+    "extra-skeletal myxoid chondrosarcoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "EMC",
+     "safe": false
+    },
+    {
+     "abbr": "EMCS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "intimal_sarcoma",
+   "label": "Intimal sarcoma",
+   "oncotree": null,
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "intimal sarcoma",
+    "pulmonary artery intimal sarcoma",
+    "pulmonary artery sarcoma"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "ess",
+   "label": "Endometrial stromal sarcoma",
+   "oncotree": "ESS",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "endometrial stromal sarcoma",
+    "low-grade endometrial stromal sarcoma",
+    "high-grade endometrial stromal sarcoma",
+    "endometrial stromal sarcomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "ESS",
+     "safe": false
+    },
+    {
+     "abbr": "LGESS",
+     "safe": true
+    },
+    {
+     "abbr": "HGESS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "mrt",
+   "label": "Malignant rhabdoid tumor",
+   "oncotree": "MRT",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "malignant rhabdoid tumor",
+    "malignant rhabdoid tumour",
+    "rhabdoid tumor",
+    "rhabdoid tumour",
+    "extracranial rhabdoid tumor"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "MRT",
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "nrsts",
+   "label": "Non-rhabdomyosarcoma soft tissue sarcoma",
+   "oncotree": null,
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "bucket",
+   "names": [
+    "non-rhabdomyosarcoma soft tissue sarcoma",
+    "non-rhabdomyosarcoma soft-tissue sarcoma",
+    "nonrhabdomyosarcoma soft tissue sarcoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "NRSTS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "spindle_cell_sarcoma",
+   "label": "Spindle cell sarcoma, NOS",
+   "oncotree": null,
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "spindle cell sarcoma",
+    "spindle cell sarcomas",
+    "undifferentiated spindle cell sarcoma"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "rps",
+   "label": "Retroperitoneal sarcoma (site)",
+   "oncotree": null,
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "site",
+   "names": [
+    "retroperitoneal sarcoma",
+    "retroperitoneal sarcomas",
+    "retroperitoneal soft tissue sarcoma",
+    "primary retroperitoneal sarcoma",
+    "recurrent retroperitoneal sarcoma",
+    "sarcoma of the retroperitoneum",
+    "sarcomas of the retroperitoneum"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "RPS",
+     "safe": true
+    },
+    {
+     "abbr": "RPSs",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "uterine_sarcoma",
+   "label": "Uterine sarcoma (site)",
+   "oncotree": null,
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "site",
+   "names": [
+    "uterine sarcoma",
+    "uterine sarcomas",
+    "gynecologic sarcoma",
+    "gynecological sarcoma",
+    "gynaecological sarcoma"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "rms",
+   "label": "Rhabdomyosarcoma",
+   "oncotree": "RMS",
+   "parent": "sts",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "rhabdomyosarcoma",
+    "rhabdomyosarcomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "RMS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "erms",
+   "label": "Embryonal rhabdomyosarcoma",
+   "oncotree": "ERMS",
+   "parent": "rms",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "embryonal rhabdomyosarcoma",
+    "embryonal RMS",
+    "botryoid rhabdomyosarcoma",
+    "fusion-negative rhabdomyosarcoma",
+    "fusion negative rhabdomyosarcoma",
+    "fusion-negative RMS"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "ERMS",
+     "safe": true
+    },
+    {
+     "abbr": "eRMS",
+     "safe": true
+    },
+    {
+     "abbr": "FN-RMS",
+     "safe": true
+    },
+    {
+     "abbr": "FNRMS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "arms",
+   "label": "Alveolar rhabdomyosarcoma",
+   "oncotree": "ARMS",
+   "parent": "rms",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "alveolar rhabdomyosarcoma",
+    "alveolar RMS",
+    "fusion-positive rhabdomyosarcoma",
+    "fusion positive rhabdomyosarcoma",
+    "fusion-positive RMS"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "ARMS",
+     "safe": false
+    },
+    {
+     "abbr": "aRMS",
+     "safe": true
+    },
+    {
+     "abbr": "FP-RMS",
+     "safe": true
+    },
+    {
+     "abbr": "FPRMS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "scrms",
+   "label": "Spindle cell/sclerosing rhabdomyosarcoma",
+   "oncotree": "SCRMS",
+   "parent": "rms",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "spindle cell rhabdomyosarcoma",
+    "sclerosing rhabdomyosarcoma",
+    "spindle cell/sclerosing rhabdomyosarcoma"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "plrms",
+   "label": "Pleomorphic rhabdomyosarcoma",
+   "oncotree": null,
+   "parent": "rms",
+   "group": "soft_tissue",
+   "groups": [
+    "soft_tissue"
+   ],
+   "kind": "histology",
+   "names": [
+    "pleomorphic rhabdomyosarcoma"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "osteosarcoma",
+   "label": "Osteosarcoma",
+   "oncotree": "OS",
+   "parent": "bone_sarcoma",
+   "group": "bone",
+   "groups": [
+    "bone",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "osteosarcoma",
+    "osteosarcomas",
+    "osteogenic sarcoma",
+    "conventional osteosarcoma",
+    "high-grade osteosarcoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "OS",
+     "safe": false
+    },
+    {
+     "abbr": "OSA",
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "ewing",
+   "label": "Ewing sarcoma",
+   "oncotree": "ES",
+   "parent": "bone_sarcoma",
+   "group": "bone",
+   "groups": [
+    "bone",
+    "soft_tissue",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "Ewing sarcoma",
+    "Ewing's sarcoma",
+    "Ewing’s sarcoma",
+    "Ewing sarcomas",
+    "Ewing family of tumors",
+    "Ewing sarcoma family of tumors",
+    "extraskeletal Ewing sarcoma",
+    "Ewing tumor",
+    "Ewing tumour",
+    "Ewing"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "EwS",
+     "safe": true
+    },
+    {
+     "abbr": "ES",
+     "safe": false
+    },
+    {
+     "abbr": "EWS",
+     "safe": false
+    },
+    {
+     "abbr": "ESFT",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "chondrosarcoma",
+   "label": "Chondrosarcoma",
+   "oncotree": "CHS",
+   "parent": "bone_sarcoma",
+   "group": "bone",
+   "groups": [
+    "bone"
+   ],
+   "kind": "histology",
+   "names": [
+    "chondrosarcoma",
+    "chondrosarcomas",
+    "conventional chondrosarcoma",
+    "central chondrosarcoma",
+    "atypical cartilaginous tumor",
+    "atypical cartilaginous tumour"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "CS",
+     "safe": false
+    },
+    {
+     "abbr": "CHS",
+     "safe": false
+    },
+    {
+     "abbr": "ACT",
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "ddcs",
+   "label": "Dedifferentiated chondrosarcoma",
+   "oncotree": "DDCHS",
+   "parent": "chondrosarcoma",
+   "group": "bone",
+   "groups": [
+    "bone"
+   ],
+   "kind": "histology",
+   "names": [
+    "dedifferentiated chondrosarcoma",
+    "dedifferentiated chondrosarcomas"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "DDCS",
+     "safe": true
+    },
+    {
+     "abbr": "DDCHS",
+     "safe": true
+    }
+   ]
+  },
+  {
+   "id": "mesenchymal_chondrosarcoma",
+   "label": "Mesenchymal chondrosarcoma",
+   "oncotree": "MCHS",
+   "parent": "chondrosarcoma",
+   "group": "bone",
+   "groups": [
+    "bone",
+    "pediatric"
+   ],
+   "kind": "histology",
+   "names": [
+    "mesenchymal chondrosarcoma"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "clear_cell_chondrosarcoma",
+   "label": "Clear cell chondrosarcoma",
+   "oncotree": "CCHS",
+   "parent": "chondrosarcoma",
+   "group": "bone",
+   "groups": [
+    "bone"
+   ],
+   "kind": "histology",
+   "names": [
+    "clear cell chondrosarcoma"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "chordoma",
+   "label": "Chordoma",
+   "oncotree": "CHDM",
+   "parent": "bone_sarcoma",
+   "group": "bone",
+   "groups": [
+    "bone"
+   ],
+   "kind": "histology",
+   "names": [
+    "chordoma",
+    "chordomas",
+    "poorly differentiated chordoma",
+    "dedifferentiated chordoma",
+    "skull base chordoma",
+    "sacral chordoma"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "gctb",
+   "label": "Giant cell tumor of bone",
+   "oncotree": "GCTB",
+   "parent": "intermediate_tumors",
+   "group": "intermediate",
+   "groups": [
+    "intermediate",
+    "bone"
+   ],
+   "kind": "histology",
+   "names": [
+    "giant cell tumor of bone",
+    "giant cell tumour of bone",
+    "giant cell tumors of bone",
+    "giant-cell tumor of bone"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "GCTB",
+     "safe": true
+    },
+    {
+     "abbr": "GCT",
+     "safe": false
+    }
+   ]
+  },
+  {
+   "id": "adamantinoma",
+   "label": "Adamantinoma",
+   "oncotree": null,
+   "parent": "bone_sarcoma",
+   "group": "bone",
+   "groups": [
+    "bone"
+   ],
+   "kind": "histology",
+   "names": [
+    "adamantinoma",
+    "adamantinomas"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "ups_bone",
+   "label": "Undifferentiated pleomorphic sarcoma of bone",
+   "oncotree": null,
+   "parent": "bone_sarcoma",
+   "group": "bone",
+   "groups": [
+    "bone"
+   ],
+   "kind": "histology",
+   "names": [
+    "undifferentiated pleomorphic sarcoma of bone",
+    "UPS of bone"
+   ],
+   "abbreviations": []
+  },
+  {
+   "id": "chondroblastoma",
+   "label": "Chondroblastoma",
+   "oncotree": null,
+   "parent": "intermediate_tumors",
+   "group": "intermediate",
+   "groups": [
+    "intermediate",
+    "bone"
+   ],
+   "kind": "histology",
+   "names": [
+    "chondroblastoma",
+    "chondroblastomas"
+   ],
+   "abbreviations": []
+  }
+ ],
+ "compounds": [
+  {
+   "names": [
+    "well-differentiated and dedifferentiated liposarcoma",
+    "well-differentiated/dedifferentiated liposarcoma",
+    "well- and dedifferentiated liposarcoma",
+    "well-differentiated or dedifferentiated liposarcoma",
+    "WD/DD liposarcoma",
+    "WD/DD LPS",
+    "WD/DDLPS",
+    "WDLPS/DDLPS",
+    "WD/DD-LPS",
+    "WDLS/DDLS"
+   ],
+   "ids": [
+    "wdlps",
+    "ddlps"
+   ],
+   "caseSensitive": false
+  },
+  {
+   "names": [
+    "embryonal and alveolar rhabdomyosarcoma",
+    "alveolar and embryonal rhabdomyosarcoma"
+   ],
+   "ids": [
+    "erms",
+    "arms"
+   ],
+   "caseSensitive": false
+  },
+  {
+   "names": [
+    "retroperitoneal liposarcoma",
+    "retroperitoneal liposarcomas"
+   ],
+   "ids": [
+    "rps",
+    "lps"
+   ],
+   "caseSensitive": false
+  },
+  {
+   "names": [
+    "retroperitoneal dedifferentiated liposarcoma",
+    "retroperitoneal dedifferentiated liposarcomas"
+   ],
+   "ids": [
+    "rps",
+    "ddlps"
+   ],
+   "caseSensitive": false
+  },
+  {
+   "names": [
+    "retroperitoneal well-differentiated liposarcoma"
+   ],
+   "ids": [
+    "rps",
+    "wdlps"
+   ],
+   "caseSensitive": false
+  },
+  {
+   "names": [
+    "retroperitoneal leiomyosarcoma",
+    "retroperitoneal leiomyosarcomas"
+   ],
+   "ids": [
+    "rps",
+    "lms"
+   ],
+   "caseSensitive": false
+  },
+  {
+   "names": [
+    "bone and soft tissue sarcoma",
+    "bone and soft tissue sarcomas",
+    "bone and soft-tissue sarcoma",
+    "bone and soft-tissue sarcomas",
+    "bone or soft tissue sarcoma",
+    "bone or soft tissue sarcomas",
+    "soft tissue and bone sarcoma",
+    "soft tissue and bone sarcomas",
+    "soft-tissue and bone sarcomas",
+    "bone and soft tissue tumors",
+    "bone and soft tissue tumours"
+   ],
+   "ids": [
+    "bone_sarcoma",
+    "sts"
+   ],
+   "caseSensitive": false
+  },
+  {
+   "names": [
+    "dedifferentiated liposarcoma of the retroperitoneum"
+   ],
+   "ids": [
+    "ddlps",
+    "rps"
+   ],
+   "caseSensitive": false
+  },
+  {
+   "names": [
+    "liposarcoma of the retroperitoneum"
+   ],
+   "ids": [
+    "lps",
+    "rps"
+   ],
+   "caseSensitive": false
+  },
+  {
+   "names": [
+    "leiomyosarcoma of the retroperitoneum"
+   ],
+   "ids": [
+    "lms",
+    "rps"
+   ],
+   "caseSensitive": false
+  }
+ ],
+ "histology": [
+  {
+   "id": "spindle_cell",
+   "label": "spindle cell",
+   "names": [
+    "spindle cell",
+    "spindle-cell",
+    "spindle cells"
+   ]
+  },
+  {
+   "id": "epithelioid",
+   "label": "epithelioid",
+   "names": [
+    "epithelioid"
+   ]
+  },
+  {
+   "id": "round_cell",
+   "label": "round cell",
+   "names": [
+    "round cell",
+    "round-cell",
+    "small round cell",
+    "small round blue cell"
+   ]
+  },
+  {
+   "id": "pleomorphic",
+   "label": "pleomorphic",
+   "names": [
+    "pleomorphic"
+   ]
+  },
+  {
+   "id": "myxoid",
+   "label": "myxoid",
+   "names": [
+    "myxoid"
+   ]
+  },
+  {
+   "id": "dedifferentiated",
+   "label": "dedifferentiated",
+   "names": [
+    "dedifferentiated",
+    "dedifferentiation"
+   ]
+  },
+  {
+   "id": "high_grade",
+   "label": "high grade",
+   "names": [
+    "high-grade",
+    "high grade",
+    "FNCLCC grade 3",
+    "grade 3"
+   ]
+  },
+  {
+   "id": "intermediate_grade",
+   "label": "intermediate grade",
+   "names": [
+    "intermediate-grade",
+    "intermediate grade",
+    "FNCLCC grade 2",
+    "grade 2"
+   ]
+  },
+  {
+   "id": "low_grade",
+   "label": "low grade",
+   "names": [
+    "low-grade",
+    "low grade",
+    "FNCLCC grade 1",
+    "grade 1"
+   ]
+  }
+ ]
+}

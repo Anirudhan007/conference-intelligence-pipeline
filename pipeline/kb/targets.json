@@ -1,0 +1,1750 @@
+{
+ "meta": {
+  "source": "curated",
+  "version": "2026-11-11",
+  "notes": "HGNC symbols where the target is a gene product. 'symbols' are matched case-sensitively; 'names' case-insensitively. In all-caps fields (uppercase titles) a symbol is matched only if capsSafe is true. A symbol listed in 'statusOnly' is emitted only when a polarity/status pattern is attached (ambiguous abbreviations such as AR, PR, APC). Drug_target tags are emitted at display-group level so members of one group (e.g. CDK4 and CDK6) are counted once.",
+  "hgncConfidence": "symbols are standard HGNC approved symbols as of 2025; non-gene entities are marked hgnc=false"
+ },
+ "groups": [
+  {
+   "id": "CDK4/6",
+   "label": "CDK4/6",
+   "members": [
+    "CDK4",
+    "CDK6"
+   ]
+  },
+  {
+   "id": "VEGFR",
+   "label": "VEGFR",
+   "members": [
+    "KDR",
+    "FLT1",
+    "FLT4"
+   ]
+  },
+  {
+   "id": "FGFR",
+   "label": "FGFR",
+   "members": [
+    "FGFR1",
+    "FGFR2",
+    "FGFR3",
+    "FGFR4"
+   ]
+  },
+  {
+   "id": "NTRK",
+   "label": "NTRK/TRK",
+   "members": [
+    "NTRK1",
+    "NTRK2",
+    "NTRK3"
+   ]
+  },
+  {
+   "id": "SSX",
+   "label": "SSX",
+   "members": [
+    "SSX1",
+    "SSX2",
+    "SSX4"
+   ]
+  },
+  {
+   "id": "MEK",
+   "label": "MEK",
+   "members": [
+    "MAP2K1",
+    "MAP2K2"
+   ]
+  },
+  {
+   "id": "gamma-secretase",
+   "label": "gamma-secretase",
+   "members": [
+    "PSEN1",
+    "PSEN2",
+    "NCSTN"
+   ]
+  },
+  {
+   "id": "SDH",
+   "label": "SDH complex",
+   "members": [
+    "SDHA",
+    "SDHB",
+    "SDHC",
+    "SDHD"
+   ]
+  },
+  {
+   "id": "IDH",
+   "label": "IDH1/2",
+   "members": [
+    "IDH1",
+    "IDH2"
+   ]
+  },
+  {
+   "id": "PI3K",
+   "label": "PI3K",
+   "members": [
+    "PIK3CA",
+    "PIK3CB",
+    "PIK3CD"
+   ]
+  },
+  {
+   "id": "AKT",
+   "label": "AKT",
+   "members": [
+    "AKT1",
+    "AKT2"
+   ]
+  },
+  {
+   "id": "TSC",
+   "label": "TSC1/2",
+   "members": [
+    "TSC1",
+    "TSC2"
+   ]
+  },
+  {
+   "id": "TOP1",
+   "label": "TOP1",
+   "members": [
+    "TOP1"
+   ]
+  }
+ ],
+ "targets": [
+  {
+   "symbol": "ERBB2",
+   "label": "HER2",
+   "group": "ERBB2",
+   "symbols": [
+    "HER2",
+    "ERBB2",
+    "HER-2",
+    "HER2/neu"
+   ],
+   "names": [
+    "human epidermal growth factor receptor 2"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "ERBB3",
+   "label": "HER3",
+   "group": "ERBB3",
+   "symbols": [
+    "HER3",
+    "ERBB3"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "EGFR",
+   "label": "EGFR",
+   "group": "EGFR",
+   "symbols": [
+    "EGFR",
+    "HER1",
+    "ERBB1"
+   ],
+   "names": [
+    "epidermal growth factor receptor"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "KRAS",
+   "label": "KRAS",
+   "group": "KRAS",
+   "symbols": [
+    "KRAS"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "NRAS",
+   "label": "NRAS",
+   "group": "NRAS",
+   "symbols": [
+    "NRAS"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "HRAS",
+   "label": "HRAS",
+   "group": "HRAS",
+   "symbols": [
+    "HRAS"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "BRAF",
+   "label": "BRAF",
+   "group": "BRAF",
+   "symbols": [
+    "BRAF"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "MAP2K1",
+   "label": "MEK1",
+   "group": "MEK",
+   "symbols": [
+    "MEK1",
+    "MAP2K1",
+    "MEK"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "MAP2K2",
+   "label": "MEK2",
+   "group": "MEK",
+   "symbols": [
+    "MEK2",
+    "MAP2K2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PDCD1",
+   "label": "PD-1",
+   "group": "PDCD1",
+   "symbols": [
+    "PD-1",
+    "PD1",
+    "PDCD1",
+    "CD279"
+   ],
+   "names": [
+    "programmed cell death protein 1",
+    "programmed death-1",
+    "programmed cell death-1"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CD274",
+   "label": "PD-L1",
+   "group": "CD274",
+   "symbols": [
+    "PD-L1",
+    "PDL1",
+    "CD274",
+    "B7-H1"
+   ],
+   "names": [
+    "programmed death-ligand 1",
+    "programmed death ligand 1"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CTLA4",
+   "label": "CTLA-4",
+   "group": "CTLA4",
+   "symbols": [
+    "CTLA-4",
+    "CTLA4",
+    "CD152"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "LAG3",
+   "label": "LAG-3",
+   "group": "LAG3",
+   "symbols": [
+    "LAG-3",
+    "LAG3",
+    "CD223"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TIGIT",
+   "label": "TIGIT",
+   "group": "TIGIT",
+   "symbols": [
+    "TIGIT"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CD47",
+   "label": "CD47",
+   "group": "CD47",
+   "symbols": [
+    "CD47"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "VEGFA",
+   "label": "VEGF",
+   "group": "VEGFA",
+   "symbols": [
+    "VEGF",
+    "VEGF-A",
+    "VEGFA"
+   ],
+   "names": [
+    "vascular endothelial growth factor"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "KDR",
+   "label": "VEGFR2",
+   "group": "VEGFR",
+   "symbols": [
+    "VEGFR2",
+    "VEGFR-2",
+    "KDR",
+    "VEGFR"
+   ],
+   "names": [
+    "vascular endothelial growth factor receptor"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "FLT1",
+   "label": "VEGFR1",
+   "group": "VEGFR",
+   "symbols": [
+    "VEGFR1",
+    "VEGFR-1",
+    "FLT1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "FLT4",
+   "label": "VEGFR3",
+   "group": "VEGFR",
+   "symbols": [
+    "VEGFR3",
+    "VEGFR-3",
+    "FLT4"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "KIT",
+   "label": "KIT",
+   "group": "KIT",
+   "symbols": [
+    "KIT",
+    "c-KIT",
+    "c-kit",
+    "CD117"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PDGFRA",
+   "label": "PDGFRA",
+   "group": "PDGFRA",
+   "symbols": [
+    "PDGFRA",
+    "PDGFR-alpha",
+    "PDGFRα",
+    "PDGFR-α",
+    "PDGFR"
+   ],
+   "names": [
+    "platelet-derived growth factor receptor alpha"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PDGFRB",
+   "label": "PDGFRB",
+   "group": "PDGFRB",
+   "symbols": [
+    "PDGFRB",
+    "PDGFR-beta",
+    "PDGFRβ"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PDGFB",
+   "label": "PDGFB",
+   "group": "PDGFB",
+   "symbols": [
+    "PDGFB"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "COL1A1",
+   "label": "COL1A1",
+   "group": "COL1A1",
+   "symbols": [
+    "COL1A1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "FGFR1",
+   "label": "FGFR1",
+   "group": "FGFR",
+   "symbols": [
+    "FGFR1",
+    "FGFR"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "FGFR2",
+   "label": "FGFR2",
+   "group": "FGFR",
+   "symbols": [
+    "FGFR2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "FGFR3",
+   "label": "FGFR3",
+   "group": "FGFR",
+   "symbols": [
+    "FGFR3"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "FGFR4",
+   "label": "FGFR4",
+   "group": "FGFR",
+   "symbols": [
+    "FGFR4"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "MET",
+   "label": "MET",
+   "group": "MET",
+   "symbols": [
+    "MET",
+    "c-MET",
+    "c-Met"
+   ],
+   "names": [],
+   "capsSafe": false
+  },
+  {
+   "symbol": "AXL",
+   "label": "AXL",
+   "group": "AXL",
+   "symbols": [
+    "AXL"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "RET",
+   "label": "RET",
+   "group": "RET",
+   "symbols": [
+    "RET"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "ALK",
+   "label": "ALK",
+   "group": "ALK",
+   "symbols": [
+    "ALK"
+   ],
+   "names": [
+    "anaplastic lymphoma kinase"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "ROS1",
+   "label": "ROS1",
+   "group": "ROS1",
+   "symbols": [
+    "ROS1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "NTRK1",
+   "label": "NTRK1",
+   "group": "NTRK",
+   "symbols": [
+    "NTRK1",
+    "NTRK",
+    "TRK",
+    "TRKA",
+    "NTRK1/2/3"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "NTRK2",
+   "label": "NTRK2",
+   "group": "NTRK",
+   "symbols": [
+    "NTRK2",
+    "TRKB"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "NTRK3",
+   "label": "NTRK3",
+   "group": "NTRK",
+   "symbols": [
+    "NTRK3",
+    "TRKC"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "ETV6",
+   "label": "ETV6",
+   "group": "ETV6",
+   "symbols": [
+    "ETV6"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "MDM2",
+   "label": "MDM2",
+   "group": "MDM2",
+   "symbols": [
+    "MDM2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CDK4",
+   "label": "CDK4",
+   "group": "CDK4/6",
+   "symbols": [
+    "CDK4"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CDK6",
+   "label": "CDK6",
+   "group": "CDK4/6",
+   "symbols": [
+    "CDK6"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CDKN2A",
+   "label": "CDKN2A",
+   "group": "CDKN2A",
+   "symbols": [
+    "CDKN2A",
+    "p16",
+    "p16INK4a"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TP53",
+   "label": "TP53",
+   "group": "TP53",
+   "symbols": [
+    "TP53",
+    "p53"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "RB1",
+   "label": "RB1",
+   "group": "RB1",
+   "symbols": [
+    "RB1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "ATRX",
+   "label": "ATRX",
+   "group": "ATRX",
+   "symbols": [
+    "ATRX"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PTEN",
+   "label": "PTEN",
+   "group": "PTEN",
+   "symbols": [
+    "PTEN"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "NF1",
+   "label": "NF1",
+   "group": "NF1",
+   "symbols": [
+    "NF1"
+   ],
+   "names": [],
+   "capsSafe": true,
+   "statusOnly": [
+    "NF1"
+   ],
+   "note": "NF1 is usually the syndrome (neurofibromatosis type 1); gene mention only with status"
+  },
+  {
+   "symbol": "PIK3CA",
+   "label": "PIK3CA",
+   "group": "PI3K",
+   "symbols": [
+    "PIK3CA",
+    "PI3K",
+    "PI3Kα"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "AKT1",
+   "label": "AKT",
+   "group": "AKT",
+   "symbols": [
+    "AKT",
+    "AKT1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "MTOR",
+   "label": "mTOR",
+   "group": "MTOR",
+   "symbols": [
+    "mTOR",
+    "MTOR",
+    "mTORC1"
+   ],
+   "names": [
+    "mammalian target of rapamycin"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TSC1",
+   "label": "TSC1",
+   "group": "TSC",
+   "symbols": [
+    "TSC1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TSC2",
+   "label": "TSC2",
+   "group": "TSC",
+   "symbols": [
+    "TSC2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "AR",
+   "label": "AR",
+   "group": "AR",
+   "symbols": [
+    "AR"
+   ],
+   "names": [
+    "androgen receptor"
+   ],
+   "capsSafe": false,
+   "statusOnly": [
+    "AR"
+   ]
+  },
+  {
+   "symbol": "ESR1",
+   "label": "ER",
+   "group": "ESR1",
+   "symbols": [
+    "ER",
+    "ESR1",
+    "ERα"
+   ],
+   "names": [
+    "estrogen receptor",
+    "oestrogen receptor"
+   ],
+   "capsSafe": false,
+   "statusOnly": [
+    "ER"
+   ]
+  },
+  {
+   "symbol": "PGR",
+   "label": "PR",
+   "group": "PGR",
+   "symbols": [
+    "PR",
+    "PGR"
+   ],
+   "names": [
+    "progesterone receptor"
+   ],
+   "capsSafe": false,
+   "statusOnly": [
+    "PR"
+   ]
+  },
+  {
+   "symbol": "PARP1",
+   "label": "PARP",
+   "group": "PARP1",
+   "symbols": [
+    "PARP",
+    "PARP1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "ATR",
+   "label": "ATR",
+   "group": "ATR",
+   "symbols": [
+    "ATR"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "WEE1",
+   "label": "WEE1",
+   "group": "WEE1",
+   "symbols": [
+    "WEE1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "EZH2",
+   "label": "EZH2",
+   "group": "EZH2",
+   "symbols": [
+    "EZH2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "SMARCB1",
+   "label": "SMARCB1/INI1",
+   "group": "SMARCB1",
+   "symbols": [
+    "SMARCB1",
+    "INI1",
+    "INI-1",
+    "BAF47",
+    "hSNF5"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "SMARCA4",
+   "label": "SMARCA4",
+   "group": "SMARCA4",
+   "symbols": [
+    "SMARCA4",
+    "BRG1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "XPO1",
+   "label": "XPO1",
+   "group": "XPO1",
+   "symbols": [
+    "XPO1",
+    "exportin-1",
+    "CRM1"
+   ],
+   "names": [
+    "exportin 1"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CSF1R",
+   "label": "CSF1R",
+   "group": "CSF1R",
+   "symbols": [
+    "CSF1R",
+    "CSF-1R",
+    "CSF-1 receptor"
+   ],
+   "names": [
+    "colony stimulating factor 1 receptor",
+    "colony-stimulating factor 1 receptor"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CSF1",
+   "label": "CSF1",
+   "group": "CSF1",
+   "symbols": [
+    "CSF1",
+    "CSF-1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PSEN1",
+   "label": "gamma-secretase",
+   "group": "gamma-secretase",
+   "symbols": [],
+   "names": [
+    "gamma-secretase",
+    "gamma secretase",
+    "γ-secretase"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CTNNB1",
+   "label": "CTNNB1/beta-catenin",
+   "group": "CTNNB1",
+   "symbols": [
+    "CTNNB1",
+    "β-catenin"
+   ],
+   "names": [
+    "beta-catenin",
+    "beta catenin"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "APC",
+   "label": "APC",
+   "group": "APC",
+   "symbols": [
+    "APC"
+   ],
+   "names": [],
+   "capsSafe": false,
+   "statusOnly": [
+    "APC"
+   ]
+  },
+  {
+   "symbol": "NOTCH1",
+   "label": "NOTCH",
+   "group": "NOTCH1",
+   "symbols": [
+    "NOTCH",
+    "NOTCH1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "IGF1R",
+   "label": "IGF-1R",
+   "group": "IGF1R",
+   "symbols": [
+    "IGF1R",
+    "IGF-1R",
+    "IGF-IR"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TOP1",
+   "label": "TOP1",
+   "group": "TOP1",
+   "symbols": [
+    "TOP1"
+   ],
+   "names": [
+    "topoisomerase I"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TOP2A",
+   "label": "TOP2A",
+   "group": "TOP2A",
+   "symbols": [
+    "TOP2A"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "EWSR1",
+   "label": "EWSR1",
+   "group": "EWSR1",
+   "symbols": [
+    "EWSR1",
+    "EWS"
+   ],
+   "names": [],
+   "capsSafe": true,
+   "statusOnly": [
+    "EWS"
+   ],
+   "note": "EWS alone is often an abbreviation of Ewing sarcoma"
+  },
+  {
+   "symbol": "FLI1",
+   "label": "FLI1",
+   "group": "FLI1",
+   "symbols": [
+    "FLI1",
+    "FLI-1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "ERG",
+   "label": "ERG",
+   "group": "ERG",
+   "symbols": [
+    "ERG"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "FUS",
+   "label": "FUS",
+   "group": "FUS",
+   "symbols": [
+    "FUS"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "DDIT3",
+   "label": "DDIT3/CHOP",
+   "group": "DDIT3",
+   "symbols": [
+    "DDIT3"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "SS18",
+   "label": "SS18",
+   "group": "SS18",
+   "symbols": [
+    "SS18",
+    "SYT"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "SSX1",
+   "label": "SSX",
+   "group": "SSX",
+   "symbols": [
+    "SSX",
+    "SSX1",
+    "SSX2",
+    "SSX4",
+    "SSX1/2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PAX3",
+   "label": "PAX3",
+   "group": "PAX3",
+   "symbols": [
+    "PAX3",
+    "PAX3/7"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PAX7",
+   "label": "PAX7",
+   "group": "PAX7",
+   "symbols": [
+    "PAX7"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "FOXO1",
+   "label": "FOXO1",
+   "group": "FOXO1",
+   "symbols": [
+    "FOXO1",
+    "FKHR"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "MYOD1",
+   "label": "MYOD1",
+   "group": "MYOD1",
+   "symbols": [
+    "MYOD1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "WT1",
+   "label": "WT1",
+   "group": "WT1",
+   "symbols": [
+    "WT1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "ATF1",
+   "label": "ATF1",
+   "group": "ATF1",
+   "symbols": [
+    "ATF1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CIC",
+   "label": "CIC",
+   "group": "CIC",
+   "symbols": [
+    "CIC"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "DUX4",
+   "label": "DUX4",
+   "group": "DUX4",
+   "symbols": [
+    "DUX4"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "BCOR",
+   "label": "BCOR",
+   "group": "BCOR",
+   "symbols": [
+    "BCOR"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "NAB2",
+   "label": "NAB2",
+   "group": "NAB2",
+   "symbols": [
+    "NAB2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "STAT6",
+   "label": "STAT6",
+   "group": "STAT6",
+   "symbols": [
+    "STAT6"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TFE3",
+   "label": "TFE3",
+   "group": "TFE3",
+   "symbols": [
+    "TFE3"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "ASPSCR1",
+   "label": "ASPSCR1",
+   "group": "ASPSCR1",
+   "symbols": [
+    "ASPSCR1",
+    "ASPL"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "YAP1",
+   "label": "YAP1",
+   "group": "YAP1",
+   "symbols": [
+    "YAP1",
+    "YAP"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "WWTR1",
+   "label": "WWTR1/TAZ",
+   "group": "WWTR1",
+   "symbols": [
+    "WWTR1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CAMTA1",
+   "label": "CAMTA1",
+   "group": "CAMTA1",
+   "symbols": [
+    "CAMTA1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "NR4A3",
+   "label": "NR4A3",
+   "group": "NR4A3",
+   "symbols": [
+    "NR4A3"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "HMGA2",
+   "label": "HMGA2",
+   "group": "HMGA2",
+   "symbols": [
+    "HMGA2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "MYC",
+   "label": "MYC",
+   "group": "MYC",
+   "symbols": [
+    "MYC",
+    "c-MYC",
+    "c-Myc"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "SDHB",
+   "label": "SDH",
+   "group": "SDH",
+   "symbols": [
+    "SDH",
+    "SDHA",
+    "SDHB",
+    "SDHC",
+    "SDHD",
+    "SDHx"
+   ],
+   "names": [
+    "succinate dehydrogenase"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "IDH1",
+   "label": "IDH1/2",
+   "group": "IDH",
+   "symbols": [
+    "IDH1",
+    "IDH2",
+    "IDH1/2",
+    "IDH"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "H3-3A",
+   "label": "H3-3A (H3F3A)",
+   "group": "H3-3A",
+   "symbols": [
+    "H3F3A",
+    "H3-3A"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "MAGEA4",
+   "label": "MAGE-A4",
+   "group": "MAGEA4",
+   "symbols": [
+    "MAGE-A4",
+    "MAGEA4"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CTAG1B",
+   "label": "NY-ESO-1",
+   "group": "CTAG1B",
+   "symbols": [
+    "NY-ESO-1",
+    "NYESO1",
+    "CTAG1B"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PRAME",
+   "label": "PRAME",
+   "group": "PRAME",
+   "symbols": [
+    "PRAME"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CD276",
+   "label": "B7-H3",
+   "group": "CD276",
+   "symbols": [
+    "B7-H3",
+    "B7H3",
+    "CD276"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TACSTD2",
+   "label": "TROP2",
+   "group": "TACSTD2",
+   "symbols": [
+    "TROP2",
+    "TROP-2",
+    "TACSTD2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "GPNMB",
+   "label": "GPNMB",
+   "group": "GPNMB",
+   "symbols": [
+    "GPNMB"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "GD2",
+   "label": "GD2",
+   "group": "GD2",
+   "symbols": [
+    "GD2"
+   ],
+   "names": [
+    "disialoganglioside"
+   ],
+   "capsSafe": true,
+   "hgnc": false
+  },
+  {
+   "symbol": "TNFRSF10B",
+   "label": "DR5",
+   "group": "TNFRSF10B",
+   "symbols": [
+    "DR5",
+    "TRAIL-R2",
+    "TNFRSF10B"
+   ],
+   "names": [
+    "death receptor 5"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TNFSF11",
+   "label": "RANKL",
+   "group": "TNFSF11",
+   "symbols": [
+    "RANKL",
+    "RANK-L",
+    "TNFSF11"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "SSTR2",
+   "label": "SSTR2",
+   "group": "SSTR2",
+   "symbols": [
+    "SSTR2",
+    "SSTR"
+   ],
+   "names": [
+    "somatostatin receptor"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "FAP",
+   "label": "FAP",
+   "group": "FAP",
+   "symbols": [
+    "FAP"
+   ],
+   "names": [
+    "fibroblast activation protein"
+   ],
+   "capsSafe": false,
+   "statusOnly": [
+    "FAP"
+   ],
+   "note": "FAP is also familial adenomatous polyposis in desmoid abstracts"
+  },
+  {
+   "symbol": "CD99",
+   "label": "CD99",
+   "group": "CD99",
+   "symbols": [
+    "CD99"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "MKI67",
+   "label": "Ki-67",
+   "group": "MKI67",
+   "symbols": [
+    "Ki-67",
+    "Ki67",
+    "KI-67",
+    "KI67",
+    "MIB-1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "LSD1",
+   "label": "LSD1 (KDM1A)",
+   "group": "KDM1A",
+   "symbols": [
+    "LSD1",
+    "KDM1A"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TMB",
+   "label": "TMB",
+   "group": "TMB",
+   "symbols": [
+    "TMB"
+   ],
+   "names": [
+    "tumor mutational burden",
+    "tumour mutational burden"
+   ],
+   "capsSafe": true,
+   "hgnc": false
+  },
+  {
+   "symbol": "MSI",
+   "label": "MSI/dMMR",
+   "group": "MSI",
+   "symbols": [
+    "MSI",
+    "MSI-H",
+    "dMMR",
+    "MMR"
+   ],
+   "names": [
+    "microsatellite instability",
+    "mismatch repair"
+   ],
+   "capsSafe": true,
+   "hgnc": false
+  },
+  {
+   "symbol": "HLA-A*02",
+   "label": "HLA-A*02",
+   "group": "HLA-A*02",
+   "symbols": [
+    "HLA-A*02",
+    "HLA-A2",
+    "HLA-A*02:01"
+   ],
+   "names": [],
+   "capsSafe": true,
+   "hgnc": false
+  },
+  {
+   "symbol": "ABL1",
+   "label": "ABL1",
+   "group": "ABL1",
+   "symbols": [
+    "ABL1",
+    "BCR-ABL"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "SRC",
+   "label": "SRC",
+   "group": "SRC",
+   "symbols": [
+    "SRC"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CYP19A1",
+   "label": "aromatase",
+   "group": "CYP19A1",
+   "symbols": [
+    "CYP19A1"
+   ],
+   "names": [
+    "aromatase"
+   ],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TEK",
+   "label": "TIE2",
+   "group": "TEK",
+   "symbols": [
+    "TIE2",
+    "TIE-2",
+    "TEK"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "FLT3",
+   "label": "FLT3",
+   "group": "FLT3",
+   "symbols": [
+    "FLT3"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CCNB3",
+   "label": "CCNB3",
+   "group": "CCNB3",
+   "symbols": [
+    "CCNB3"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CREB1",
+   "label": "CREB1",
+   "group": "CREB1",
+   "symbols": [
+    "CREB1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "NFATC2",
+   "label": "NFATC2",
+   "group": "NFATC2",
+   "symbols": [
+    "NFATC2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PATZ1",
+   "label": "PATZ1",
+   "group": "PATZ1",
+   "symbols": [
+    "PATZ1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "RAF1",
+   "label": "RAF1 (CRAF)",
+   "group": "RAF1",
+   "symbols": [
+    "RAF1",
+    "CRAF",
+    "C-RAF"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PTK2",
+   "label": "FAK",
+   "group": "PTK2",
+   "symbols": [
+    "FAK",
+    "PTK2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PSMB5",
+   "label": "proteasome (PSMB5)",
+   "group": "PSMB5",
+   "symbols": [
+    "PSMB5"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "MS4A1",
+   "label": "CD20",
+   "group": "MS4A1",
+   "symbols": [
+    "CD20",
+    "MS4A1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "IL6R",
+   "label": "IL-6R",
+   "group": "IL6R",
+   "symbols": [
+    "IL-6R",
+    "IL6R"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "PTK7",
+   "label": "PTK7",
+   "group": "PTK7",
+   "symbols": [
+    "PTK7"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "LRRC15",
+   "label": "LRRC15",
+   "group": "LRRC15",
+   "symbols": [
+    "LRRC15"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "HSP90AA1",
+   "label": "HSP90",
+   "group": "HSP90AA1",
+   "symbols": [
+    "HSP90",
+    "HSP90AA1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "GLS",
+   "label": "glutaminase",
+   "group": "GLS",
+   "symbols": [
+    "GLS",
+    "GLS1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CHEK1",
+   "label": "CHK1",
+   "group": "CHEK1",
+   "symbols": [
+    "CHK1",
+    "CHEK1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "TEAD1",
+   "label": "TEAD",
+   "group": "TEAD1",
+   "symbols": [
+    "TEAD",
+    "TEAD1"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "METTL3",
+   "label": "METTL3",
+   "group": "METTL3",
+   "symbols": [
+    "METTL3"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "NAMPT",
+   "label": "NAMPT",
+   "group": "NAMPT",
+   "symbols": [
+    "NAMPT"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "NRP2",
+   "label": "NRP2",
+   "group": "NRP2",
+   "symbols": [
+    "NRP2"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "MERTK",
+   "label": "MERTK",
+   "group": "MERTK",
+   "symbols": [
+    "MERTK"
+   ],
+   "names": [],
+   "capsSafe": true
+  },
+  {
+   "symbol": "CCNG1",
+   "label": "cyclin G1",
+   "group": "CCNG1",
+   "symbols": [
+    "CCNG1"
+   ],
+   "names": [
+    "cyclin G1"
+   ],
+   "capsSafe": true
+  }
+ ]
+}

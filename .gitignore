@@ -1,0 +1,56 @@
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+
+# Virtual environments, build artefacts, and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+tests/.tmp_assemble/
+
+# Raw captures, stage outputs, gold labels, and local working scripts
+data/
+data/raw/
+data/stage/
+data/gold/
+/fixtures/
+runs/
+out/
+work/
+reports/
+
+# Generated datasets, compressed bundles, CSV exports, and run reports
+*.json.gz
+*.csv
+*run_report*.md
+*readouts_draft*.json
+
+# Always allow sanitized synthetic test fixtures
+!tests/fixtures_synthetic/
+!tests/fixtures_synthetic/**
+
+# Browser harvest exports, secrets, tokens, and credentials
+chunk_*.txt
+part*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*credentials*.json
+.secrets*
+
+# OS metadata
+.DS_Store
+Thumbs.db

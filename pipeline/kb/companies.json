@@ -1,0 +1,1146 @@
+{
+ "meta": {
+  "source": "curated",
+  "version": "2026-11-11",
+  "notes": "lineage events are dated (YYYY or YYYY-MM). currentOwner is resolved by following acquired_by / assets_sold_to events up to the reference date. Merck & Co (MSD) and Merck KGaA are separate entities; a bare 'Merck' is ambiguous and is not tagged. 'aliases' are matched case-insensitively with word boundaries except those in 'caseSensitiveAliases'.",
+  "referenceDate": "2026-11-11"
+ },
+ "companies": [
+  {
+   "id": "merck_co",
+   "name": "Merck & Co. (MSD)",
+   "aliases": [
+    "Merck & Co",
+    "Merck & Co.",
+    "Merck Sharp & Dohme",
+    "Merck Sharp and Dohme"
+   ],
+   "caseSensitiveAliases": [
+    "MSD"
+   ],
+   "lineage": []
+  },
+  {
+   "id": "merck_kgaa",
+   "name": "Merck KGaA",
+   "aliases": [
+    "Merck KGaA",
+    "EMD Serono",
+    "Merck Healthcare KGaA",
+    "Merck Healthcare"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "bms",
+   "name": "Bristol Myers Squibb",
+   "aliases": [
+    "Bristol Myers Squibb",
+    "Bristol-Myers Squibb"
+   ],
+   "caseSensitiveAliases": [
+    "BMS"
+   ],
+   "lineage": []
+  },
+  {
+   "id": "medarex",
+   "name": "Medarex",
+   "aliases": [
+    "Medarex"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "bms",
+     "date": "2009-09"
+    }
+   ]
+  },
+  {
+   "id": "celgene",
+   "name": "Celgene",
+   "aliases": [
+    "Celgene"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "bms",
+     "date": "2019-11"
+    }
+   ]
+  },
+  {
+   "id": "turning_point",
+   "name": "Turning Point Therapeutics",
+   "aliases": [
+    "Turning Point Therapeutics"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "bms",
+     "date": "2022-08"
+    }
+   ]
+  },
+  {
+   "id": "mirati",
+   "name": "Mirati Therapeutics",
+   "aliases": [
+    "Mirati"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "bms",
+     "date": "2024-01"
+    }
+   ]
+  },
+  {
+   "id": "ono",
+   "name": "Ono Pharmaceutical",
+   "aliases": [
+    "Ono Pharmaceutical",
+    "Ono Pharma"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "deciphera",
+   "name": "Deciphera Pharmaceuticals",
+   "aliases": [
+    "Deciphera"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "ono",
+     "date": "2024-06"
+    }
+   ]
+  },
+  {
+   "id": "sanofi",
+   "name": "Sanofi",
+   "aliases": [
+    "Sanofi",
+    "Sanofi-Aventis",
+    "Genzyme"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "blueprint",
+   "name": "Blueprint Medicines",
+   "aliases": [
+    "Blueprint Medicines"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "sanofi",
+     "date": "2025-07"
+    }
+   ]
+  },
+  {
+   "id": "springworks",
+   "name": "SpringWorks Therapeutics",
+   "aliases": [
+    "SpringWorks",
+    "SpringWorks Therapeutics"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "merck_kgaa",
+     "date": "2025-07"
+    }
+   ]
+  },
+  {
+   "id": "pfizer",
+   "name": "Pfizer",
+   "aliases": [
+    "Pfizer"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "array",
+   "name": "Array BioPharma",
+   "aliases": [
+    "Array BioPharma"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "pfizer",
+     "date": "2019-07"
+    }
+   ]
+  },
+  {
+   "id": "seagen",
+   "name": "Seagen",
+   "aliases": [
+    "Seagen",
+    "Seattle Genetics"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "pfizer",
+     "date": "2023-12"
+    }
+   ]
+  },
+  {
+   "id": "novartis",
+   "name": "Novartis",
+   "aliases": [
+    "Novartis"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "gsk",
+   "name": "GSK",
+   "aliases": [
+    "GlaxoSmithKline"
+   ],
+   "caseSensitiveAliases": [
+    "GSK"
+   ],
+   "lineage": []
+  },
+  {
+   "id": "tesaro",
+   "name": "Tesaro",
+   "aliases": [
+    "Tesaro"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "gsk",
+     "date": "2019-01"
+    }
+   ]
+  },
+  {
+   "id": "idrx",
+   "name": "IDRx",
+   "aliases": [
+    "IDRx"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "gsk",
+     "date": "2025-02"
+    }
+   ]
+  },
+  {
+   "id": "lilly",
+   "name": "Eli Lilly",
+   "aliases": [
+    "Eli Lilly",
+    "Lilly"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "loxo",
+   "name": "Loxo Oncology",
+   "aliases": [
+    "Loxo Oncology",
+    "Loxo@Lilly"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "lilly",
+     "date": "2019-02"
+    }
+   ]
+  },
+  {
+   "id": "bayer",
+   "name": "Bayer",
+   "aliases": [
+    "Bayer"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "roche",
+   "name": "Roche",
+   "aliases": [
+    "Roche",
+    "Hoffmann-La Roche",
+    "F. Hoffmann-La Roche",
+    "Genentech",
+    "Chugai"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "ignyta",
+   "name": "Ignyta",
+   "aliases": [
+    "Ignyta"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "roche",
+     "date": "2018-02"
+    }
+   ]
+  },
+  {
+   "id": "astrazeneca",
+   "name": "AstraZeneca",
+   "aliases": [
+    "AstraZeneca",
+    "Alexion"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "daiichi",
+   "name": "Daiichi Sankyo",
+   "aliases": [
+    "Daiichi Sankyo",
+    "Daiichi-Sankyo",
+    "Plexxikon"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "boehringer",
+   "name": "Boehringer Ingelheim",
+   "aliases": [
+    "Boehringer Ingelheim",
+    "Boehringer"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "rain",
+   "name": "Rain Oncology",
+   "aliases": [
+    "Rain Oncology",
+    "Rain Therapeutics"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "pathos",
+     "date": "2024-01"
+    }
+   ]
+  },
+  {
+   "id": "pathos",
+   "name": "Pathos AI",
+   "aliases": [
+    "Pathos AI",
+    "Pathos"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "kartos",
+   "name": "Kartos Therapeutics",
+   "aliases": [
+    "Kartos"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "ascentage",
+   "name": "Ascentage Pharma",
+   "aliases": [
+    "Ascentage",
+    "Ascentage Pharma"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "ipsen",
+   "name": "Ipsen",
+   "aliases": [
+    "Ipsen"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "epizyme",
+   "name": "Epizyme",
+   "aliases": [
+    "Epizyme"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "ipsen",
+     "date": "2022-08"
+    }
+   ]
+  },
+  {
+   "id": "karyopharm",
+   "name": "Karyopharm Therapeutics",
+   "aliases": [
+    "Karyopharm"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "pharmamar",
+   "name": "PharmaMar",
+   "aliases": [
+    "PharmaMar",
+    "Pharma Mar"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "jazz",
+   "name": "Jazz Pharmaceuticals",
+   "aliases": [
+    "Jazz Pharmaceuticals"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "jnj",
+   "name": "Johnson & Johnson",
+   "aliases": [
+    "Johnson & Johnson",
+    "Janssen",
+    "Johnson & Johnson Innovative Medicine"
+   ],
+   "caseSensitiveAliases": [
+    "J&J"
+   ],
+   "lineage": []
+  },
+  {
+   "id": "eisai",
+   "name": "Eisai",
+   "aliases": [
+    "Eisai"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "exelixis",
+   "name": "Exelixis",
+   "aliases": [
+    "Exelixis"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "cttq",
+   "name": "Chia Tai Tianqing",
+   "aliases": [
+    "Chia Tai Tianqing",
+    "CTTQ",
+    "Sino Biopharm"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "advenchen",
+   "name": "Advenchen Laboratories",
+   "aliases": [
+    "Advenchen"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "hengrui",
+   "name": "Jiangsu Hengrui",
+   "aliases": [
+    "Hengrui",
+    "Jiangsu Hengrui"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "hutchmed",
+   "name": "HUTCHMED",
+   "aliases": [
+    "HUTCHMED",
+    "Hutchison MediPharma"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "takeda",
+   "name": "Takeda",
+   "aliases": [
+    "Takeda"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "amgen",
+   "name": "Amgen",
+   "aliases": [
+    "Amgen"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "immutep",
+   "name": "Immutep",
+   "aliases": [
+    "Immutep"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "inhibrx",
+   "name": "Inhibrx Biosciences",
+   "aliases": [
+    "Inhibrx",
+    "Inhibrx Biosciences"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "cogent",
+   "name": "Cogent Biosciences",
+   "aliases": [
+    "Cogent Biosciences"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "abbisko",
+   "name": "Abbisko Therapeutics",
+   "aliases": [
+    "Abbisko"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "synox",
+   "name": "SynOx Therapeutics",
+   "aliases": [
+    "SynOx"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "immunome",
+   "name": "Immunome",
+   "aliases": [
+    "Immunome"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "ayala",
+   "name": "Ayala Pharmaceuticals",
+   "aliases": [
+    "Ayala Pharmaceuticals"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "asset_sold_to",
+     "by": "immunome",
+     "date": "2025",
+     "asset": "AL102"
+    }
+   ]
+  },
+  {
+   "id": "adaptimmune",
+   "name": "Adaptimmune",
+   "aliases": [
+    "Adaptimmune"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "asset_sold_to",
+     "by": "us_worldmeds",
+     "date": "2025-07",
+     "asset": "afami-cel, lete-cel, uza-cel"
+    }
+   ]
+  },
+  {
+   "id": "us_worldmeds",
+   "name": "US WorldMeds",
+   "aliases": [
+    "US WorldMeds",
+    "USWM"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "aadi",
+   "name": "Aadi Bioscience (now Whitehawk Therapeutics)",
+   "aliases": [
+    "Aadi Bioscience",
+    "Aadi",
+    "Whitehawk Therapeutics"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "asset_sold_to",
+     "by": "kaken",
+     "date": "2025",
+     "asset": "FYARRO (nab-sirolimus)"
+    }
+   ]
+  },
+  {
+   "id": "kaken",
+   "name": "Kaken Pharmaceutical",
+   "aliases": [
+    "Kaken Pharmaceutical",
+    "Kaken"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "gilead",
+   "name": "Gilead Sciences",
+   "aliases": [
+    "Gilead",
+    "Kite Pharma"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "immunomedics",
+   "name": "Immunomedics",
+   "aliases": [
+    "Immunomedics"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "gilead",
+     "date": "2020-10"
+    }
+   ]
+  },
+  {
+   "id": "regeneron",
+   "name": "Regeneron",
+   "aliases": [
+    "Regeneron"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "incyte",
+   "name": "Incyte",
+   "aliases": [
+    "Incyte"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "junshi",
+   "name": "Junshi Biosciences",
+   "aliases": [
+    "Junshi"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "innovent",
+   "name": "Innovent Biologics",
+   "aliases": [
+    "Innovent"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "beone",
+   "name": "BeOne Medicines (formerly BeiGene)",
+   "aliases": [
+    "BeiGene",
+    "BeOne Medicines",
+    "BeOne"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "henlius",
+   "name": "Shanghai Henlius",
+   "aliases": [
+    "Henlius"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "akeso",
+   "name": "Akeso",
+   "aliases": [
+    "Akeso"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "summit",
+   "name": "Summit Therapeutics",
+   "aliases": [
+    "Summit Therapeutics"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "agenus",
+   "name": "Agenus",
+   "aliases": [
+    "Agenus"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "alphamab",
+   "name": "Alphamab Oncology",
+   "aliases": [
+    "Alphamab"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "iovance",
+   "name": "Iovance Biotherapeutics",
+   "aliases": [
+    "Iovance"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "united_therapeutics",
+   "name": "United Therapeutics",
+   "aliases": [
+    "United Therapeutics"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "ymabs",
+   "name": "Y-mAbs Therapeutics",
+   "aliases": [
+    "Y-mAbs"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "celldex",
+   "name": "Celldex Therapeutics",
+   "aliases": [
+    "Celldex"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "macrogenics",
+   "name": "MacroGenics",
+   "aliases": [
+    "MacroGenics"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "hansoh",
+   "name": "Hansoh Pharma",
+   "aliases": [
+    "Hansoh"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "kelun",
+   "name": "Kelun-Biotech",
+   "aliases": [
+    "Kelun",
+    "Kelun-Biotech",
+    "Sichuan Kelun"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "remegen",
+   "name": "RemeGen",
+   "aliases": [
+    "RemeGen"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "salarius",
+   "name": "Salarius Pharmaceuticals",
+   "aliases": [
+    "Salarius"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "oncternal",
+   "name": "Oncternal Therapeutics",
+   "aliases": [
+    "Oncternal"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "iterion",
+   "name": "Iterion Therapeutics",
+   "aliases": [
+    "Iterion"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "zentalis",
+   "name": "Zentalis Pharmaceuticals",
+   "aliases": [
+    "Zentalis"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "repare",
+   "name": "Repare Therapeutics",
+   "aliases": [
+    "Repare"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "ab_science",
+   "name": "AB Science",
+   "aliases": [
+    "AB Science"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "replimune",
+   "name": "Replimune",
+   "aliases": [
+    "Replimune"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "os_therapies",
+   "name": "OS Therapies",
+   "aliases": [
+    "OS Therapies"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "alx",
+   "name": "ALX Oncology",
+   "aliases": [
+    "ALX Oncology"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "medilink",
+   "name": "MediLink Therapeutics",
+   "aliases": [
+    "MediLink"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "aveo",
+   "name": "AVEO Oncology",
+   "aliases": [
+    "AVEO"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "acquired_by",
+     "by": "lg_chem",
+     "date": "2023-01"
+    }
+   ]
+  },
+  {
+   "id": "lg_chem",
+   "name": "LG Chem",
+   "aliases": [
+    "LG Chem"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "clovis",
+   "name": "Clovis Oncology",
+   "aliases": [
+    "Clovis"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": [
+    {
+     "event": "asset_sold_to",
+     "by": "pharma_and",
+     "date": "2023",
+     "asset": "rucaparib"
+    }
+   ]
+  },
+  {
+   "id": "pharma_and",
+   "name": "pharma&",
+   "aliases": [
+    "pharmaand"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "nuvation",
+   "name": "Nuvation Bio",
+   "aliases": [
+    "Nuvation Bio"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "ningbo_newbay",
+   "name": "NewBay (Ningbo NewBay Medical Technology)",
+   "aliases": [
+    "NewBay"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "cstone",
+   "name": "CStone Pharmaceuticals",
+   "aliases": [
+    "CStone"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "arcus",
+   "name": "Arcus Biosciences",
+   "aliases": [
+    "Arcus Biosciences"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "rigel",
+   "name": "Rigel Pharmaceuticals",
+   "aliases": [
+    "Rigel"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "immunitybio",
+   "name": "ImmunityBio",
+   "aliases": [
+    "ImmunityBio"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "tracon",
+   "name": "TRACON Pharmaceuticals",
+   "aliases": [
+    "TRACON"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "verastem",
+   "name": "Verastem Oncology",
+   "aliases": [
+    "Verastem"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "abbvie",
+   "name": "AbbVie",
+   "aliases": [
+    "AbbVie"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "zai_lab",
+   "name": "Zai Lab",
+   "aliases": [
+    "Zai Lab"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "cybrexa",
+   "name": "Cybrexa Therapeutics",
+   "aliases": [
+    "Cybrexa"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "taiho",
+   "name": "Taiho Pharmaceutical",
+   "aliases": [
+    "Taiho"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "menarini",
+   "name": "Menarini (Stemline)",
+   "aliases": [
+    "Menarini",
+    "Stemline"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "orion",
+   "name": "Orion Corporation",
+   "aliases": [
+    "Orion Pharma",
+    "Orion Corporation"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "storm",
+   "name": "STORM Therapeutics",
+   "aliases": [
+    "STORM Therapeutics"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  },
+  {
+   "id": "foghorn",
+   "name": "Foghorn Therapeutics",
+   "aliases": [
+    "Foghorn"
+   ],
+   "caseSensitiveAliases": [],
+   "lineage": []
+  }
+ ]
+}

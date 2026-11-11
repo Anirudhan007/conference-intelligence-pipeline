@@ -1,0 +1,332 @@
+{
+ "meta": {
+  "source": "curated",
+  "version": "2026-11-11",
+  "notes": "Biomarker polarity rules applied around each target mention (ConText-style). 'postfix' regexes are anchored at the end of the mention (^ = first char after it), 'prefix' regexes at its start ($ = char before it). First matching rule wins (postfix checked before prefix). 'genes' restricts a rule to those HGNC symbols. Named group 'detail' is kept as statusDetail. Negation triggers within the same clause before the mention flip polarity via 'negationFlip'. Pseudo-triggers block negation. A mention followed only by a coordinator (/, or, and, comma) and another mention inherits that mention's polarity (KIT/PDGFRA-mutant, HER2- or ER-negative). Two gene mentions joined by '::', '-', '/' or '–' with a fusion cue (or both being known fusion partners) are tagged fusion with partner. Rules are case-insensitive unless caseSensitive is true. Before applying prefix rules and negation, a trailing list of other gene symbols (e.g. '(NF2, SMARCB1, LZTR1) or ') is skipped so list members inherit the list's cue.",
+  "polarities": [
+   "positive",
+   "negative",
+   "low",
+   "mutant",
+   "wild_type",
+   "amplified",
+   "fusion",
+   "unknown"
+  ]
+ },
+ "postfix": [
+  {
+   "id": "double_colon_fusion",
+   "regex": "^\\s*::",
+   "polarity": "fusion"
+  },
+  {
+   "id": "tmb_numeric",
+   "genes": [
+    "TMB"
+   ],
+   "regex": "^\\s*(?:\\(TMB\\)\\s*)?(?:of\\s*)?(?P<detail>(?:≥|>=|>|at least)\\s*\\d+(?:\\s*mut(?:ations)?/Mb)?)",
+   "polarity": "positive"
+  },
+  {
+   "id": "pdl1_lt1",
+   "genes": [
+    "CD274"
+   ],
+   "regex": "^\\s*(?:expression\\s*)?(?:\\(|,)?\\s*(?:TPS|CPS|TC|IC|tumou?r proportion score|combined positive score)?\\s*(?:of\\s*)?(?:<|＜|less than|below)\\s*1\\s*%?",
+   "polarity": "negative"
+  },
+  {
+   "id": "pdl1_ge",
+   "genes": [
+    "CD274"
+   ],
+   "regex": "^\\s*(?:expression\\s*)?(?:\\(|,)?\\s*(?:TPS|CPS|TC|IC|tumou?r proportion score|combined positive score)?\\s*(?:of\\s*)?(?:≥|>=|>|greater than|at least)\\s*(?P<detail>\\d+\\s*%?)",
+   "polarity": "positive"
+  },
+  {
+   "id": "her2_ultralow_low",
+   "genes": [
+    "ERBB2"
+   ],
+   "regex": "^\\s*[-‐‑‒–]?\\s*(?P<detail>ultra[-‐‑‒–]?\\s*low|low)\\b",
+   "polarity": "low"
+  },
+  {
+   "id": "her2_zero",
+   "genes": [
+    "ERBB2"
+   ],
+   "regex": "^\\s*(?:IHC\\s*)?(?:score\\s*(?:of\\s*)?)?(?P<detail>0)(?![\\d.,%+])",
+   "polarity": "negative"
+  },
+  {
+   "id": "her2_1plus_2plus_ish_neg",
+   "genes": [
+    "ERBB2"
+   ],
+   "regex": "^\\s*(?:IHC\\s*)?(?P<detail>1\\+|2\\+\\s*(?:/|and|with)\\s*(?:ISH|FISH)\\s*(?:[-−–]|negative))",
+   "polarity": "low"
+  },
+  {
+   "id": "her2_3plus",
+   "genes": [
+    "ERBB2"
+   ],
+   "regex": "^\\s*(?:IHC\\s*)?(?P<detail>3\\+)",
+   "polarity": "positive"
+  },
+  {
+   "id": "receptor_minus",
+   "genes": [
+    "ERBB2",
+    "ESR1",
+    "PGR",
+    "AR"
+   ],
+   "regex": "^\\s*(?:[-−–])(?![\\w])(?!\\s*(?:,|or|and|/)\\s*[A-Za-z0-9]+[-−–])",
+   "polarity": "negative"
+  },
+  {
+   "id": "negative",
+   "regex": "^\\s*(?:(?:RNA|mRNA|protein|gene|copy)\\s+)?[-‐‑‒–]?\\s*(?:negative|negativity|neg\\b|non[-‐‑‒–]?expressing|nonexpressing|null\\b)",
+   "polarity": "negative"
+  },
+  {
+   "id": "plus_sign",
+   "regex": "^\\s*\\+(?![\\w+])",
+   "polarity": "positive",
+   "caseSensitive": true
+  },
+  {
+   "id": "positive",
+   "regex": "^\\s*(?:(?:RNA|mRNA|protein|gene|copy)\\s+)?[-‐‑‒–]?\\s*(?:positive|positivity|pos\\b|expressing|over[-‐‑‒–]?expressi\\w*|over[-‐‑‒–]?expressed|high\\b(?!\\s*[-‐‑‒–]?\\s*level)|hi\\b|enriched)",
+   "polarity": "positive"
+  },
+  {
+   "id": "low",
+   "regex": "^\\s*(?:(?:RNA|mRNA|protein|gene|copy)\\s+)?[-‐‑‒–]?\\s*(?:low\\b|weak\\b|dim\\b)",
+   "polarity": "low"
+  },
+  {
+   "id": "exon_mutation",
+   "regex": "^\\s*(?:gene\\s+)?(?P<detail>exons?\\s*\\d+(?:\\s*(?:/|and|or|,)\\s*\\d+)*)(?:\\s*[-‐‑‒–]?\\s*(?:mutant|mutated|mutations?|deletions?|insertions?|duplications?|variants?|alterations?))?",
+   "polarity": "mutant"
+  },
+  {
+   "id": "protein_change",
+   "regex": "^\\s*(?:gene\\s+)?(?:p\\.)?(?P<detail>[ACDEFGHIKLMNPQRSTVWY]\\d{2,4}(?:[ACDEFGHIKLMNPQRSTVWY*](?:/[ACDEFGHIKLMNPQRSTVWY])?|del|fs|_[A-Z]\\d+del)?)(?![\\w])",
+   "polarity": "mutant",
+   "caseSensitive": true
+  },
+  {
+   "id": "mutant",
+   "regex": "^\\s*(?:gene\\s+)?[-‐‑‒–]?\\s*(?P<detail>mutant|mutants|mutated|mutation|mutations|mut\\b|variant|variants|SNVs?|point mutations?|pathogenic variants?|germline (?:mutations?|variants?)|somatic (?:mutations?|variants?))",
+   "polarity": "mutant"
+  },
+  {
+   "id": "wild_type",
+   "regex": "^\\s*(?:gene\\s+)?[-‐‑‒–]?\\s*(?:wild[-‐‑‒–]?\\s*type|wildtype|WT\\b|wt\\b|non[-‐‑‒–]?mutant|non[-‐‑‒–]?mutated|unmutated)",
+   "polarity": "wild_type"
+  },
+  {
+   "id": "amplified",
+   "regex": "^\\s*(?:(?:RNA|mRNA|protein|gene|copy)\\s+)?(?:gene\\s+)?[-‐‑‒–]?\\s*(?P<detail>amplification|amplifications|amplified|amplicon|amp\\b|copy[-‐‑‒–]?\\s*number\\s+(?:gain|amplification)s?|high[-‐‑‒–]level amplification)",
+   "polarity": "amplified"
+  },
+  {
+   "id": "fusion",
+   "regex": "^\\s*(?:gene\\s+)?[-‐‑‒–]?\\s*(?P<detail>fusion[-‐‑‒–]?\\s*positive|fusions?|fusion genes?|fusion transcripts?|rearrangements?|rearranged|translocations?|translocated|fused|fusion[-‐‑‒–]?driven)",
+   "polarity": "fusion"
+  },
+  {
+   "id": "loss",
+   "regex": "^\\s*(?:gene\\s+)?(?:protein\\s+)?[-‐‑‒–]?\\s*(?P<detail>deficient|deficiency|loss|lost|deleted|deletions?|homozygous deletions?|inactivat\\w*|knockout)",
+   "polarity": "negative"
+  },
+  {
+   "id": "altered",
+   "regex": "^\\s*(?:gene\\s+)?[-‐‑‒–]?\\s*(?P<detail>altered|alterations?|aberrations?|aberrant|abnormalit\\w+)",
+   "polarity": "unknown",
+   "role": "biomarker_status"
+  },
+  {
+   "id": "status",
+   "regex": "^\\s*(?:(?:RNA|mRNA|protein|gene|copy)\\s+)?(?:gene\\s+|protein\\s+)?(?P<detail>status|expression|immunoreactivity|immunostaining|staining|levels?|copy number|testing|IHC)\\b",
+   "polarity": "unknown",
+   "role": "biomarker_status"
+  }
+ ],
+ "prefix": [
+  {
+   "id": "pre_wild_type",
+   "regex": "(?:wild[-‐‑‒–]?\\s*type|wildtype|non[-‐‑‒–]?mutant|unmutated)\\s+$",
+   "polarity": "wild_type"
+  },
+  {
+   "id": "pre_mutant",
+   "regex": "(?:mutant|mutated|activating|oncogenic|somatic|germline|pathogenic)\\s+(?:\\w+\\s+)?$",
+   "polarity": "mutant"
+  },
+  {
+   "id": "pre_amplified",
+   "regex": "(?:amplified|high[-‐‑‒–]level)\\s+$",
+   "polarity": "amplified"
+  },
+  {
+   "id": "pre_rearranged",
+   "regex": "(?:rearranged|fusion[-‐‑‒–]?positive)\\s+$",
+   "polarity": "fusion"
+  },
+  {
+   "id": "pre_loss_of",
+   "regex": "(?:loss|absence|lack|deletion|deletions|inactivation|deficiency)\\s+of\\s+(?:the\\s+)?(?:\\w+\\s+)?$",
+   "polarity": "negative"
+  },
+  {
+   "id": "pre_overexpression_of",
+   "regex": "(?:over[-‐‑‒–]?expression|high expression|positivity)\\s+(?:of|for)\\s+(?:the\\s+)?$",
+   "polarity": "positive"
+  },
+  {
+   "id": "pre_amplification_of",
+   "regex": "(?:amplification|amplifications|gain)\\s+(?:of|in)\\s+(?:the\\s+)?$",
+   "polarity": "amplified"
+  },
+  {
+   "id": "pre_mutation_in",
+   "regex": "(?:mutations?|variants?|alterations?)\\s+(?:of|in)\\s+(?:the\\s+)?(?:[\\w\\-]+\\s+){0,2}$",
+   "polarity": "mutant"
+  },
+  {
+   "id": "pre_fusion_involving",
+   "regex": "(?:fusions?|rearrangements?|translocations?)\\s+(?:of|in|involving)\\s+(?:the\\s+)?$",
+   "polarity": "fusion"
+  },
+  {
+   "id": "pre_high",
+   "regex": "(?:high|strong|positive)\\s+$",
+   "polarity": "positive"
+  },
+  {
+   "id": "pre_low",
+   "regex": "(?:low|weak)\\s+$",
+   "polarity": "low"
+  },
+  {
+   "id": "pre_expression_of",
+   "regex": "(?:expression|status|levels?|immunostaining|staining)\\s+(?:of|for)\\s+(?:the\\s+)?$",
+   "polarity": "unknown",
+   "role": "biomarker_status"
+  },
+  {
+   "id": "pre_retained",
+   "regex": "(?:retained|intact|preserved)\\s+$",
+   "polarity": "positive"
+  }
+ ],
+ "negation": {
+  "preTriggers": "\\b(?:no|not|without|absence of|absent|lack of|lacking|negative for|free of|non)\\b",
+  "pseudoTriggers": "\\b(?:no (?:significant |statistically significant )?(?:difference|differences|change|changes|correlation|association|impact|effect|increase|decrease)|not only|no longer|not necessarily|whether or not|with or without|not been|not otherwise specified|not available|not reached)\\b",
+  "terminators": "(?:[;.:]|\\bbut\\b|\\bhowever\\b|\\balthough\\b|\\bwhereas\\b|\\bwhile\\b|\\bexcept\\b)",
+  "maxTokensBefore": 5,
+  "postNegation": "^\\s*(?:\\w+\\s+){0,3}(?:was|were|is|are)\\s+(?:not detected|not identified|not found|absent|negative|not present)",
+  "negationFlip": {
+   "mutant": "wild_type",
+   "amplified": "negative",
+   "fusion": "negative",
+   "positive": "negative",
+   "unknown": "negative",
+   "low": "low",
+   "negative": "negative",
+   "wild_type": "wild_type"
+  }
+ },
+ "selectionCues": {
+  "before": "(?:patients?|pts|participants|subjects|cohorts?|adults|children|tumou?rs|cases|individuals|those)\\s+(?:with|harbou?ring|having|carrying|bearing|whose tumou?rs (?:harbou?r|have))\\s+(?:[\\w/+\\-‐]+\\s+){0,4}$|(?:harbou?ring|carrying|selected for|positive for|eligible|eligibility|inclusion criteria|enrolled|enrolment|enrollment|required)\\b[^.;]{0,60}$",
+  "after": "^[\\w\\-‐+]*\\s+(?:patients?|pts|participants|GISTs?|sarcomas?|tumou?rs|disease|cohorts?|populations?|subgroups?|subtypes?|liposarcomas?|DDLPS|WDLPS|LPS|RMS|cases)\\b"
+ },
+ "fusionPairs": [
+  [
+   "EWSR1",
+   "FLI1"
+  ],
+  [
+   "EWSR1",
+   "ERG"
+  ],
+  [
+   "EWSR1",
+   "WT1"
+  ],
+  [
+   "EWSR1",
+   "ATF1"
+  ],
+  [
+   "EWSR1",
+   "NR4A3"
+  ],
+  [
+   "SS18",
+   "SSX1"
+  ],
+  [
+   "PAX3",
+   "FOXO1"
+  ],
+  [
+   "PAX7",
+   "FOXO1"
+  ],
+  [
+   "FUS",
+   "DDIT3"
+  ],
+  [
+   "EWSR1",
+   "DDIT3"
+  ],
+  [
+   "CIC",
+   "DUX4"
+  ],
+  [
+   "NAB2",
+   "STAT6"
+  ],
+  [
+   "ASPSCR1",
+   "TFE3"
+  ],
+  [
+   "WWTR1",
+   "CAMTA1"
+  ],
+  [
+   "YAP1",
+   "TFE3"
+  ],
+  [
+   "COL1A1",
+   "PDGFB"
+  ],
+  [
+   "ETV6",
+   "NTRK1"
+  ],
+  [
+   "EWSR1",
+   "CREB1"
+  ],
+  [
+   "FUS",
+   "CREB1"
+  ],
+  [
+   "BCOR",
+   "CCNB3"
+  ]
+ ],
+ "fusionConnector": "^\\s*(?:::|[-‐‑–/]|\\s*:\\s*)\\s*$"
+}

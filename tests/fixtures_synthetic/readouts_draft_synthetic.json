@@ -1,0 +1,100 @@
+[
+  {
+    "id": "ro-synth-900101",
+    "code": "P 01",
+    "presentationId": "ctos-2026:PosterInfo:900101",
+    "drug": "sunitinib",
+    "trial": null,
+    "nct": ["NCT09990001"],
+    "targets": ["KIT"],
+    "modality": "small molecule",
+    "disease": "GIST",
+    "setting": "advanced",
+    "phase": "2",
+    "design": "Single-arm",
+    "studyN": 40,
+    "cutoff": "2026-05-01",
+    "followUp": null,
+    "analysis": "primary",
+    "primaryEndpoint": "orr",
+    "readoutType": "efficacy",
+    "metrics": [
+      {
+        "key": "orr",
+        "label": "ORR",
+        "unit": "%",
+        "endpointType": "proportion",
+        "population": "unknown",
+        "status": null,
+        "hr": null,
+        "reportedValue": "35.0% (14/40; 95% CI, 20.6-51.7)",
+        "arms": [
+          {
+            "label": "sunitinib + SBRT",
+            "role": "drug",
+            "n": 40,
+            "value": 35.0,
+            "ci": [20.6, 51.7],
+            "ciLevel": 95,
+            "count": 14,
+            "denominator": 40,
+            "evidence": [
+              {
+                "field": "abstract",
+                "charStart": 0,
+                "charEnd": 10,
+                "quote": "the ORR was 35.0% (14/40; 95% CI, 20.6-51.7)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pfs",
+        "label": "Median PFS",
+        "unit": "months",
+        "endpointType": "time_to_event",
+        "population": "unknown",
+        "status": null,
+        "hr": null,
+        "reportedValue": "8.4 months (95% CI, 5.2-11.9)",
+        "arms": [
+          {
+            "label": "sunitinib + SBRT",
+            "role": "drug",
+            "n": null,
+            "value": 8.4,
+            "ci": [5.2, 11.9],
+            "ciLevel": 95,
+            "count": null,
+            "denominator": null,
+            "evidence": [
+              {
+                "field": "abstract",
+                "charStart": 0,
+                "charEnd": 10,
+                "quote": "median PFS was 8.4 months (95% CI, 5.2-11.9)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "safety": [],
+    "limitation": "Synthetic single-arm cohort fixture.",
+    "evidence": [
+      {
+        "field": "abstract",
+        "charStart": 0,
+        "charEnd": 10,
+        "quote": "Eligible patients (n=40) received sunitinib 37.5 mg daily"
+      },
+      {
+        "field": "abstract",
+        "charStart": 0,
+        "charEnd": 10,
+        "quote": "As of 2026-05-01"
+      }
+    ]
+  }
+]

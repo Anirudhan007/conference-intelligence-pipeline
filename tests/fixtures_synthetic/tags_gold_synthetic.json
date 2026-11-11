@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "synthetic": true,
+    "note": "Synthetic gold-label sample for verifying tag_eval scoring without real conference abstracts."
+  },
+  "items": {
+    "ctos-2026:PosterInfo:900101": {
+      "diseases": ["gist"],
+      "drugs": [{"id": "sunitinib", "role": "investigational"}],
+      "drugTargets": ["KIT", "PDGFRA", "VEGFR"],
+      "modalities": ["small_molecule_kinase_inhibitor"],
+      "polarity": [{"gene": "KIT", "polarity": "mutant"}]
+    },
+    "ctos-2026:PosterInfo:900102": {
+      "diseases": ["synovial_sarcoma"],
+      "drugs": [{"id": "pazopanib", "role": "investigational"}],
+      "drugTargets": ["VEGFR"],
+      "modalities": ["small_molecule_kinase_inhibitor"],
+      "polarity": [{"gene": "SS18", "polarity": "fusion"}, {"gene": "SSX1", "polarity": "fusion"}]
+    }
+  }
+}

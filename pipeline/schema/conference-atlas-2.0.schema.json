@@ -1,0 +1,2503 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://conferenceatlas.example/schema/conference-atlas-2.0.schema.json",
+ "title": "Conference Atlas data layer v2",
+ "description": "One conference snapshot: presentations, sessions, people, sponsors, normalized tags with evidence, clinical readouts, aggregates and QA. Missing values are null, never zero.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "schemaVersion",
+  "datasetVersion",
+  "conference",
+  "embargo",
+  "provenance",
+  "coverage",
+  "presentations",
+  "sessions",
+  "people",
+  "sponsors",
+  "events",
+  "entities",
+  "readouts",
+  "aggregates",
+  "watchlist",
+  "contextUpdates",
+  "glossary",
+  "qa"
+ ],
+ "properties": {
+  "schemaVersion": {
+   "const": "conference-atlas/2.0.0"
+  },
+  "datasetVersion": {
+   "type": "object",
+   "properties": {
+    "snapshot": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "format": "date-time",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:?\\d{2})$"
+    },
+    "pipeline": {
+     "type": "string"
+    },
+    "components": {
+     "type": "object",
+     "additionalProperties": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    }
+   },
+   "required": [
+    "snapshot",
+    "pipeline",
+    "components"
+   ],
+   "additionalProperties": false
+  },
+  "conference": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "organization": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "start": {
+     "type": "string",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "end": {
+     "type": "string",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "timezone": {
+     "type": "string"
+    },
+    "venue": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "city": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "country": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "platform": {
+     "const": "eventscribe"
+    },
+    "url": {
+     "type": "string"
+    },
+    "sourceUrls": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "uniqueItems": true
+    }
+   },
+   "required": [
+    "id",
+    "name",
+    "organization",
+    "start",
+    "end",
+    "timezone",
+    "venue",
+    "city",
+    "country",
+    "platform",
+    "url",
+    "sourceUrls"
+   ],
+   "additionalProperties": false
+  },
+  "embargo": {
+   "type": "object",
+   "properties": {
+    "rules": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "class": {
+        "type": "string"
+       },
+       "releaseUtc": {
+        "type": "string",
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:?\\d{2})$"
+       },
+       "sourceQuote": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "sourceUrl": {
+        "type": [
+         "string",
+         "null"
+        ]
+       }
+      },
+      "required": [
+       "class",
+       "releaseUtc",
+       "sourceQuote",
+       "sourceUrl"
+      ],
+      "additionalProperties": false
+     },
+     "minItems": 1
+    },
+    "verifiedAt": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
+   },
+   "required": [
+    "rules"
+   ],
+   "additionalProperties": false
+  },
+  "provenance": {
+   "type": "object",
+   "properties": {
+    "activities": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "type": {
+        "type": "string"
+       },
+       "startedAt": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:?\\d{2})$"
+       },
+       "endedAt": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:?\\d{2})$"
+       },
+       "agent": {
+        "type": "string"
+       },
+       "method": {
+        "type": [
+         "string",
+         "null"
+        ]
+       }
+      },
+      "required": [
+       "id",
+       "type",
+       "startedAt",
+       "endedAt",
+       "agent",
+       "method"
+      ],
+      "additionalProperties": false
+     }
+    },
+    "sources": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "url": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "retrievedAt": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:?\\d{2})$"
+       },
+       "bytes": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "minimum": 0
+       },
+       "sha256": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "pattern": "^[0-9a-f]{64}$"
+       }
+      },
+      "required": [
+       "id",
+       "url",
+       "retrievedAt",
+       "bytes",
+       "sha256"
+      ],
+      "additionalProperties": false
+     }
+    }
+   },
+   "required": [
+    "activities",
+    "sources"
+   ],
+   "additionalProperties": false
+  },
+  "coverage": {
+   "type": "object",
+   "properties": {
+    "discovered": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "captured": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "withAbstract": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "withPoster": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "tagged": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "reviewed": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "byFormat": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "integer",
+      "minimum": 0
+     }
+    },
+    "deltaSincePrevious": {
+     "type": [
+      "object",
+      "null"
+     ],
+     "properties": {
+      "previousSnapshot": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "previousPipeline": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "added": {
+       "type": "array",
+       "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]*:[A-Za-z]+:[^\\s]+$"
+       },
+       "uniqueItems": true
+      },
+      "removed": {
+       "type": "array",
+       "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]*:[A-Za-z]+:[^\\s]+$"
+       },
+       "uniqueItems": true
+      },
+      "changed": {
+       "type": "array",
+       "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]*:[A-Za-z]+:[^\\s]+$"
+       },
+       "uniqueItems": true
+      }
+     },
+     "required": [
+      "previousSnapshot",
+      "previousPipeline",
+      "added",
+      "removed",
+      "changed"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "required": [
+    "discovered",
+    "captured",
+    "withAbstract",
+    "withPoster",
+    "tagged",
+    "reviewed",
+    "byFormat",
+    "deltaSincePrevious"
+   ],
+   "additionalProperties": false
+  },
+  "presentations": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/presentation"
+   }
+  },
+  "sessions": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/session"
+   }
+  },
+  "people": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/person"
+   }
+  },
+  "sponsors": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/sponsor"
+   }
+  },
+  "events": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/event"
+   }
+  },
+  "entities": {
+   "type": "object",
+   "properties": {
+    "drugs": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/entity"
+     }
+    },
+    "targets": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/entity"
+     }
+    },
+    "diseases": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/entity"
+     }
+    },
+    "companies": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/entity"
+     }
+    },
+    "trials": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/entity"
+     }
+    }
+   },
+   "required": [
+    "drugs",
+    "targets",
+    "diseases",
+    "companies",
+    "trials"
+   ],
+   "additionalProperties": false
+  },
+  "readouts": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/readout"
+   }
+  },
+  "aggregates": {
+   "$ref": "#/$defs/aggregates"
+  },
+  "watchlist": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "kind": {
+      "type": "string"
+     },
+     "entityId": {
+      "type": "string"
+     },
+     "label": {
+      "type": "string"
+     },
+     "reason": {
+      "type": "string"
+     },
+     "presentationIds": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "pattern": "^[a-z0-9][a-z0-9-]*:[A-Za-z]+:[^\\s]+$"
+      },
+      "uniqueItems": true
+     },
+     "readoutIds": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "uniqueItems": true
+     }
+    },
+    "required": [
+     "id",
+     "kind",
+     "entityId",
+     "label",
+     "reason",
+     "presentationIds",
+     "readoutIds"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "contextUpdates": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "kind": {
+      "type": "string"
+     },
+     "entityId": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "summary": {
+      "type": "string"
+     },
+     "presentationId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "pattern": "^[a-z0-9][a-z0-9-]*:[A-Za-z]+:[^\\s]+$"
+     },
+     "readoutId": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "date": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+     },
+     "reviewStatus": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    },
+    "required": [
+     "id",
+     "kind",
+     "entityId",
+     "summary",
+     "presentationId",
+     "readoutId",
+     "date",
+     "reviewStatus"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "glossary": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "term": {
+      "type": "string"
+     },
+     "definition": {
+      "type": "string"
+     },
+     "category": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "term",
+     "definition",
+     "category"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "qa": {
+   "type": "object",
+   "properties": {
+    "schemaValid": {
+     "type": "boolean"
+    },
+    "checks": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/qaCheck"
+     }
+    },
+    "unresolvedEntities": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "presentationId": {
+        "type": "string"
+       },
+       "kind": {
+        "type": "string"
+       },
+       "label": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "reason": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "presentationId",
+       "kind",
+       "label",
+       "reason"
+      ],
+      "additionalProperties": false
+     }
+    },
+    "pendingReview": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "uniqueItems": true
+    },
+    "knownIssues": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "schemaValid",
+    "checks",
+    "unresolvedEntities",
+    "pendingReview",
+    "knownIssues"
+   ],
+   "additionalProperties": false
+  }
+ },
+ "$defs": {
+  "evidence": {
+   "type": "object",
+   "properties": {
+    "field": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "charStart": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "charEnd": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "quote": {
+     "type": "string",
+     "minLength": 1
+    }
+   },
+   "required": [
+    "field",
+    "quote"
+   ],
+   "additionalProperties": false,
+   "description": "Exact substring of the referenced source field."
+  },
+  "ci": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "items": {
+    "type": [
+     "number",
+     "null"
+    ]
+   },
+   "minItems": 2,
+   "maxItems": 2
+  },
+  "pValue": {
+   "anyOf": [
+    {
+     "type": "number",
+     "minimum": 0,
+     "maximum": 1
+    },
+    {
+     "type": "string",
+     "pattern": "^[<>≤≥]=?\\s*0?\\.\\d+$"
+    },
+    {
+     "type": "null"
+    }
+   ]
+  },
+  "arm": {
+   "type": "object",
+   "properties": {
+    "label": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "role": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "n": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "value": {
+     "type": [
+      "number",
+      "string",
+      "null"
+     ]
+    },
+    "ci": {
+     "$ref": "#/$defs/ci"
+    },
+    "ciLevel": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "count": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "denominator": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "evidence": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/evidence"
+     }
+    }
+   },
+   "required": [
+    "label",
+    "role",
+    "n",
+    "value",
+    "ci",
+    "ciLevel",
+    "count",
+    "denominator",
+    "evidence"
+   ],
+   "additionalProperties": false
+  },
+  "hr": {
+   "type": "object",
+   "properties": {
+    "value": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "ci": {
+     "$ref": "#/$defs/ci"
+    },
+    "level": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "p": {
+     "$ref": "#/$defs/pValue"
+    }
+   },
+   "required": [
+    "value",
+    "ci",
+    "level",
+    "p"
+   ],
+   "additionalProperties": false
+  },
+  "metric": {
+   "type": "object",
+   "properties": {
+    "key": {
+     "type": "string"
+    },
+    "label": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "unit": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "endpointType": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "population": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "status": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "hr": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/hr"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "reportedValue": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "arms": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/arm"
+     }
+    }
+   },
+   "required": [
+    "key",
+    "label",
+    "unit",
+    "endpointType",
+    "population",
+    "status",
+    "hr",
+    "reportedValue",
+    "arms"
+   ],
+   "additionalProperties": false
+  },
+  "safety": {
+   "type": "object",
+   "properties": {
+    "key": {
+     "type": "string"
+    },
+    "label": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "unit": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "gradeRange": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "arms": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/arm"
+     }
+    },
+    "note": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
+   },
+   "required": [
+    "key",
+    "label",
+    "unit",
+    "gradeRange",
+    "arms",
+    "note"
+   ],
+   "additionalProperties": false
+  },
+  "review": {
+   "type": "object",
+   "properties": {
+    "status": {
+     "type": "string"
+    },
+    "by": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "at": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
+   },
+   "required": [
+    "status",
+    "by",
+    "at"
+   ],
+   "additionalProperties": false
+  },
+  "readout": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "code": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "presentationId": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "pattern": "^[a-z0-9][a-z0-9-]*:[A-Za-z]+:[^\\s]+$"
+    },
+    "drug": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "trial": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "targets": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "modality": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "disease": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "setting": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "phase": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "design": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "studyN": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "cutoff": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "followUp": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "analysis": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "primaryEndpoint": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "readoutType": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "metrics": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/metric"
+     }
+    },
+    "safety": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/safety"
+     }
+    },
+    "limitation": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "evidence": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/evidence"
+     }
+    },
+    "review": {
+     "$ref": "#/$defs/review"
+    }
+   },
+   "required": [
+    "id",
+    "code",
+    "presentationId",
+    "drug",
+    "trial",
+    "targets",
+    "modality",
+    "disease",
+    "setting",
+    "phase",
+    "design",
+    "studyN",
+    "cutoff",
+    "followUp",
+    "analysis",
+    "primaryEndpoint",
+    "readoutType",
+    "metrics",
+    "safety",
+    "limitation",
+    "evidence",
+    "review"
+   ],
+   "additionalProperties": false
+  },
+  "tag": {
+   "type": "object",
+   "properties": {
+    "kind": {
+     "enum": [
+      "drug",
+      "target",
+      "modality",
+      "disease",
+      "company",
+      "trial",
+      "histology"
+     ]
+    },
+    "entityId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "label": {
+     "type": "string"
+    },
+    "role": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "polarity": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "enum": [
+      "positive",
+      "negative",
+      "low",
+      "mutant",
+      "wild_type",
+      "amplified",
+      "fusion",
+      "unknown",
+      null
+     ]
+    },
+    "evidence": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/evidence"
+     },
+     "minItems": 1
+    },
+    "method": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "confidence": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "maximum": 1
+    }
+   },
+   "required": [
+    "kind",
+    "entityId",
+    "label",
+    "role",
+    "polarity",
+    "evidence",
+    "method",
+    "confidence"
+   ],
+   "additionalProperties": true,
+   "allOf": [
+    {
+     "if": {
+      "properties": {
+       "kind": {
+        "const": "target"
+       }
+      }
+     },
+     "then": {
+      "properties": {
+       "role": {
+        "enum": [
+         "drug_target",
+         "selection_biomarker",
+         "biomarker_status",
+         "mentioned"
+        ]
+       }
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "kind": {
+        "const": "drug"
+       }
+      }
+     },
+     "then": {
+      "properties": {
+       "role": {
+        "enum": [
+         "investigational",
+         "backbone",
+         "control",
+         "mentioned"
+        ]
+       }
+      }
+     }
+    }
+   ]
+  },
+  "author": {
+   "type": "object",
+   "properties": {
+    "personId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "name": {
+     "type": "string"
+    },
+    "degrees": {
+     "type": [
+      "array",
+      "string",
+      "null"
+     ],
+     "items": {
+      "type": "string"
+     }
+    },
+    "pronouns": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "role": {
+     "enum": [
+      "author",
+      "coauthor",
+      "presenter",
+      "chair",
+      "moderator",
+      "speaker"
+     ]
+    },
+    "position": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "institution": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "city": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "region": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "country": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "order": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    }
+   },
+   "required": [
+    "personId",
+    "name",
+    "degrees",
+    "pronouns",
+    "role",
+    "position",
+    "institution",
+    "city",
+    "region",
+    "country",
+    "order"
+   ],
+   "additionalProperties": false
+  },
+  "embargoFlag": {
+   "type": "object",
+   "properties": {
+    "embargoed": {
+     "type": "boolean"
+    },
+    "liftsAtUtc": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "format": "date-time",
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:?\\d{2})$"
+    }
+   },
+   "required": [
+    "embargoed",
+    "liftsAtUtc"
+   ],
+   "additionalProperties": false
+  },
+  "rights": {
+   "type": "object",
+   "properties": {
+    "displayFullText": {
+     "const": false
+    },
+    "basis": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "displayFullText",
+    "basis"
+   ],
+   "additionalProperties": false
+  },
+  "presentation": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "pattern": "^[a-z0-9][a-z0-9-]*:[A-Za-z]+:[^\\s]+$"
+    },
+    "number": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "title": {
+     "type": "string"
+    },
+    "titleNormalized": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "format": {
+     "enum": [
+      "poster",
+      "oral",
+      "lecture",
+      "other"
+     ]
+    },
+    "tip": {
+     "type": "boolean"
+    },
+    "track": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "sessionId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "sessionTitle": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "date": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "startTime": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "endTime": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "timezone": {
+     "const": "Asia/Seoul"
+    },
+    "location": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "authors": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/author"
+     }
+    },
+    "abstract": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "abstractSections": {
+     "type": [
+      "object",
+      "null"
+     ],
+     "additionalProperties": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    },
+    "disclosures": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "name": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "text": {
+        "type": [
+         "string",
+         "null"
+        ]
+       }
+      },
+      "required": [
+       "name",
+       "text"
+      ],
+      "additionalProperties": false
+     }
+    },
+    "slidesAvailable": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "views": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 0
+    },
+    "url": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "sourceKind": {
+     "type": "string"
+    },
+    "sourceId": {
+     "type": "string"
+    },
+    "contentHash": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "embargo": {
+     "$ref": "#/$defs/embargoFlag"
+    },
+    "drug": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "developers": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "diseases": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "modalities": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "targets": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "tags": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/tag"
+     }
+    },
+    "readoutIds": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "uniqueItems": true
+    },
+    "rights": {
+     "$ref": "#/$defs/rights"
+    }
+   },
+   "required": [
+    "id",
+    "number",
+    "title",
+    "titleNormalized",
+    "format",
+    "tip",
+    "track",
+    "sessionId",
+    "sessionTitle",
+    "date",
+    "startTime",
+    "endTime",
+    "timezone",
+    "location",
+    "authors",
+    "abstract",
+    "abstractSections",
+    "disclosures",
+    "slidesAvailable",
+    "views",
+    "url",
+    "sourceKind",
+    "sourceId",
+    "contentHash",
+    "embargo",
+    "drug",
+    "developers",
+    "diseases",
+    "modalities",
+    "targets",
+    "tags",
+    "readoutIds",
+    "rights"
+   ],
+   "additionalProperties": false
+  },
+  "session": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "title": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "date": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "startTime": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "endTime": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "location": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "chairs": {
+     "type": "array",
+     "items": {
+      "type": [
+       "string",
+       "object"
+      ]
+     }
+    },
+    "moderators": {
+     "type": "array",
+     "items": {
+      "type": [
+       "string",
+       "object"
+      ]
+     }
+    },
+    "presentationIds": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "id",
+    "title",
+    "date",
+    "startTime",
+    "endTime",
+    "location",
+    "chairs",
+    "moderators",
+    "presentationIds"
+   ],
+   "additionalProperties": true
+  },
+  "person": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "institutions": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "countries": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "id",
+    "name",
+    "institutions",
+    "countries"
+   ],
+   "additionalProperties": true
+  },
+  "sponsor": {
+   "type": "object",
+   "required": [
+    "id"
+   ],
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
+   },
+   "additionalProperties": true
+  },
+  "event": {
+   "type": "object",
+   "required": [
+    "id"
+   ],
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "title": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "date": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    }
+   },
+   "additionalProperties": true
+  },
+  "entity": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "kind": {
+     "enum": [
+      "drug",
+      "target",
+      "modality",
+      "disease",
+      "company",
+      "trial",
+      "histology"
+     ]
+    },
+    "label": {
+     "type": "string"
+    },
+    "source": {
+     "type": "string"
+    },
+    "xrefs": {
+     "type": "object",
+     "additionalProperties": {
+      "type": [
+       "string",
+       "array",
+       "null"
+      ]
+     }
+    },
+    "attributes": {
+     "type": "object"
+    },
+    "presentationIds": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "uniqueItems": true
+    },
+    "readoutIds": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "uniqueItems": true
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "id",
+    "kind",
+    "label",
+    "source",
+    "xrefs",
+    "attributes",
+    "presentationIds",
+    "readoutIds",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "countRow": {
+   "type": "object",
+   "properties": {
+    "value": {
+     "type": "string"
+    },
+    "label": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "value",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "axis": {
+   "type": "object",
+   "properties": {
+    "key": {
+     "type": "string"
+    },
+    "label": {
+     "type": "string"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "key",
+    "label",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "heatmap": {
+   "type": "object",
+   "properties": {
+    "rows": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/axis"
+     }
+    },
+    "cols": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/axis"
+     }
+    },
+    "cells": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "row": {
+        "type": "string"
+       },
+       "col": {
+        "type": "string"
+       },
+       "count": {
+        "type": "integer",
+        "minimum": 1
+       },
+       "presentationIds": {
+        "type": "array",
+        "items": {
+         "type": "string",
+         "pattern": "^[a-z0-9][a-z0-9-]*:[A-Za-z]+:[^\\s]+$"
+        },
+        "uniqueItems": true
+       }
+      },
+      "required": [
+       "row",
+       "col",
+       "count",
+       "presentationIds"
+      ],
+      "additionalProperties": false
+     }
+    },
+    "scale": {
+     "type": "object",
+     "properties": {
+      "max": {
+       "type": [
+        "integer",
+        "null"
+       ],
+       "minimum": 0
+      },
+      "p95": {
+       "type": [
+        "number",
+        "null"
+       ]
+      },
+      "breaks": {
+       "type": "array",
+       "items": {
+        "type": "number"
+       }
+      }
+     },
+     "required": [
+      "max",
+      "p95",
+      "breaks"
+     ],
+     "additionalProperties": false
+    },
+    "roleFilter": {
+     "const": "drug_target"
+    },
+    "coverage": {
+     "type": "object",
+     "properties": {
+      "presentationsInGrid": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "total": {
+       "type": "integer",
+       "minimum": 0
+      }
+     },
+     "required": [
+      "presentationsInGrid",
+      "total"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "required": [
+    "rows",
+    "cols",
+    "cells",
+    "scale",
+    "roleFilter",
+    "coverage"
+   ],
+   "additionalProperties": false
+  },
+  "theme": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "label": {
+     "type": "string"
+    },
+    "definition": {
+     "type": "object",
+     "properties": {
+      "templateSet": {
+       "enum": [
+        "pan_oncology",
+        "sarcoma",
+        "derived"
+       ]
+      },
+      "parent": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "query": {
+       "type": "object"
+      },
+      "text": {
+       "type": "string"
+      },
+      "minSize": {
+       "type": [
+        "integer",
+        "null"
+       ],
+       "minimum": 0
+      },
+      "foldedFrom": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       },
+       "uniqueItems": true
+      },
+      "activation": {
+       "type": "object"
+      }
+     },
+     "required": [
+      "templateSet",
+      "parent",
+      "query",
+      "text",
+      "minSize",
+      "foldedFrom"
+     ],
+     "additionalProperties": false
+    },
+    "presentationIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*:[A-Za-z]+:[^\\s]+$"
+     },
+     "uniqueItems": true
+    },
+    "readoutIds": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "uniqueItems": true
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "id",
+    "label",
+    "definition",
+    "presentationIds",
+    "readoutIds",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "aggregates": {
+   "type": "object",
+   "properties": {
+    "heatmap": {
+     "$ref": "#/$defs/heatmap"
+    },
+    "designs": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "design": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "phase": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "readoutType": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "count": {
+        "type": "integer",
+        "minimum": 0
+       },
+       "readoutIds": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        },
+        "uniqueItems": true
+       }
+      },
+      "required": [
+       "design",
+       "phase",
+       "readoutType",
+       "count",
+       "readoutIds"
+      ],
+      "additionalProperties": false
+     }
+    },
+    "themes": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/theme"
+     }
+    },
+    "targetMap": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "targetId": {
+        "type": "string"
+       },
+       "label": {
+        "type": "string"
+       },
+       "group": {
+        "type": "string"
+       },
+       "drugs": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "properties": {
+          "entityId": {
+           "type": "string"
+          },
+          "label": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "entityId",
+          "label"
+         ],
+         "additionalProperties": false
+        }
+       },
+       "modalityFamilies": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "presentationIds": {
+        "type": "array",
+        "items": {
+         "type": "string",
+         "pattern": "^[a-z0-9][a-z0-9-]*:[A-Za-z]+:[^\\s]+$"
+        },
+        "uniqueItems": true
+       },
+       "readoutIds": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        },
+        "uniqueItems": true
+       },
+       "count": {
+        "type": "integer",
+        "minimum": 0
+       }
+      },
+      "required": [
+       "targetId",
+       "label",
+       "group",
+       "drugs",
+       "modalityFamilies",
+       "presentationIds",
+       "readoutIds",
+       "count"
+      ],
+      "additionalProperties": false
+     }
+    },
+    "facets": {
+     "type": "object",
+     "properties": {
+      "format": {
+       "type": "array",
+       "items": {
+        "$ref": "#/$defs/countRow"
+       }
+      },
+      "track": {
+       "type": "array",
+       "items": {
+        "$ref": "#/$defs/countRow"
+       }
+      },
+      "session": {
+       "type": "array",
+       "items": {
+        "$ref": "#/$defs/countRow"
+       }
+      },
+      "date": {
+       "type": "array",
+       "items": {
+        "$ref": "#/$defs/countRow"
+       }
+      },
+      "disease": {
+       "type": "array",
+       "items": {
+        "$ref": "#/$defs/countRow"
+       }
+      },
+      "modality": {
+       "type": "array",
+       "items": {
+        "$ref": "#/$defs/countRow"
+       }
+      },
+      "target": {
+       "type": "array",
+       "items": {
+        "$ref": "#/$defs/countRow"
+       }
+      },
+      "country": {
+       "type": "array",
+       "items": {
+        "$ref": "#/$defs/countRow"
+       }
+      },
+      "institution": {
+       "type": "array",
+       "items": {
+        "$ref": "#/$defs/countRow"
+       }
+      }
+     },
+     "required": [
+      "format",
+      "track",
+      "session",
+      "date",
+      "disease",
+      "modality",
+      "target",
+      "country",
+      "institution"
+     ],
+     "additionalProperties": false
+    },
+    "overview": {
+     "type": "object",
+     "properties": {
+      "talksPerDay": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+         },
+         "count": {
+          "type": "integer",
+          "minimum": 0
+         },
+         "byFormat": {
+          "type": "object",
+          "additionalProperties": {
+           "type": "integer",
+           "minimum": 0
+          }
+         }
+        },
+        "required": [
+         "date",
+         "count",
+         "byFormat"
+        ],
+        "additionalProperties": false
+       }
+      },
+      "postersPerTrack": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "track": {
+          "type": "string"
+         },
+         "count": {
+          "type": "integer",
+          "minimum": 0
+         }
+        },
+        "required": [
+         "track",
+         "count"
+        ],
+        "additionalProperties": false
+       }
+      },
+      "sessionGroups": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "group": {
+          "type": "string"
+         },
+         "count": {
+          "type": "integer",
+          "minimum": 0
+         },
+         "sessionIds": {
+          "type": "array",
+          "items": {
+           "type": "string"
+          },
+          "uniqueItems": true
+         }
+        },
+        "required": [
+         "group",
+         "count",
+         "sessionIds"
+        ],
+        "additionalProperties": false
+       }
+      },
+      "diseaseCounts": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "entityId": {
+          "type": "string"
+         },
+         "label": {
+          "type": "string"
+         },
+         "count": {
+          "type": "integer",
+          "minimum": 0
+         },
+         "sarcoma": {
+          "type": "boolean"
+         }
+        },
+        "required": [
+         "entityId",
+         "label",
+         "count",
+         "sarcoma"
+        ],
+        "additionalProperties": false
+       }
+      },
+      "topInstitutions": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "name": {
+          "type": "string"
+         },
+         "count": {
+          "type": "integer",
+          "minimum": 0
+         }
+        },
+        "required": [
+         "name",
+         "count"
+        ],
+        "additionalProperties": false
+       }
+      },
+      "topCountries": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "name": {
+          "type": "string"
+         },
+         "count": {
+          "type": "integer",
+          "minimum": 0
+         }
+        },
+        "required": [
+         "name",
+         "count"
+        ],
+        "additionalProperties": false
+       }
+      }
+     },
+     "required": [
+      "talksPerDay",
+      "postersPerTrack",
+      "sessionGroups",
+      "diseaseCounts",
+      "topInstitutions",
+      "topCountries"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "required": [
+    "heatmap",
+    "designs",
+    "themes",
+    "targetMap",
+    "facets",
+    "overview"
+   ],
+   "additionalProperties": false
+  },
+  "qaCheck": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "failures": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "examples": {
+     "type": "array",
+     "items": {}
+    }
+   },
+   "required": [
+    "id",
+    "description",
+    "failures",
+    "examples"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

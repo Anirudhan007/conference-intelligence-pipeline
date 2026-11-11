@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "conference-pipeline/config/v1",
+  "conference": {
+    "id": "ctos-2026",
+    "name": "CTOS 2026 Annual Meeting",
+    "organization": "Connective Tissue Oncology Society",
+    "sourceUrl": "https://ctos2026.eventscribe.net/index.asp?launcher=1",
+    "platform": "eventscribe",
+    "timezone": "Asia/Seoul",
+    "startDate": "2026-11-18",
+    "endDate": "2026-11-21",
+    "city": "Seoul",
+    "country": "South Korea"
+  },
+  "runner": {
+    "adapter": "eventscribe-ctos-v1",
+    "requiresHumanReadoutReview": true
+  },
+  "embargo": {
+    "rules": [
+      {
+        "class": "delegate_access",
+        "releaseUtc": "2026-11-11T00:00:00Z",
+        "sourceQuote": "Embargo policy is abstracts will be available to all delegates registered for the meeting on Wednesday, November 11th",
+        "sourceUrl": "https://www.conferenceabstracts.com/uploads/documents/22789/CTOSAbstractSubmissionRequirements2026(2).pdf"
+      },
+      {
+        "class": "public",
+        "releaseUtc": "2026-11-18T14:00:00Z",
+        "sourceQuote": "Embargo is lifted on Wednesday, November 18th at 9am EST.",
+        "sourceUrl": "https://www.conferenceabstracts.com/uploads/documents/22789/CTOSAbstractSubmissionRequirements2026(2).pdf"
+      }
+    ]
+  }
+}
