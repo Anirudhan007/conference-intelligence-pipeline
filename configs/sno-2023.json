@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "conference-pipeline/config/v1",
+  "conference": {
+    "id": "sno-2023",
+    "name": "SNO 2023 28th Annual Meeting and Education Day",
+    "organization": "Society for Neuro-Oncology",
+    "sourceUrl": "https://sno2023.eventscribe.net/index.asp?launcher=1",
+    "platform": "eventscribe",
+    "timezone": "America/Vancouver",
+    "startDate": "2023-11-15",
+    "endDate": "2023-11-19",
+    "city": "Vancouver",
+    "country": "Canada",
+    "officialUrl": "https://sno2023.eventscribe.net/index.asp?launcher=1"
+  },
+  "runner": {
+    "adapter": "eventscribe-v1",
+    "requiresHumanReadoutReview": true
+  },
+  "access": {
+    "basis": "Public EventScribe programme pages; robots.txt checked at capture.",
+    "rights": "Abstract text is the authors'/society's; internal analysis only."
+  },
+  "embargo": {
+    "rules": [
+      {
+        "class": "public",
+        "releaseUtc": "2023-11-19T23:59:00Z",
+        "sourceQuote": "Meeting held 2023-11-15 to 2023-11-19 in Vancouver; abstracts were presented publicly at the meeting.",
+        "sourceUrl": "https://sno2023.eventscribe.net/index.asp?launcher=1",
+        "quoteType": "derived",
+        "note": "No embargo statement was captured; release taken as the meeting end. Review before release."
+      }
+    ]
+  }
+}

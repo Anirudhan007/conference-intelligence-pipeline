@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "conference-pipeline/config/v1",
+  "conference": {
+    "id": "aacr-2026",
+    "name": "AACR Annual Meeting 2026",
+    "organization": "American Association for Cancer Research",
+    "sourceUrl": "https://api.crossref.org/works?filter=issn:1538-7445,from-pub-date:2026-03-01,until-pub-date:2026-05-31",
+    "platform": "crossref",
+    "timezone": "America/Los_Angeles",
+    "startDate": "2026-04-17",
+    "endDate": "2026-04-22",
+    "city": "San Diego",
+    "country": "United States",
+    "officialUrl": "https://www.aacr.org/meeting/aacr-annual-meeting-2026/"
+  },
+  "runner": {
+    "adapter": "crossref-supplement-v1",
+    "requiresHumanReadoutReview": true
+  },
+  "source": {
+    "filter": "issn:1538-7445,from-pub-date:2026-03-01,until-pub-date:2026-05-31",
+    "match": {
+      "doi": "^10\\.1158/1538-7445\\.am2026-"
+    },
+    "number": {
+      "from": "doi",
+      "regex": "\\.am2026-([a-z]*\\d+)$",
+      "upper": true
+    },
+    "formatRules": [
+      [
+        "^LB",
+        "poster"
+      ],
+      [
+        "^CT",
+        "poster"
+      ]
+    ],
+    "journal": "Cancer Research 86(7_Supplement, 8_Supplement)",
+    "stripTitlePrefix": "^Abstract\\s+[A-Z0-9-]+:\\s*"
+  },
+  "access": {
+    "basis": "Crossref REST API journal-supplement metadata; the meeting website is not contacted.",
+    "rights": "Abstract text is publisher copyright; internal analysis only (displayFullText=false)."
+  },
+  "embargo": {
+    "rules": [
+      {
+        "class": "public",
+        "releaseUtc": "2026-04-03T00:00:00Z",
+        "sourceQuote": "\"published-print\": {\"date-parts\": [[2026, 4, 3]]}",
+        "sourceUrl": "https://api.crossref.org/works/10.1158/1538-7445.am2026-789",
+        "quoteType": "verbatim",
+        "note": "Earliest journal publication date among the meeting's abstract records."
+      }
+    ]
+  }
+}

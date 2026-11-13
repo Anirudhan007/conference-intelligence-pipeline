@@ -23,6 +23,7 @@ import sys
 import time
 import unicodedata
 from collections import OrderedDict, defaultdict
+from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
 
@@ -33,6 +34,28 @@ CONF_ID = "ctos-2026"
 TIMEZONE = "Asia/Seoul"
 EMBARGO_LIFTS_UTC = "2026-11-18T14:00:00Z"
 BASE_URL = "https://ctos2026.eventscribe.net/"
+CONF_FACTS = {"name": "CTOS 2026 Annual Meeting (Connective Tissue Oncology Society)", "city": "Seoul",
+              "country": "South Korea", "startDate": "2026-11-18", "endDate": "2026-11-21",
+              "sourceUrl": "https://ctos2026.eventscribe.net/index.asp?launcher=1"}
+
+
+@contextmanager
+def conference_context(conf_id: str, timezone: str, base_url: str, embargo_lifts_utc: str | None,
+                       facts: dict | None = None):
+    """Temporarily point the EventScribe parser at another conference (ids, timezone, URLs, facts).
+
+    The parser keeps module-level constants for backwards compatibility with the CTOS scripts; this
+    context swaps them for one build() call and always restores the CTOS defaults afterwards.
+    """
+    global CONF_ID, TIMEZONE, BASE_URL, EMBARGO_LIFTS_UTC, CONF_FACTS
+    saved = (CONF_ID, TIMEZONE, BASE_URL, EMBARGO_LIFTS_UTC, CONF_FACTS)
+    CONF_ID, TIMEZONE, EMBARGO_LIFTS_UTC = conf_id, timezone, embargo_lifts_utc
+    BASE_URL = base_url.rstrip("/") + "/"
+    CONF_FACTS = dict(facts or {})
+    try:
+        yield
+    finally:
+        CONF_ID, TIMEZONE, BASE_URL, EMBARGO_LIFTS_UTC, CONF_FACTS = saved
 
 PRESENTATION_FIELDS = [
     "id", "number", "title", "titleNormalized", "format", "tip", "track", "sessionId",
@@ -1240,9 +1263,10 @@ def build(bundle: dict, method: str = "D") -> dict:
 
     src = bundle.get("source", {}) or {}
     conference = OrderedDict(
-        id=CONF_ID, name=src.get("name") or "CTOS 2026 Annual Meeting (Connective Tissue Oncology Society)",
-        city="Seoul", country="South Korea", startDate="2026-11-18", endDate="2026-11-21", timezone=TIMEZONE,
-        sourceUrl=src.get("url") or "https://ctos2026.eventscribe.net/index.asp?launcher=1",
+        id=CONF_ID, name=src.get("name") or CONF_FACTS.get("name"),
+        city=CONF_FACTS.get("city"), country=CONF_FACTS.get("country"), startDate=CONF_FACTS.get("startDate"),
+        endDate=CONF_FACTS.get("endDate"), timezone=TIMEZONE,
+        sourceUrl=src.get("url") or CONF_FACTS.get("sourceUrl"),
         embargoLiftsAtUtc=EMBARGO_LIFTS_UTC,
     )
     runtime = time.perf_counter() - t0

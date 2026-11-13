@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from pipeline import aggregate, export, parse, readouts, tag
+from pipeline import aggregate, export, readouts, tag
 from pipeline.assemble_common import dump_json
 
 from ._version import __version__
@@ -54,9 +54,10 @@ def validate_bundle(path: str | Path) -> dict[str, Any]:
     return bundle
 
 
-def _paths(run_dir: Path, bundle: Path) -> dict[str, Path]:
+def _paths(run_dir: Path, bundle: Path, conference_id: str = "ctos-2026") -> dict[str, Path]:
     stage = run_dir / "stage"
     out = run_dir / "out"
+    cid = conference_id
     return {
         "bundle": bundle,
         "parsed": stage / "parsed.json",
@@ -65,16 +66,23 @@ def _paths(run_dir: Path, bundle: Path) -> dict[str, Path]:
         "aggregates": stage / "aggregates.json",
         "qa": stage / "qa.json",
         "activities": stage / "activities.json",
-        "out_json": out / "ctos-2026.json",
-        "out_gz": out / "ctos-2026.json.gz",
-        "out_csv": out / "ctos-2026_presentations.csv",
-        "out_prev": out / "ctos-2026.previous.json",
+        "inventory": stage / "inventory.json",
+        "out_json": out / f"{cid}.json",
+        "out_gz": out / f"{cid}.json.gz",
+        "out_csv": out / f"{cid}_presentations.csv",
+        "out_prev": out / f"{cid}.previous.json",
         "report": run_dir / "reports" / "run_report.md",
     }
 
 
-def _apply_conference_config(parsed: dict[str, Any], config: ConferenceConfig) -> None:
-    """Make the reviewed run configuration the export source of truth for CTOS-level facts."""
+def _snapshot(bundle: dict[str, Any]) -> str | None:
+    source = bundle.get("source") or {}
+    return source.get("finished") or source.get("started")
+
+
+def _apply_conference_config(parsed: dict[str, Any], config: ConferenceConfig, snapshot: str | None = None,
+                             platform: str | None = None) -> None:
+    """Make the reviewed run configuration the export source of truth for conference-level facts."""
     conference = parsed.setdefault("conference", {})
     source = config.raw["conference"]
     conference.update({
@@ -88,13 +96,20 @@ def _apply_conference_config(parsed: dict[str, Any], config: ConferenceConfig) -
         "timezone": source["timezone"],
         "sourceUrl": source["sourceUrl"],
     })
+    if platform:
+        conference["platform"] = platform
     public_release = next((rule["releaseUtc"] for rule in config.embargo_rules if rule.get("class") == "public"), None)
     if not public_release:
         return
     conference["embargoLiftsAtUtc"] = public_release
     for presentation in parsed.get("presentations", []):
-        if presentation.get("abstract"):
-            presentation["embargo"] = {"embargoed": True, "liftsAtUtc": public_release}
+        if not presentation.get("abstract"):
+            continue
+        # adapters may carry a per-record release time (e.g. journal publication date); keep it
+        lifts = (presentation.get("embargo") or {}).get("liftsAtUtc") or public_release
+        # embargoed means the capture happened before the lift (unknown capture time -> embargoed)
+        embargoed = True if not snapshot else str(snapshot) < lifts
+        presentation["embargo"] = {"embargoed": embargoed, "liftsAtUtc": lifts}
 
 
 def _write_manifest(run_dir: Path, config: ConferenceConfig, bundle_path: Path, paths: dict[str, Path], doc: dict) -> Path:
@@ -130,17 +145,17 @@ def run_release(
     allow_qa_failures: bool = False,
 ) -> RunResult:
     """Execute deterministic local stages and refuse release on failed QA or unreviewed readouts."""
-    config.assert_supported()
+    adapter = config.adapter()  # fails closed on unknown or unvalidated platforms
     bundle = validate_bundle(bundle_path)
     source = Path(bundle_path).resolve()
     destination = Path(run_dir).resolve()
     destination.mkdir(parents=True, exist_ok=True)
-    paths = _paths(destination, source)
+    paths = _paths(destination, source, config.conference_id)
 
-    # The legacy CTOS parser is intentionally kept behind an explicit adapter check above.
-    parsed = parse.build(bundle, "D")
-    _apply_conference_config(parsed, config)
+    parsed = adapter.parse(bundle, config)
+    _apply_conference_config(parsed, config, _snapshot(bundle), adapter.platform)
     dump_json(parsed, paths["parsed"])
+    dump_json(adapter.inventory(bundle), paths["inventory"])
     tags, unknown = tag.run(parsed, "E")
     dump_json(tags, paths["tags"])
     dump_json(unknown, destination / "stage" / "unknown_drug_codes.json")
@@ -168,3 +183,15 @@ def run_release(
         details = ", ".join([f"{key}={value}" for key, value in failures.items()] + ([f"pending_review={len(pending)}"] if pending else []))
         raise QualityGateError(f"release blocked by quality gate: {details}. Inspect {paths['qa']} and {paths['report']}.")
     return result
+
+
+def capture_bundle(*, config: ConferenceConfig, out_path: str | Path, contact: str | None = None,
+                   delay: float = 1.5, limit: int | None = None) -> Path:
+    """Run the config's adapter capture and write an immutable raw bundle with a SHA-256 sidecar."""
+    adapter = config.adapter()
+    bundle = adapter.capture(config, contact=contact, delay=delay, limit=limit)
+    target = Path(out_path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(bundle, ensure_ascii=False), encoding="utf-8")
+    target.with_suffix(target.suffix + ".sha256").write_text(f"{_sha256(target)}  {target.name}\n", encoding="utf-8")
+    return target

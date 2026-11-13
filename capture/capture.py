@@ -139,9 +139,14 @@ def norm_detail(du: str):
     return f"{m.group(1)}:{m.group(3)}", f"/ajaxcalls/{m.group(1)}.asp?" + (f"efp={efp.group(1)}&" if efp else "") + f"{m.group(2)}={m.group(3)}"
 
 
-def capture_eventscribe(base: str, contact_email: str, limit: int | None = None, delay: float = 1.5) -> dict:
-    """Capture public EventScribe pages while respecting a known robots policy."""
-    user_agent = build_user_agent(contact_email)
+def capture_eventscribe(base: str, contact_email: str | None, limit: int | None = None, delay: float = 1.5,
+                        user_agent: str | None = None) -> dict:
+    """Capture public EventScribe pages while respecting a known robots policy.
+
+    ``user_agent`` lets the adapter layer supply its own attributable UA (contact optional there);
+    the stand-alone CLI keeps requiring a contact email.
+    """
+    user_agent = user_agent or build_user_agent(contact_email)
     f = Fetcher(base, user_agent, delay)
     if not f.robots_known:
         detail = f.errors[-1][1] if f.errors else "unknown error"
@@ -150,6 +155,9 @@ def capture_eventscribe(base: str, contact_email: str, limit: int | None = None,
               "listings": {}, "details": {}, "errors": f.errors}
     listings = dict(EVENTSCRIBE_LISTINGS)
     agenda = f.get(listings["agenda"])
+    if agenda is None and f.errors and all(e[1] in (401, 403) for e in f.errors[-4:]):
+        # the site is refusing this client; stop rather than retrying every listing under the same refusal
+        raise RuntimeError(f"{base} refused the capture client (HTTP {f.errors[-1][1]}); stopping without data")
     if agenda:
         for a in BeautifulSoup(agenda, "lxml").select('a[href*="agenda.asp?pfp=days"]'):
             m = re.search(r"day=(\d+)/(\d+)/(\d+)", a["href"])

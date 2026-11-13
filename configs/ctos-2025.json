@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "conference-pipeline/config/v1",
+  "conference": {
+    "id": "ctos-2025",
+    "name": "CTOS 2025 Annual Meeting",
+    "organization": "Connective Tissue Oncology Society",
+    "sourceUrl": "https://ctos2025.eventscribe.net/index.asp?launcher=1",
+    "platform": "eventscribe",
+    "timezone": "America/New_York",
+    "startDate": "2025-11-12",
+    "endDate": "2025-11-15",
+    "city": "Boca Raton",
+    "country": "United States",
+    "officialUrl": "https://ctos2025.eventscribe.net/index.asp?launcher=1"
+  },
+  "runner": {
+    "adapter": "eventscribe-v1",
+    "requiresHumanReadoutReview": true
+  },
+  "access": {
+    "basis": "Public EventScribe programme pages; robots.txt checked at capture.",
+    "rights": "Abstract text is the authors'/society's; internal analysis only."
+  },
+  "embargo": {
+    "rules": [
+      {
+        "class": "public",
+        "releaseUtc": "2025-11-15T23:59:00Z",
+        "sourceQuote": "Meeting held 2025-11-12 to 2025-11-15 in Boca Raton; abstracts were presented publicly at the meeting.",
+        "sourceUrl": "https://ctos2025.eventscribe.net/index.asp?launcher=1",
+        "quoteType": "derived",
+        "note": "No embargo statement was captured; release taken as the meeting end. Review before release."
+      }
+    ]
+  }
+}

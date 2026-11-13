@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "conference-pipeline/config/v1",
+  "conference": {
+    "id": "wclc-2026",
+    "name": "IASLC 2026 World Conference on Lung Cancer",
+    "organization": "International Association for the Study of Lung Cancer",
+    "sourceUrl": "https://api.crossref.org/works?filter=issn:1556-0864,from-pub-date:2026-08-01,until-pub-date:2026-11-12",
+    "platform": "crossref",
+    "timezone": "Asia/Seoul",
+    "startDate": "2026-09-12",
+    "endDate": "2026-09-15",
+    "city": "Seoul",
+    "country": "South Korea",
+    "officialUrl": "https://www.iaslc.org/meetings-webinars/2026-world-conference-lung-cancer"
+  },
+  "runner": {
+    "adapter": "crossref-supplement-v1",
+    "requiresHumanReadoutReview": true
+  },
+  "source": {
+    "filter": "issn:1556-0864,from-pub-date:2026-08-01,until-pub-date:2026-11-12",
+    "match": {
+      "title": "^(?:OA|MA|MO|PL|PT|P|EP|LBA|FP|YI|ES|PR|S|EPV)\\d+[\\d.]*[A-Z]?:\\s",
+      "volume": "^21$"
+    },
+    "number": {
+      "from": "title",
+      "regex": "^([A-Z]+\\d+[\\d.]*[A-Z]?):"
+    },
+    "formatRules": [
+      [
+        "^(OA|MA|MO|PL|PT|LBA|FP)\\d",
+        "oral"
+      ],
+      [
+        "^(P|EP|EPV)\\d",
+        "poster"
+      ]
+    ],
+    "journal": "Journal of Thoracic Oncology 21(10) supplement",
+    "stripTitlePrefix": "^[A-Z]+\\d+[\\d.]*[A-Z]?:\\s*"
+  },
+  "access": {
+    "basis": "Crossref REST API journal-supplement metadata; the meeting website is not contacted.",
+    "rights": "Abstract text is publisher copyright; internal analysis only (displayFullText=false)."
+  },
+  "embargo": {
+    "rules": [
+      {
+        "class": "public",
+        "releaseUtc": "2026-10-01T00:00:00Z",
+        "sourceQuote": "\"published-print\": {\"date-parts\": [[2026, 10]]}",
+        "sourceUrl": "https://api.crossref.org/works/10.1016/j.jtho.2026.104221",
+        "quoteType": "verbatim",
+        "note": "Earliest journal publication date among the meeting's abstract records."
+      }
+    ]
+  }
+}

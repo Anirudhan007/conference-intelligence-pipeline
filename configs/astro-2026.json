@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "conference-pipeline/config/v1",
+  "conference": {
+    "id": "astro-2026",
+    "name": "ASTRO 2026 68th Annual Meeting",
+    "organization": "American Society for Radiation Oncology",
+    "sourceUrl": "https://api.crossref.org/works?filter=issn:0360-3016,from-pub-date:2026-08-15,until-pub-date:2026-10-31",
+    "platform": "crossref",
+    "timezone": "America/New_York",
+    "startDate": "2026-09-26",
+    "endDate": "2026-09-30",
+    "city": "Boston",
+    "country": "United States",
+    "officialUrl": "https://www.astro.org/annual-meeting"
+  },
+  "runner": {
+    "adapter": "crossref-supplement-v1",
+    "requiresHumanReadoutReview": true
+  },
+  "source": {
+    "filter": "issn:0360-3016,from-pub-date:2026-08-15,until-pub-date:2026-10-31",
+    "match": {
+      "page": "^[Se]\\d",
+      "volume": "^126$"
+    },
+    "number": {
+      "from": "page",
+      "regex": "^([Se]\\d+)"
+    },
+    "formatRules": [
+      [
+        "^S",
+        "other"
+      ],
+      [
+        "^E",
+        "other"
+      ]
+    ],
+    "journal": "International Journal of Radiation Oncology Biology Physics 126(1, supplement pages S/e)"
+  },
+  "access": {
+    "basis": "Crossref REST API journal-supplement metadata; the meeting website is not contacted.",
+    "rights": "Abstract text is publisher copyright; internal analysis only (displayFullText=false)."
+  },
+  "embargo": {
+    "rules": [
+      {
+        "class": "public",
+        "releaseUtc": "2026-09-01T00:00:00Z",
+        "sourceQuote": "\"published-print\": {\"date-parts\": [[2026, 9]]}",
+        "sourceUrl": "https://api.crossref.org/works/10.1016/j.ijrobp.2026.06.025",
+        "quoteType": "verbatim",
+        "note": "Earliest journal publication date among the meeting's abstract records."
+      }
+    ]
+  }
+}

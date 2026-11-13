@@ -2,14 +2,26 @@
  "meta": {
   "source": "curated",
   "version": "2026-11-11",
-  "notes": "Sarcoma-focused taxonomy. 'names' are matched case-insensitively with word boundaries and optional plural; 'abbreviations' are matched case-sensitively. An abbreviation with safe=false is only accepted when the text defines it next to a long form, e.g. 'osteosarcoma (OS)'. In all-caps titles only safe abbreviations are used. Tags are emitted at the deepest matched node; ancestors are listed in rollup and suppressed as separate tags. OncoTree codes are given only where confident (null otherwise). Bucket nodes (kind=bucket) are also suppressed when another tagged disease belongs to the bucket's group (e.g. 'bone tumor' + GCTB). Track/session-derived diseases are kept only if no title/abstract disease exists or they are ancestors/descendants of one.",
+  "notes": "Sarcoma taxonomy plus a pan-oncology/haematology layer (layer=pan_oncology). 'names' are matched case-insensitively with word boundaries and optional plural; 'abbreviations' are matched case-sensitively. An abbreviation with safe=false is only accepted when the text defines it next to a long form, e.g. 'osteosarcoma (OS)'. In all-caps titles only safe abbreviations are used. Tags are emitted at the deepest matched node; ancestors are listed in rollup and suppressed as separate tags. OncoTree codes are given only where confident (null otherwise). Bucket nodes (kind=bucket) are also suppressed when another tagged disease belongs to the bucket's group (e.g. 'bone tumor' + GCTB). Track/session-derived diseases are kept only if no title/abstract disease exists or they are ancestors/descendants of one.",
   "groups": {
    "soft_tissue": "Soft tissue sarcoma",
    "bone": "Bone sarcoma",
    "gist": "GIST",
    "intermediate": "Intermediate / locally aggressive",
    "pediatric": "Pediatric",
-   "pan": "Sarcoma (unspecified)"
+   "pan": "Sarcoma (unspecified)",
+   "solid": "Solid tumours (unspecified)",
+   "thoracic": "Thoracic",
+   "breast": "Breast",
+   "gi": "Gastrointestinal",
+   "gu": "Genitourinary",
+   "gyn": "Gynaecological",
+   "head_neck": "Head and neck",
+   "skin": "Skin",
+   "cns": "Central nervous system",
+   "pediatric_solid": "Paediatric solid (non-sarcoma)",
+   "heme": "Haematological malignancy",
+   "benign_heme": "Non-malignant haematology"
   }
  },
  "diseases": [
@@ -1645,6 +1657,2199 @@
     "chondroblastomas"
    ],
    "abbreviations": []
+  },
+  {
+   "id": "solid_tumor",
+   "label": "Solid tumors (unspecified)",
+   "oncotree": null,
+   "parent": null,
+   "group": "solid",
+   "groups": [
+    "solid"
+   ],
+   "kind": "bucket",
+   "names": [
+    "solid tumor",
+    "solid tumour",
+    "advanced solid tumor",
+    "advanced solid tumour",
+    "solid malignancy",
+    "solid malignancies",
+    "solid cancer"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "lung_cancer",
+   "label": "Lung cancer",
+   "oncotree": null,
+   "parent": null,
+   "group": "thoracic",
+   "groups": [
+    "thoracic"
+   ],
+   "kind": "organ",
+   "names": [
+    "lung cancer",
+    "lung carcinoma",
+    "lung tumor",
+    "lung tumour",
+    "thoracic cancer"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "nsclc",
+   "label": "Non-small cell lung cancer",
+   "oncotree": "NSCLC",
+   "parent": "lung_cancer",
+   "group": "thoracic",
+   "groups": [
+    "thoracic"
+   ],
+   "kind": "histology",
+   "names": [
+    "non-small cell lung cancer",
+    "non-small-cell lung cancer",
+    "non small cell lung cancer",
+    "non-small cell lung carcinoma",
+    "non-small-cell lung carcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "NSCLC",
+     "safe": true
+    },
+    {
+     "abbr": "mNSCLC",
+     "safe": true
+    },
+    {
+     "abbr": "aNSCLC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "luad",
+   "label": "Lung adenocarcinoma",
+   "oncotree": "LUAD",
+   "parent": "nsclc",
+   "group": "thoracic",
+   "groups": [
+    "thoracic"
+   ],
+   "kind": "histology",
+   "names": [
+    "lung adenocarcinoma",
+    "adenocarcinoma of the lung",
+    "pulmonary adenocarcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "LUAD",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "lusc",
+   "label": "Lung squamous cell carcinoma",
+   "oncotree": "LUSC",
+   "parent": "nsclc",
+   "group": "thoracic",
+   "groups": [
+    "thoracic"
+   ],
+   "kind": "histology",
+   "names": [
+    "lung squamous cell carcinoma",
+    "squamous cell lung cancer",
+    "squamous non-small cell lung cancer",
+    "squamous NSCLC",
+    "squamous cell carcinoma of the lung"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "LUSC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "sclc",
+   "label": "Small cell lung cancer",
+   "oncotree": "SCLC",
+   "parent": "lung_cancer",
+   "group": "thoracic",
+   "groups": [
+    "thoracic"
+   ],
+   "kind": "histology",
+   "names": [
+    "small cell lung cancer",
+    "small-cell lung cancer",
+    "small cell lung carcinoma",
+    "extensive-stage small cell lung cancer",
+    "limited-stage small cell lung cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "SCLC",
+     "safe": true
+    },
+    {
+     "abbr": "ES-SCLC",
+     "safe": true
+    },
+    {
+     "abbr": "LS-SCLC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "mesothelioma",
+   "label": "Mesothelioma",
+   "oncotree": "MESO",
+   "parent": null,
+   "group": "thoracic",
+   "groups": [
+    "thoracic"
+   ],
+   "kind": "histology",
+   "names": [
+    "mesothelioma",
+    "pleural mesothelioma",
+    "malignant pleural mesothelioma",
+    "peritoneal mesothelioma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "MPM",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "thymic",
+   "label": "Thymic epithelial tumor",
+   "oncotree": null,
+   "parent": null,
+   "group": "thoracic",
+   "groups": [
+    "thoracic"
+   ],
+   "kind": "histology",
+   "names": [
+    "thymoma",
+    "thymic carcinoma",
+    "thymic epithelial tumor",
+    "thymic epithelial tumour"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "breast_cancer",
+   "label": "Breast cancer",
+   "oncotree": "BREAST",
+   "parent": null,
+   "group": "breast",
+   "groups": [
+    "breast"
+   ],
+   "kind": "organ",
+   "names": [
+    "breast cancer",
+    "breast carcinoma",
+    "mammary carcinoma",
+    "metastatic breast cancer",
+    "early breast cancer",
+    "advanced breast cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "mBC",
+     "safe": true
+    },
+    {
+     "abbr": "eBC",
+     "safe": true
+    },
+    {
+     "abbr": "BC",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "tnbc",
+   "label": "Triple-negative breast cancer",
+   "oncotree": null,
+   "parent": "breast_cancer",
+   "group": "breast",
+   "groups": [
+    "breast"
+   ],
+   "kind": "subtype",
+   "names": [
+    "triple-negative breast cancer",
+    "triple negative breast cancer",
+    "triple-negative breast carcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "TNBC",
+     "safe": true
+    },
+    {
+     "abbr": "mTNBC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "idc",
+   "label": "Invasive ductal carcinoma (breast)",
+   "oncotree": "IDC",
+   "parent": "breast_cancer",
+   "group": "breast",
+   "groups": [
+    "breast"
+   ],
+   "kind": "histology",
+   "names": [
+    "invasive ductal carcinoma",
+    "invasive breast carcinoma of no special type"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "IDC",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "ilc",
+   "label": "Invasive lobular carcinoma (breast)",
+   "oncotree": "ILC",
+   "parent": "breast_cancer",
+   "group": "breast",
+   "groups": [
+    "breast"
+   ],
+   "kind": "histology",
+   "names": [
+    "invasive lobular carcinoma",
+    "lobular breast cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "ILC",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "dcis",
+   "label": "Ductal carcinoma in situ",
+   "oncotree": "DCIS",
+   "parent": "breast_cancer",
+   "group": "breast",
+   "groups": [
+    "breast"
+   ],
+   "kind": "histology",
+   "names": [
+    "ductal carcinoma in situ"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "DCIS",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "crc",
+   "label": "Colorectal cancer",
+   "oncotree": "COADREAD",
+   "parent": null,
+   "group": "gi",
+   "groups": [
+    "gi"
+   ],
+   "kind": "organ",
+   "names": [
+    "colorectal cancer",
+    "colorectal carcinoma",
+    "colorectal adenocarcinoma",
+    "colon cancer",
+    "rectal cancer",
+    "colon adenocarcinoma",
+    "rectal adenocarcinoma",
+    "bowel cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "CRC",
+     "safe": true
+    },
+    {
+     "abbr": "mCRC",
+     "safe": true
+    },
+    {
+     "abbr": "LARC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "gastric",
+   "label": "Gastric cancer",
+   "oncotree": "STOMACH",
+   "parent": null,
+   "group": "gi",
+   "groups": [
+    "gi"
+   ],
+   "kind": "organ",
+   "names": [
+    "gastric cancer",
+    "gastric carcinoma",
+    "gastric adenocarcinoma",
+    "stomach cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "GC",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "gej",
+   "label": "Gastroesophageal junction adenocarcinoma",
+   "oncotree": null,
+   "parent": null,
+   "group": "gi",
+   "groups": [
+    "gi"
+   ],
+   "kind": "organ",
+   "names": [
+    "gastroesophageal junction adenocarcinoma",
+    "gastroesophageal junction cancer",
+    "gastro-oesophageal junction adenocarcinoma",
+    "gastro-oesophageal junction cancer",
+    "gastroesophageal adenocarcinoma",
+    "gastroesophageal cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "GEJ",
+     "safe": false
+    },
+    {
+     "abbr": "GEA",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "esophageal",
+   "label": "Esophageal cancer",
+   "oncotree": "ESOPH",
+   "parent": null,
+   "group": "gi",
+   "groups": [
+    "gi"
+   ],
+   "kind": "organ",
+   "names": [
+    "esophageal cancer",
+    "oesophageal cancer",
+    "esophageal carcinoma",
+    "oesophageal carcinoma"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "escc",
+   "label": "Esophageal squamous cell carcinoma",
+   "oncotree": "ESCC",
+   "parent": "esophageal",
+   "group": "gi",
+   "groups": [
+    "gi"
+   ],
+   "kind": "histology",
+   "names": [
+    "esophageal squamous cell carcinoma",
+    "oesophageal squamous cell carcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "ESCC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "pancreatic",
+   "label": "Pancreatic cancer",
+   "oncotree": "PANCREAS",
+   "parent": null,
+   "group": "gi",
+   "groups": [
+    "gi"
+   ],
+   "kind": "organ",
+   "names": [
+    "pancreatic cancer",
+    "pancreatic carcinoma",
+    "pancreatic adenocarcinoma",
+    "pancreatic ductal adenocarcinoma",
+    "metastatic pancreatic cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "PDAC",
+     "safe": true
+    },
+    {
+     "abbr": "mPDAC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "hcc",
+   "label": "Hepatocellular carcinoma",
+   "oncotree": "HCC",
+   "parent": null,
+   "group": "gi",
+   "groups": [
+    "gi"
+   ],
+   "kind": "histology",
+   "names": [
+    "hepatocellular carcinoma",
+    "liver cancer",
+    "hepatocellular cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "HCC",
+     "safe": true
+    },
+    {
+     "abbr": "uHCC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "btc",
+   "label": "Biliary tract cancer",
+   "oncotree": null,
+   "parent": null,
+   "group": "gi",
+   "groups": [
+    "gi"
+   ],
+   "kind": "organ",
+   "names": [
+    "biliary tract cancer",
+    "biliary tract cancers",
+    "biliary cancer",
+    "cholangiocarcinoma",
+    "intrahepatic cholangiocarcinoma",
+    "extrahepatic cholangiocarcinoma",
+    "gallbladder cancer",
+    "gallbladder carcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "BTC",
+     "safe": false
+    },
+    {
+     "abbr": "iCCA",
+     "safe": true
+    },
+    {
+     "abbr": "CCA",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "anal",
+   "label": "Anal cancer",
+   "oncotree": null,
+   "parent": null,
+   "group": "gi",
+   "groups": [
+    "gi"
+   ],
+   "kind": "organ",
+   "names": [
+    "anal cancer",
+    "anal carcinoma",
+    "anal squamous cell carcinoma",
+    "squamous cell carcinoma of the anal canal"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "net",
+   "label": "Neuroendocrine neoplasm",
+   "oncotree": null,
+   "parent": null,
+   "group": "gi",
+   "groups": [
+    "gi"
+   ],
+   "kind": "histology",
+   "names": [
+    "neuroendocrine tumor",
+    "neuroendocrine tumour",
+    "neuroendocrine neoplasm",
+    "neuroendocrine carcinoma",
+    "gastroenteropancreatic neuroendocrine tumor",
+    "pancreatic neuroendocrine tumor"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "GEP-NET",
+     "safe": true
+    },
+    {
+     "abbr": "GEP-NETs",
+     "safe": true
+    },
+    {
+     "abbr": "pNET",
+     "safe": true
+    },
+    {
+     "abbr": "NEC",
+     "safe": false
+    },
+    {
+     "abbr": "NET",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "prostate",
+   "label": "Prostate cancer",
+   "oncotree": "PROSTATE",
+   "parent": null,
+   "group": "gu",
+   "groups": [
+    "gu"
+   ],
+   "kind": "organ",
+   "names": [
+    "prostate cancer",
+    "prostate adenocarcinoma",
+    "prostatic adenocarcinoma",
+    "prostate carcinoma",
+    "metastatic hormone-sensitive prostate cancer",
+    "metastatic castration-sensitive prostate cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "mHSPC",
+     "safe": true
+    },
+    {
+     "abbr": "mCSPC",
+     "safe": true
+    },
+    {
+     "abbr": "PCa",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "crpc",
+   "label": "Castration-resistant prostate cancer",
+   "oncotree": null,
+   "parent": "prostate",
+   "group": "gu",
+   "groups": [
+    "gu"
+   ],
+   "kind": "subtype",
+   "names": [
+    "castration-resistant prostate cancer",
+    "castration resistant prostate cancer",
+    "metastatic castration-resistant prostate cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "CRPC",
+     "safe": true
+    },
+    {
+     "abbr": "mCRPC",
+     "safe": true
+    },
+    {
+     "abbr": "nmCRPC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "urothelial",
+   "label": "Urothelial carcinoma",
+   "oncotree": "BLADDER",
+   "parent": null,
+   "group": "gu",
+   "groups": [
+    "gu"
+   ],
+   "kind": "organ",
+   "names": [
+    "urothelial carcinoma",
+    "urothelial cancer",
+    "bladder cancer",
+    "bladder carcinoma",
+    "muscle-invasive bladder cancer",
+    "non-muscle-invasive bladder cancer",
+    "upper tract urothelial carcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "mUC",
+     "safe": true
+    },
+    {
+     "abbr": "la/mUC",
+     "safe": true
+    },
+    {
+     "abbr": "MIBC",
+     "safe": true
+    },
+    {
+     "abbr": "NMIBC",
+     "safe": true
+    },
+    {
+     "abbr": "UTUC",
+     "safe": true
+    },
+    {
+     "abbr": "UC",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "rcc",
+   "label": "Renal cell carcinoma",
+   "oncotree": "RCC",
+   "parent": null,
+   "group": "gu",
+   "groups": [
+    "gu"
+   ],
+   "kind": "histology",
+   "names": [
+    "renal cell carcinoma",
+    "kidney cancer",
+    "renal cancer",
+    "renal cell cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "RCC",
+     "safe": true
+    },
+    {
+     "abbr": "mRCC",
+     "safe": true
+    },
+    {
+     "abbr": "aRCC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "ccrcc",
+   "label": "Clear cell renal cell carcinoma",
+   "oncotree": "CCRCC",
+   "parent": "rcc",
+   "group": "gu",
+   "groups": [
+    "gu"
+   ],
+   "kind": "histology",
+   "names": [
+    "clear cell renal cell carcinoma",
+    "clear-cell renal cell carcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "ccRCC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "gct_testis",
+   "label": "Testicular germ cell tumor",
+   "oncotree": null,
+   "parent": null,
+   "group": "gu",
+   "groups": [
+    "gu"
+   ],
+   "kind": "histology",
+   "names": [
+    "testicular cancer",
+    "testicular germ cell tumor",
+    "testicular germ cell tumour",
+    "germ cell tumor",
+    "germ cell tumour"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "TGCT",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "ovarian",
+   "label": "Ovarian cancer",
+   "oncotree": "OVARY",
+   "parent": null,
+   "group": "gyn",
+   "groups": [
+    "gyn"
+   ],
+   "kind": "organ",
+   "names": [
+    "ovarian cancer",
+    "ovarian carcinoma",
+    "epithelial ovarian cancer",
+    "high-grade serous ovarian cancer",
+    "high-grade serous ovarian carcinoma",
+    "platinum-resistant ovarian cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "HGSOC",
+     "safe": true
+    },
+    {
+     "abbr": "PROC",
+     "safe": true
+    },
+    {
+     "abbr": "EOC",
+     "safe": false
+    },
+    {
+     "abbr": "OC",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "endometrial",
+   "label": "Endometrial cancer",
+   "oncotree": "UTERUS",
+   "parent": null,
+   "group": "gyn",
+   "groups": [
+    "gyn"
+   ],
+   "kind": "organ",
+   "names": [
+    "endometrial cancer",
+    "endometrial carcinoma",
+    "endometrial adenocarcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "EC",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "cervical",
+   "label": "Cervical cancer",
+   "oncotree": "CERVIX",
+   "parent": null,
+   "group": "gyn",
+   "groups": [
+    "gyn"
+   ],
+   "kind": "organ",
+   "names": [
+    "cervical cancer",
+    "cervical carcinoma",
+    "carcinoma of the cervix",
+    "cancer of the cervix"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "hnscc",
+   "label": "Head and neck squamous cell carcinoma",
+   "oncotree": "HNSC",
+   "parent": null,
+   "group": "head_neck",
+   "groups": [
+    "head_neck"
+   ],
+   "kind": "histology",
+   "names": [
+    "head and neck squamous cell carcinoma",
+    "squamous cell carcinoma of the head and neck",
+    "head and neck cancer",
+    "head and neck cancers",
+    "oropharyngeal cancer",
+    "oropharyngeal squamous cell carcinoma",
+    "oral cavity cancer",
+    "laryngeal cancer",
+    "oral squamous cell carcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "HNSCC",
+     "safe": true
+    },
+    {
+     "abbr": "SCCHN",
+     "safe": true
+    },
+    {
+     "abbr": "OPSCC",
+     "safe": true
+    },
+    {
+     "abbr": "OSCC",
+     "safe": false
+    },
+    {
+     "abbr": "HNC",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "npc",
+   "label": "Nasopharyngeal carcinoma",
+   "oncotree": "NPC",
+   "parent": null,
+   "group": "head_neck",
+   "groups": [
+    "head_neck"
+   ],
+   "kind": "histology",
+   "names": [
+    "nasopharyngeal carcinoma",
+    "nasopharyngeal cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "NPC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "thyroid",
+   "label": "Thyroid cancer",
+   "oncotree": "THYROID",
+   "parent": null,
+   "group": "head_neck",
+   "groups": [
+    "head_neck"
+   ],
+   "kind": "organ",
+   "names": [
+    "thyroid cancer",
+    "thyroid carcinoma",
+    "papillary thyroid carcinoma",
+    "papillary thyroid cancer",
+    "anaplastic thyroid carcinoma",
+    "anaplastic thyroid cancer",
+    "medullary thyroid carcinoma",
+    "differentiated thyroid cancer"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "PTC",
+     "safe": false
+    },
+    {
+     "abbr": "ATC",
+     "safe": false
+    },
+    {
+     "abbr": "MTC",
+     "safe": false
+    },
+    {
+     "abbr": "DTC",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "melanoma",
+   "label": "Melanoma",
+   "oncotree": "MEL",
+   "parent": null,
+   "group": "skin",
+   "groups": [
+    "skin"
+   ],
+   "kind": "histology",
+   "names": [
+    "melanoma",
+    "cutaneous melanoma",
+    "metastatic melanoma",
+    "advanced melanoma",
+    "acral melanoma",
+    "mucosal melanoma"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "uveal_melanoma",
+   "label": "Uveal melanoma",
+   "oncotree": "UM",
+   "parent": "melanoma",
+   "group": "skin",
+   "groups": [
+    "skin"
+   ],
+   "kind": "histology",
+   "names": [
+    "uveal melanoma",
+    "ocular melanoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "UM",
+     "safe": false
+    },
+    {
+     "abbr": "mUM",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "cscc",
+   "label": "Cutaneous squamous cell carcinoma",
+   "oncotree": "CSCC",
+   "parent": null,
+   "group": "skin",
+   "groups": [
+    "skin"
+   ],
+   "kind": "histology",
+   "names": [
+    "cutaneous squamous cell carcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "cSCC",
+     "safe": true
+    },
+    {
+     "abbr": "CSCC",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "merkel",
+   "label": "Merkel cell carcinoma",
+   "oncotree": "MCC",
+   "parent": null,
+   "group": "skin",
+   "groups": [
+    "skin"
+   ],
+   "kind": "histology",
+   "names": [
+    "merkel cell carcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "MCC",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "bcc",
+   "label": "Basal cell carcinoma",
+   "oncotree": "BCC",
+   "parent": null,
+   "group": "skin",
+   "groups": [
+    "skin"
+   ],
+   "kind": "histology",
+   "names": [
+    "basal cell carcinoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "BCC",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "glioma",
+   "label": "Glioma",
+   "oncotree": "GLIOMA",
+   "parent": null,
+   "group": "cns",
+   "groups": [
+    "cns"
+   ],
+   "kind": "histology",
+   "names": [
+    "glioma",
+    "diffuse glioma",
+    "low-grade glioma",
+    "high-grade glioma",
+    "astrocytoma",
+    "oligodendroglioma",
+    "IDH-mutant glioma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "LGG",
+     "safe": false
+    },
+    {
+     "abbr": "HGG",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "gbm",
+   "label": "Glioblastoma",
+   "oncotree": "GB",
+   "parent": "glioma",
+   "group": "cns",
+   "groups": [
+    "cns"
+   ],
+   "kind": "histology",
+   "names": [
+    "glioblastoma",
+    "glioblastoma multiforme",
+    "glioblastoma, IDH-wildtype"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "GBM",
+     "safe": true
+    },
+    {
+     "abbr": "rGBM",
+     "safe": true
+    },
+    {
+     "abbr": "ndGBM",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "dmg",
+   "label": "Diffuse midline glioma",
+   "oncotree": "DIPG",
+   "parent": "glioma",
+   "group": "cns",
+   "groups": [
+    "cns"
+   ],
+   "kind": "histology",
+   "names": [
+    "diffuse midline glioma",
+    "diffuse intrinsic pontine glioma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "DIPG",
+     "safe": true
+    },
+    {
+     "abbr": "DMG",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "meningioma",
+   "label": "Meningioma",
+   "oncotree": "MNG",
+   "parent": null,
+   "group": "cns",
+   "groups": [
+    "cns"
+   ],
+   "kind": "histology",
+   "names": [
+    "meningioma"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "medulloblastoma",
+   "label": "Medulloblastoma",
+   "oncotree": "MBL",
+   "parent": null,
+   "group": "cns",
+   "groups": [
+    "cns"
+   ],
+   "kind": "histology",
+   "names": [
+    "medulloblastoma"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "ependymoma",
+   "label": "Ependymoma",
+   "oncotree": "EPM",
+   "parent": null,
+   "group": "cns",
+   "groups": [
+    "cns"
+   ],
+   "kind": "histology",
+   "names": [
+    "ependymoma"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "pcnsl",
+   "label": "Primary CNS lymphoma",
+   "oncotree": "PCNSL",
+   "parent": null,
+   "group": "cns",
+   "groups": [
+    "cns"
+   ],
+   "kind": "histology",
+   "names": [
+    "primary central nervous system lymphoma",
+    "primary CNS lymphoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "PCNSL",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "brain_metastases",
+   "label": "Brain metastases",
+   "oncotree": null,
+   "parent": null,
+   "group": "cns",
+   "groups": [
+    "cns"
+   ],
+   "kind": "site",
+   "names": [
+    "brain metastases",
+    "brain metastasis",
+    "intracranial metastases",
+    "leptomeningeal metastases",
+    "leptomeningeal disease"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "neuroblastoma",
+   "label": "Neuroblastoma",
+   "oncotree": "NBL",
+   "parent": null,
+   "group": "pediatric_solid",
+   "groups": [
+    "pediatric_solid"
+   ],
+   "kind": "histology",
+   "names": [
+    "neuroblastoma"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "wilms",
+   "label": "Wilms tumor",
+   "oncotree": "WT",
+   "parent": null,
+   "group": "pediatric_solid",
+   "groups": [
+    "pediatric_solid"
+   ],
+   "kind": "histology",
+   "names": [
+    "Wilms tumor",
+    "Wilms tumour",
+    "Wilms' tumor",
+    "nephroblastoma"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "retinoblastoma",
+   "label": "Retinoblastoma",
+   "oncotree": "RBL",
+   "parent": null,
+   "group": "pediatric_solid",
+   "groups": [
+    "pediatric_solid"
+   ],
+   "kind": "histology",
+   "names": [
+    "retinoblastoma"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "heme_malignancy",
+   "label": "Hematologic malignancy (unspecified)",
+   "oncotree": null,
+   "parent": null,
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "bucket",
+   "names": [
+    "hematologic malignancy",
+    "hematologic malignancies",
+    "hematological malignancy",
+    "hematological malignancies",
+    "haematological malignancy",
+    "haematological malignancies",
+    "blood cancer"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "leukemia",
+   "label": "Leukemia (unspecified)",
+   "oncotree": null,
+   "parent": "heme_malignancy",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "bucket",
+   "names": [
+    "leukemia",
+    "leukaemia",
+    "acute leukemia",
+    "acute leukaemia"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "aml",
+   "label": "Acute myeloid leukemia",
+   "oncotree": "AML",
+   "parent": "leukemia",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "acute myeloid leukemia",
+    "acute myeloid leukaemia",
+    "acute myelogenous leukemia",
+    "acute myelogenous leukaemia"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "AML",
+     "safe": true
+    },
+    {
+     "abbr": "R/R AML",
+     "safe": true
+    },
+    {
+     "abbr": "ND AML",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "apl",
+   "label": "Acute promyelocytic leukemia",
+   "oncotree": "APL",
+   "parent": "aml",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "acute promyelocytic leukemia",
+    "acute promyelocytic leukaemia"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "APL",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "all",
+   "label": "Acute lymphoblastic leukemia",
+   "oncotree": "ALL",
+   "parent": "leukemia",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "acute lymphoblastic leukemia",
+    "acute lymphoblastic leukaemia",
+    "acute lymphocytic leukemia",
+    "B-cell acute lymphoblastic leukemia",
+    "T-cell acute lymphoblastic leukemia"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "B-ALL",
+     "safe": true
+    },
+    {
+     "abbr": "T-ALL",
+     "safe": true
+    },
+    {
+     "abbr": "Ph+ ALL",
+     "safe": true
+    },
+    {
+     "abbr": "ALL",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "cll",
+   "label": "Chronic lymphocytic leukemia",
+   "oncotree": "CLL",
+   "parent": "leukemia",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "chronic lymphocytic leukemia",
+    "chronic lymphocytic leukaemia",
+    "small lymphocytic lymphoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "CLL",
+     "safe": true
+    },
+    {
+     "abbr": "SLL",
+     "safe": false
+    },
+    {
+     "abbr": "CLL/SLL",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "cml",
+   "label": "Chronic myeloid leukemia",
+   "oncotree": "CML",
+   "parent": "leukemia",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "chronic myeloid leukemia",
+    "chronic myeloid leukaemia",
+    "chronic myelogenous leukemia"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "CML",
+     "safe": true
+    },
+    {
+     "abbr": "CML-CP",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "mds",
+   "label": "Myelodysplastic syndromes",
+   "oncotree": "MDS",
+   "parent": "heme_malignancy",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "myelodysplastic syndrome",
+    "myelodysplastic syndromes",
+    "myelodysplastic neoplasm",
+    "myelodysplastic neoplasms"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "MDS",
+     "safe": true
+    },
+    {
+     "abbr": "HR-MDS",
+     "safe": true
+    },
+    {
+     "abbr": "LR-MDS",
+     "safe": true
+    },
+    {
+     "abbr": "CMML",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "mpn",
+   "label": "Myeloproliferative neoplasm",
+   "oncotree": "MPN",
+   "parent": "heme_malignancy",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "myeloproliferative neoplasm",
+    "myeloproliferative neoplasms"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "MPN",
+     "safe": true
+    },
+    {
+     "abbr": "MPNs",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "myelofibrosis",
+   "label": "Myelofibrosis",
+   "oncotree": "PMF",
+   "parent": "mpn",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "myelofibrosis",
+    "primary myelofibrosis"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "PMF",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "pv",
+   "label": "Polycythemia vera",
+   "oncotree": "PV",
+   "parent": "mpn",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "polycythemia vera",
+    "polycythaemia vera"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "PV",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "et",
+   "label": "Essential thrombocythemia",
+   "oncotree": "ET",
+   "parent": "mpn",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "essential thrombocythemia",
+    "essential thrombocythaemia"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "ET",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "mm",
+   "label": "Multiple myeloma",
+   "oncotree": "PCM",
+   "parent": "heme_malignancy",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "multiple myeloma",
+    "plasma cell myeloma",
+    "relapsed/refractory multiple myeloma",
+    "newly diagnosed multiple myeloma",
+    "smoldering multiple myeloma",
+    "smouldering myeloma",
+    "myeloma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "RRMM",
+     "safe": true
+    },
+    {
+     "abbr": "NDMM",
+     "safe": true
+    },
+    {
+     "abbr": "SMM",
+     "safe": false
+    },
+    {
+     "abbr": "MM",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "al_amyloidosis",
+   "label": "AL amyloidosis",
+   "oncotree": null,
+   "parent": "heme_malignancy",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "AL amyloidosis",
+    "light chain amyloidosis",
+    "light-chain amyloidosis"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "lymphoma",
+   "label": "Lymphoma (unspecified)",
+   "oncotree": null,
+   "parent": "heme_malignancy",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "bucket",
+   "names": [
+    "lymphoma",
+    "non-Hodgkin lymphoma",
+    "non-Hodgkin's lymphoma",
+    "B-cell lymphoma",
+    "B-cell non-Hodgkin lymphoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "NHL",
+     "safe": true
+    },
+    {
+     "abbr": "B-NHL",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "dlbcl",
+   "label": "Diffuse large B-cell lymphoma",
+   "oncotree": "DLBCLNOS",
+   "parent": "lymphoma",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "diffuse large B-cell lymphoma",
+    "diffuse large B cell lymphoma",
+    "large B-cell lymphoma",
+    "large B cell lymphoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "DLBCL",
+     "safe": true
+    },
+    {
+     "abbr": "LBCL",
+     "safe": true
+    },
+    {
+     "abbr": "R/R DLBCL",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "fl",
+   "label": "Follicular lymphoma",
+   "oncotree": "FL",
+   "parent": "lymphoma",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "follicular lymphoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "FL",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "mcl",
+   "label": "Mantle cell lymphoma",
+   "oncotree": "MCL",
+   "parent": "lymphoma",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "mantle cell lymphoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "MCL",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "mzl",
+   "label": "Marginal zone lymphoma",
+   "oncotree": "MZL",
+   "parent": "lymphoma",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "marginal zone lymphoma",
+    "MALT lymphoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "MZL",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "hodgkin",
+   "label": "Hodgkin lymphoma",
+   "oncotree": "CHL",
+   "parent": "lymphoma",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "Hodgkin lymphoma",
+    "Hodgkin's lymphoma",
+    "Hodgkin disease",
+    "classical Hodgkin lymphoma",
+    "classic Hodgkin lymphoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "cHL",
+     "safe": true
+    },
+    {
+     "abbr": "HL",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "tcl",
+   "label": "T-cell lymphoma",
+   "oncotree": null,
+   "parent": "lymphoma",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "T-cell lymphoma",
+    "peripheral T-cell lymphoma",
+    "cutaneous T-cell lymphoma",
+    "mycosis fungoides",
+    "anaplastic large cell lymphoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "PTCL",
+     "safe": true
+    },
+    {
+     "abbr": "CTCL",
+     "safe": true
+    },
+    {
+     "abbr": "ALCL",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "waldenstrom",
+   "label": "Waldenstrom macroglobulinemia",
+   "oncotree": "WM",
+   "parent": "lymphoma",
+   "group": "heme",
+   "groups": [
+    "heme"
+   ],
+   "kind": "histology",
+   "names": [
+    "Waldenström macroglobulinemia",
+    "Waldenstrom macroglobulinemia",
+    "Waldenström's macroglobulinemia",
+    "lymphoplasmacytic lymphoma"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "WM",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "sickle_cell",
+   "label": "Sickle cell disease",
+   "oncotree": null,
+   "parent": null,
+   "group": "benign_heme",
+   "groups": [
+    "benign_heme"
+   ],
+   "kind": "condition",
+   "names": [
+    "sickle cell disease",
+    "sickle cell anemia",
+    "sickle cell anaemia"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "SCD",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "thalassemia",
+   "label": "Thalassemia",
+   "oncotree": null,
+   "parent": null,
+   "group": "benign_heme",
+   "groups": [
+    "benign_heme"
+   ],
+   "kind": "condition",
+   "names": [
+    "thalassemia",
+    "thalassaemia",
+    "beta-thalassemia",
+    "β-thalassemia",
+    "transfusion-dependent thalassemia"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "TDT",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "hemophilia",
+   "label": "Hemophilia",
+   "oncotree": null,
+   "parent": null,
+   "group": "benign_heme",
+   "groups": [
+    "benign_heme"
+   ],
+   "kind": "condition",
+   "names": [
+    "hemophilia",
+    "haemophilia",
+    "hemophilia A",
+    "hemophilia B",
+    "haemophilia A",
+    "haemophilia B"
+   ],
+   "abbreviations": [],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "itp",
+   "label": "Immune thrombocytopenia",
+   "oncotree": null,
+   "parent": null,
+   "group": "benign_heme",
+   "groups": [
+    "benign_heme"
+   ],
+   "kind": "condition",
+   "names": [
+    "immune thrombocytopenia",
+    "immune thrombocytopenic purpura",
+    "idiopathic thrombocytopenic purpura"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "ITP",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "aplastic_anemia",
+   "label": "Aplastic anemia",
+   "oncotree": null,
+   "parent": null,
+   "group": "benign_heme",
+   "groups": [
+    "benign_heme"
+   ],
+   "kind": "condition",
+   "names": [
+    "aplastic anemia",
+    "aplastic anaemia",
+    "severe aplastic anemia"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "SAA",
+     "safe": false
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "pnh",
+   "label": "Paroxysmal nocturnal hemoglobinuria",
+   "oncotree": null,
+   "parent": null,
+   "group": "benign_heme",
+   "groups": [
+    "benign_heme"
+   ],
+   "kind": "condition",
+   "names": [
+    "paroxysmal nocturnal hemoglobinuria",
+    "paroxysmal nocturnal haemoglobinuria"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "PNH",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "vte",
+   "label": "Venous thromboembolism",
+   "oncotree": null,
+   "parent": null,
+   "group": "benign_heme",
+   "groups": [
+    "benign_heme"
+   ],
+   "kind": "condition",
+   "names": [
+    "venous thromboembolism",
+    "deep vein thrombosis",
+    "pulmonary embolism"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "VTE",
+     "safe": true
+    },
+    {
+     "abbr": "DVT",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
+  },
+  {
+   "id": "gvhd",
+   "label": "Graft-versus-host disease",
+   "oncotree": null,
+   "parent": null,
+   "group": "benign_heme",
+   "groups": [
+    "benign_heme"
+   ],
+   "kind": "condition",
+   "names": [
+    "graft-versus-host disease",
+    "graft versus host disease",
+    "chronic graft-versus-host disease",
+    "acute graft-versus-host disease"
+   ],
+   "abbreviations": [
+    {
+     "abbr": "GVHD",
+     "safe": true
+    },
+    {
+     "abbr": "cGVHD",
+     "safe": true
+    },
+    {
+     "abbr": "aGVHD",
+     "safe": true
+    }
+   ],
+   "source": "curated",
+   "layer": "pan_oncology"
   }
  ],
  "compounds": [

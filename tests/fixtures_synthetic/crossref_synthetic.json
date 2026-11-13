@@ -1,0 +1,73 @@
+{
+  "_note": "100% synthetic Crossref-style records (fictional people, institutions, DOIs and results) mirroring the shapes seen in JCO/Blood/Cancer Research supplement deposits.",
+  "pages": [
+    {
+      "status": "ok",
+      "message": {
+        "total-results": 4,
+        "next-cursor": "CURSOR-2",
+        "items": [
+          {
+            "DOI": "10.9999/SYNTH.2030.1_suppl.LBA7",
+            "type": "journal-article",
+            "issue": "1_suppl",
+            "volume": "99",
+            "page": "LBA7",
+            "title": ["Zentuximab plus carboplatin versus carboplatin in KRAS G12C-mutant non-small cell lung cancer: the phase 3 SYNTH-1 trial"],
+            "published-print": {"date-parts": [[2030, 6, 1]]},
+            "author": [
+              {"given": "Ada", "family": "Example", "sequence": "first", "affiliation": [{"name": "1Fictional Cancer Institute, Springfield, IL"}]},
+              {"given": "Bo", "family": "Sample", "sequence": "additional", "affiliation": [{"name": "2Imaginary University Hospital, Lyon, FRANCE,"}]}
+            ],
+            "abstract": "<jats:title>Abstract</jats:title><jats:sec><jats:title>Background:</jats:title><jats:p>Zentuximab is a synthetic antibody. Patients had HER2-negative disease &amp;amp; KRAS G12C mutation.</jats:p></jats:sec><jats:sec><jats:title>Methods:</jats:title><jats:p>Patients (N = 120) were randomized 1:1.</jats:p></jats:sec><jats:sec><jats:title>Results:</jats:title><jats:p>ORR was 40% vs 20% (HR 0.55, 95% CI 0.40-0.75).</jats:p></jats:sec><jats:sec><jats:title>Conclusions:</jats:title><jats:p>Zentuximab improved outcomes.</jats:p></jats:sec>"
+          },
+          {
+            "DOI": "10.9999/SYNTH.2030.1_suppl.TPS101",
+            "type": "journal-article",
+            "issue": "1_suppl",
+            "volume": "99",
+            "page": "TPS101",
+            "title": ["A phase 2 trial in progress of synthetinib in acute myeloid leukemia"],
+            "published-online": {"date-parts": [[2030, 5, 28]]},
+            "author": [
+              {"given": "Ada", "family": "Example", "sequence": "first", "affiliation": [{"name": "1Fictional Cancer Institute, Springfield, IL"}]}
+            ],
+            "abstract": "<jats:title>Abstract</jats:title><jats:p>Background:Synthetinib targets FLT3 &amp;gt; 1 isoform.Methods:Adults with AML are eligible.Clinical trial information: NCT99999999</jats:p>"
+          }
+        ]
+      }
+    },
+    {
+      "status": "ok",
+      "message": {
+        "total-results": 4,
+        "next-cursor": "CURSOR-3",
+        "items": [
+          {
+            "DOI": "10.9999/SYNTH.2030.1_suppl.e2001",
+            "type": "journal-article",
+            "issue": "1_suppl",
+            "volume": "99",
+            "page": "e2001",
+            "title": ["Real-world outcomes in multiple myeloma: an online-only abstract"],
+            "published-print": {"date-parts": [[2030, 6, 1]]},
+            "author": [
+              {"name": "SYNTH Consortium", "sequence": "first", "affiliation": []}
+            ]
+          },
+          {
+            "DOI": "10.9999/SYNTH.2030.99.regular-article",
+            "type": "journal-article",
+            "issue": "12",
+            "volume": "99",
+            "page": "100-110",
+            "title": ["A regular journal article that is not part of the meeting supplement"],
+            "published-print": {"date-parts": [[2030, 6, 1]]},
+            "author": [{"given": "Cy", "family": "Other", "sequence": "first", "affiliation": []}]
+          }
+        ]
+      }
+    },
+    {"status": "ok", "message": {"total-results": 4, "next-cursor": "CURSOR-4", "items": []}}
+  ]
+}

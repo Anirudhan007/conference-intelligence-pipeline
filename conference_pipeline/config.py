@@ -70,12 +70,24 @@ class ConferenceConfig:
             raw=raw,
         )
 
-    def assert_supported(self) -> None:
-        """Fail closed instead of silently applying CTOS parser assumptions to another website."""
+    @property
+    def adapter_name(self) -> str | None:
         runner = self.raw.get("runner", {})
-        adapter = runner.get("adapter") if isinstance(runner, dict) else None
-        if adapter != "eventscribe-ctos-v1" or self.conference_id != "ctos-2026":
+        return runner.get("adapter") if isinstance(runner, dict) else None
+
+    def adapter(self):
+        """Return the registered, validated adapter for this config (fails closed on unknown names)."""
+        from .adapters import get_adapter
+
+        if self.adapter_name == "eventscribe-ctos-v1" and self.conference_id != "ctos-2026":
             raise ConfigurationError(
-                "This release ships the EventScribe CTOS adapter only. Add and test a platform-specific adapter "
-                "before running another conference."
+                "eventscribe-ctos-v1 ships the EventScribe CTOS adapter only; use 'eventscribe-v1' for other "
+                "EventScribe meetings, or add and test a platform-specific adapter before running another website."
             )
+        adapter = get_adapter(self.adapter_name)
+        adapter.validate_config(self)
+        return adapter
+
+    def assert_supported(self) -> None:
+        """Fail closed instead of silently applying one platform's parser assumptions to another website."""
+        self.adapter()

@@ -81,7 +81,9 @@ Create `configs/<conference-id>.json` conforming to `conference-pipeline/config/
 }
 ```
 
-Register the new adapter identifier (`example-platform-v1`) in `ConferenceConfig.assert_supported()` and dispatch to the new parser in `conference_pipeline/runner.py` only after contract tests pass.
+Implement an `Adapter` subclass in `conference_pipeline/adapters/<platform>.py` (`validate_config`, `capture`, `parse`, `inventory`) and register its identifier (`example-platform-v1`) in `conference_pipeline/adapters/__init__.py` only after contract tests pass. `ConferenceConfig.adapter()` resolves and validates it; `run_release()` and `conference-pipeline capture` dispatch through it, so no runner change is needed. Use `conference_pipeline/adapters/http.py` (`PoliteHttp`) for all live requests: it enforces robots.txt (fail closed), pacing, and `Retry-After` handling, and it never handles bot challenges or logins.
+
+Shipped examples: `eventscribe.py` (HTML portal; wraps `capture/capture.py` + `pipeline/parse.py` via `parse.conference_context`) and `crossref.py` (JSON API; journal-supplement abstracts selected by `source.filter` + `source.match` regexes, numbering and format rules in config).
 
 ### 5. Add Synthetic Fixtures and Contract Tests
 

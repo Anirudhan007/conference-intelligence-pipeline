@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "conference-pipeline/config/v1",
+  "conference": {
+    "id": "sitc-2026",
+    "name": "SITC 2026 41st Annual Meeting",
+    "organization": "Society for Immunotherapy of Cancer",
+    "sourceUrl": "https://api.crossref.org/works?filter=prefix:10.1136,type:proceedings-article,from-pub-date:2026-10-01,until-pub-date:2026-11-30",
+    "platform": "crossref",
+    "timezone": "America/Phoenix",
+    "startDate": "2026-11-04",
+    "endDate": "2026-11-08",
+    "city": "Phoenix",
+    "country": "United States",
+    "officialUrl": "https://www.sitcancer.org/2026/home"
+  },
+  "runner": {
+    "adapter": "crossref-supplement-v1",
+    "requiresHumanReadoutReview": true
+  },
+  "source": {
+    "filter": "prefix:10.1136,type:proceedings-article,from-pub-date:2026-10-01,until-pub-date:2026-11-30",
+    "match": {
+      "doi": "^10\\.1136/jitc-2026-sitc2026\\."
+    },
+    "number": {
+      "from": "doi",
+      "regex": "sitc2026\\.0*(\\w+)$",
+      "upper": true
+    },
+    "formatRules": [],
+    "journal": "Journal for ImmunoTherapy of Cancer 14 (Suppl) proceedings",
+    "stripTitlePrefix": "^\\d+\\s+"
+  },
+  "access": {
+    "basis": "Crossref REST API journal-supplement metadata; the meeting website is not contacted.",
+    "rights": "Abstract text is publisher copyright; internal analysis only (displayFullText=false)."
+  },
+  "embargo": {
+    "rules": [
+      {
+        "class": "public",
+        "releaseUtc": "2026-11-03T00:00:00Z",
+        "sourceQuote": "\"published-online\": {\"date-parts\": [[2026, 11, 3]]}",
+        "sourceUrl": "https://api.crossref.org/works/10.1136/jitc-2026-sitc2026.0011",
+        "quoteType": "verbatim",
+        "note": "Earliest journal publication date among the meeting's abstract records."
+      }
+    ]
+  }
+}

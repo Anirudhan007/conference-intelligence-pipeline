@@ -120,7 +120,7 @@ def bundle_facts(bundle: dict | None) -> dict:
     times = []
     discovered = set()
     for name, item in sorted(listings.items()):
-        html = item.get("html") or ""
+        html = item.get("html") or item.get("body") or ""
         facts["sources"].append({"id": f"listing:{name}", "url": item.get("url"), "retrievedAt": item.get("retrievedAt"),
                                  "bytes": item.get("bytes"), "sha256": sha256_text(html)})
         if item.get("url"):
@@ -142,7 +142,8 @@ def bundle_facts(bundle: dict | None) -> dict:
     facts["listingCounts"] = {k: len(v) for k, v in facts["listingIds"].items()}
     for key, item in sorted(details.items()):
         facts["sources"].append({"id": key, "url": item.get("url"), "retrievedAt": item.get("retrievedAt"),
-                                 "bytes": item.get("bytes"), "sha256": sha256_text(item.get("html") or "")})
+                                 "bytes": item.get("bytes"),
+                                 "sha256": sha256_text(item.get("html") or item.get("body") or "")})
         times.append(item.get("retrievedAt"))
         discovered.add(key)
     times = [t for t in times if t]
@@ -298,7 +299,7 @@ def build_conference(parsed: dict, facts: dict) -> dict:
             if pc.get(a):
                 c[k] = pc[a]
                 break
-    c["platform"] = "eventscribe"
+    c["platform"] = pc.get("platform") or "eventscribe"
     urls = set(facts.get("sourceUrls") or []) | set(pc.get("sourceUrls") or [])
     urls.add(c["url"])
     c["sourceUrls"] = sorted(u for u in urls if u)
@@ -355,6 +356,10 @@ def build_document(paths: dict | None = None) -> tuple[dict, dict]:
     if aggregates is None:
         aggregates = agg.compute(parsed, tags, raw_readouts)
     facts = bundle_facts(bundle)
+    inventory = load_json(P.get("inventory"), None) if P.get("inventory") else None
+    if isinstance(inventory, dict):  # adapter-declared inventory replaces the EventScribe listing heuristics
+        facts["listingIds"] = {k: sorted(map(str, v)) for k, v in inventory.items()}
+        facts["listingCounts"] = {k: len(v) for k, v in facts["listingIds"].items()}
     tix = tags_index(tags)
     readouts = sorted((normalize_readout(r, i) for i, r in enumerate(readouts_list(raw_readouts))),
                       key=lambda r: r["id"])

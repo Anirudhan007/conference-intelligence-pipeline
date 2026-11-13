@@ -105,7 +105,10 @@
      ]
     },
     "platform": {
-     "const": "eventscribe"
+     "enum": [
+      "eventscribe",
+      "crossref"
+     ]
     },
     "url": {
      "type": "string"
@@ -157,6 +160,18 @@
         ]
        },
        "sourceUrl": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "quoteType": {
+        "enum": [
+         "verbatim",
+         "derived"
+        ]
+       },
+       "note": {
         "type": [
          "string",
          "null"
@@ -1468,7 +1483,8 @@
      ]
     },
     "timezone": {
-     "const": "Asia/Seoul"
+     "type": "string",
+     "pattern": "^[A-Za-z]+(?:/[A-Za-z0-9_+-]+)+$|^UTC$"
     },
     "location": {
      "type": [

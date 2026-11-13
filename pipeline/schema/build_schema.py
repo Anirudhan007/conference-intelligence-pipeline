@@ -132,7 +132,7 @@ defs["presentation"] = obj({
     "id": PID, "number": NSTR, "title": STR, "titleNormalized": NSTR,
     "format": {"enum": ["poster", "oral", "lecture", "other"]},
     "tip": BOOL, "track": NSTR, "sessionId": NSTR, "sessionTitle": NSTR, "date": NDATE,
-    "startTime": NSTR, "endTime": NSTR, "timezone": {"const": "Asia/Seoul"}, "location": NSTR,
+    "startTime": NSTR, "endTime": NSTR, "timezone": {"type": "string", "pattern": "^[A-Za-z]+(?:/[A-Za-z0-9_+-]+)+$|^UTC$"}, "location": NSTR,
     "authors": arr(ref("author")),
     "abstract": NSTR,
     "abstractSections": N({"type": "object", "additionalProperties": NSTR}),
@@ -225,10 +225,12 @@ schema = {
                                "components": {"type": "object", "additionalProperties": NSTR}}),
         "conference": obj({
             "id": STR, "name": STR, "organization": NSTR, "start": DATE, "end": DATE, "timezone": STR,
-            "venue": NSTR, "city": NSTR, "country": NSTR, "platform": {"const": "eventscribe"},
+            "venue": NSTR, "city": NSTR, "country": NSTR, "platform": {"enum": ["eventscribe", "crossref"]},
             "url": STR, "sourceUrls": arr(STR, uniqueItems=True)}),
         "embargo": obj({"rules": arr(obj({"class": STR, "releaseUtc": UTC, "sourceQuote": NSTR,
-                                          "sourceUrl": NSTR}), minItems=1),
+                                          "sourceUrl": NSTR, "quoteType": {"enum": ["verbatim", "derived"]},
+                                          "note": NSTR},
+                                         required=["class", "releaseUtc", "sourceQuote", "sourceUrl"]), minItems=1),
                         "verifiedAt": NSTR}, required=["rules"]),
         "provenance": obj({
             "activities": arr(obj({"id": STR, "type": STR, "startedAt": NUTC, "endedAt": NUTC, "agent": STR,

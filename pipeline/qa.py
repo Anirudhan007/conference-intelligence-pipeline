@@ -348,7 +348,14 @@ def coverage_checks(doc: dict, ctx: dict) -> list[Check]:
     pres = doc.get("presentations", [])
     ids = ctx.get("listingIds") or {}
     posters = [p for p in pres if p.get("format") == "poster"]
-    if "posters" in ids:
+    c_rec = Check("coverage_records", "Every record in the adapter inventory is parsed as a presentation")
+    if "records" in ids:
+        have_records = {str(p.get("sourceId")) for p in pres}
+        for sid in sorted(set(ids["records"]) - have_records):
+            c_rec.fail({"missingRecordId": sid})
+    if "records" in ids and "posters" not in ids:
+        pass  # record-based adapters (journal supplements) have no poster listing; coverage_records applies
+    elif "posters" in ids:
         listed = set(ids["posters"])
         have = {str(p.get("sourceId")) for p in pres if p.get("sourceKind") == "PosterInfo"} | \
                {str(p.get("sourceId")) for p in posters}
@@ -370,14 +377,13 @@ def coverage_checks(doc: dict, ctx: dict) -> list[Check]:
         emb = p.get("embargo") or {}
         if not isinstance(emb.get("embargoed"), bool) or not emb.get("liftsAtUtc"):
             c_emb.fail({"presentationId": p["id"], "embargo": emb})
-        elif snapshot and str(snapshot) < EMBARGO_LIFT_UTC and emb["liftsAtUtc"] > str(snapshot) and \
-                not emb["embargoed"]:
+        elif snapshot and emb["liftsAtUtc"] > str(snapshot) and not emb["embargoed"]:
             c_emb.fail({"presentationId": p["id"], "reason": "abstract captured before lift but embargoed=false"})
     for rule in (doc.get("embargo") or {}).get("rules", []):
         if not rule.get("sourceQuote"):
             c_rule.fail({"class": rule.get("class"), "reason": "no embargo statement found in captured pages; "
                                                                 "release time taken from BRIEF.md"})
-    return [c_post, c_talk, c_emb, c_rule]
+    return [c_post, c_talk, c_rec, c_emb, c_rule]
 
 
 # ------------------------------------------------------------------------------------------ tag rules

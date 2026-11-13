@@ -10,7 +10,23 @@ Conference Intelligence Pipeline replaces ad-hoc scraping and unverified extract
 
 ## Validated Scope
 
-Version `0.2.0` ships one production-validated adapter: **CTOS 2026 on EventScribe** (`eventscribe-ctos-v1`).
+Adapters live in `conference_pipeline/adapters/` and are registered by name; a config names its adapter in `runner.adapter`.
+
+| Adapter | Platform | Shipped configs (`configs/`) | Access basis |
+|---|---|---|---|
+| `eventscribe-ctos-v1` | EventScribe | `ctos-2026` (original, CTOS-only id) | Public programme pages, robots.txt checked |
+| `eventscribe-v1` | EventScribe (any `*.eventscribe.net` meeting) | `ctos-2025`, `sno-2023` | Public programme pages, robots.txt checked |
+| `crossref-supplement-v1` | Journal-supplement abstracts via the Crossref REST API | `asco-2026`, `asco-gi-2026`, `aacr-2026`, `sabcs-2025`, `ash-2025`, `astro-2026`, `wclc-2026`, `esmo-2025`, `sitc-2026` | Public scholarly-metadata API; the meeting website is never contacted |
+
+See [Conference Coverage](docs/conference-coverage.md) for per-meeting results, field coverage, and the meetings whose sites forbid automated capture.
+
+```powershell
+conference-pipeline adapters                                   # list adapters and their access basis
+conference-pipeline capture --config configs/asco-2026.json --out data/raw/asco-2026.json
+python scripts/derive_embargo_rule.py configs/asco-2026.json data/raw/asco-2026.json
+conference-pipeline run --config configs/asco-2026.json --bundle data/raw/asco-2026.json --run-dir runs/asco-2026
+python scripts/run_all.py asco-2026 ash-2025                   # all three steps for several meetings
+```
 
 **Platform boundary:** The common pipeline—canonical schema, biomedical dictionary and INN-grammar tagger, biomarker polarity resolution, clinical readout verifier, aggregates, QA rules, exports, and cryptographic run manifests—is reusable across conferences, **but each different website platform requires a tested adapter**. Changing a URL alone is not sufficient for a new conference layout, and the CLI deliberately fails closed rather than silently applying CTOS/EventScribe parser assumptions to an unvalidated site.
 
